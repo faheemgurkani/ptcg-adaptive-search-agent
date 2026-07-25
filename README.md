@@ -8,6 +8,8 @@ Build a competitive agent for the Pokémon Trading Card Game simulator (cabt eng
 
 This project targets a **hybrid agent**: rule-based policy backbone + Search API lookahead + opponent-adaptive scoring. Full framing (agent type, domain choice, and paper angle) is documented in [`notebooks/ptcg-merged-agent-workbench.ipynb`](notebooks/ptcg-merged-agent-workbench.ipynb) under **Research framing**.
 
+The same notebook includes a **2-week compressed experimentation plan** (Phases 1–6, ablations, search-depth sweeps, ladder validation).
+
 Working paper title: *Opponent-Adaptive Search in Imperfect-Information Card Games*.
 
 ## Repo layout
