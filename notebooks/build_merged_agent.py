@@ -1,4 +1,10 @@
-"""Regenerate notebooks/merged_agent_main.py from public reference notebooks."""
+"""Regenerate merged_agent_main.py from public reference notebooks.
+
+Merge plan:
+- Doc 4/8 (Dragapult): policy skeleton -> DragapultPolicy
+- Doc 10 (Expectimax): Search API + UCB1 + opponent reads (_opponent_is_*)
+- Docs 9/11 (Meta snapshot): not parsed here; deck/holdout handled in workbench notebook
+"""
 
 from __future__ import annotations
 
@@ -143,9 +149,9 @@ my_deck = [int(csv[i]) for i in range(60)]
     body = body.replace(
         "        damage = 200\n",
         "        damage = 200\n"
-        "        if opponent_is_crustle_wall(obs, my_index):\n"
+        "        if _opponent_is_crustle_wall(obs, my_index):\n"
         "            damage = max(120, damage - 40)\n"
-        "        if opponent_is_water_deck(obs, my_index) and len(op_state.prize) <= 3:\n"
+        "        if _opponent_is_water_deck(obs, my_index) and len(op_state.prize) <= 3:\n"
         "            can_main_attack = False\n",
     )
 
@@ -192,11 +198,11 @@ my_deck = [int(csv[i]) for i in range(60)]
             return any(p is not None and p.id in ids for p in _opponent_board(obs, player_index))
 
 
-        def opponent_is_water_deck(obs: Observation, player_index: int) -> bool:
+        def _opponent_is_water_deck(obs: Observation, player_index: int) -> bool:
             return _opponent_has(obs, player_index, OPP_WATER)
 
 
-        def opponent_is_crustle_wall(obs: Observation, player_index: int) -> bool:
+        def _opponent_is_crustle_wall(obs: Observation, player_index: int) -> bool:
             return _opponent_has(obs, player_index, OPP_CRUSTLE)
 
 

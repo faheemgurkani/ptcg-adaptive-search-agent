@@ -321,11 +321,11 @@ def _opponent_has(obs: Observation, player_index: int, ids: set[int]) -> bool:
     return any(p is not None and p.id in ids for p in _opponent_board(obs, player_index))
 
 
-def opponent_is_water_deck(obs: Observation, player_index: int) -> bool:
+def _opponent_is_water_deck(obs: Observation, player_index: int) -> bool:
     return _opponent_has(obs, player_index, OPP_WATER)
 
 
-def opponent_is_crustle_wall(obs: Observation, player_index: int) -> bool:
+def _opponent_is_crustle_wall(obs: Observation, player_index: int) -> bool:
     return _opponent_has(obs, player_index, OPP_CRUSTLE)
 
 
