@@ -13,8 +13,16 @@ import textwrap
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-REF = ROOT / "docs" / "resources" / "reference_notebooks"
-OUT = Path(__file__).with_name("merged_agent_main.py")
+
+try:
+    from env_paths import get_paths
+
+    _PATHS = get_paths()
+    REF = _PATHS.ref_dir
+    OUT = _PATHS.merged_main_py
+except ImportError:
+    REF = ROOT / "docs" / "resources" / "reference_notebooks"
+    OUT = Path(__file__).with_name("merged_agent_main.py")
 
 EVALUATE_STATE = '''
 def evaluate_state(obs):

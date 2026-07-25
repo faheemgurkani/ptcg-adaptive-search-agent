@@ -398,9 +398,9 @@ class DragapultPolicy:
         evolve_dreepy_count = 0
         can_evolve_drakloak = False
         damage = 200
-        if opponent_is_crustle_wall(obs, my_index):
+        if _opponent_is_crustle_wall(obs, my_index):
             damage = max(120, damage - 40)
-        if opponent_is_water_deck(obs, my_index) and len(op_state.prize) <= 3:
+        if _opponent_is_water_deck(obs, my_index) and len(op_state.prize) <= 3:
             can_main_attack = False
         for card in my_state.active:
             if card == None:
