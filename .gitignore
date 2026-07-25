@@ -1,6 +1,14 @@
 # Local reference material (Kaggle notebooks, datasets, notes)
 docs/resources/
 
+# Local extraction artifacts and competition data (keep on disk, not in git)
+data/extractions/
+data/*
+!data/.gitkeep
+
+# Legacy path (in case it is recreated)
+docs/data/
+
 # Python
 .venv/
 venv/
