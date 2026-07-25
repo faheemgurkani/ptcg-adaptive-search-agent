@@ -1,0 +1,46 @@
+# Local reference material (Kaggle notebooks, datasets, notes)
+docs/resources/
+
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment and secrets
+.env
+.env.*
+*.pem
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Kaggle submission artifacts
+submission.tar.gz
+*.tar.gz
+
+# Logs and local outputs
+*.log
+logs/
+output/
+checkpoints/
+
+# Simulator / training caches
+cg/
+.kaggle/
