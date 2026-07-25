@@ -4,6 +4,12 @@ AI training agent for [The Pokémon Company - PTCG AI Battle Challenge Simulatio
 
 Build a competitive agent for the Pokémon Trading Card Game simulator (cabt engine). Each turn the agent receives an observation and returns indices of legal options.
 
+## Research direction
+
+This project targets a **hybrid agent**: rule-based policy backbone + Search API lookahead + opponent-adaptive scoring. Full framing (agent type, domain choice, and paper angle) is documented in [`notebooks/ptcg-merged-agent-workbench.ipynb`](notebooks/ptcg-merged-agent-workbench.ipynb) under **Research framing**.
+
+Working paper title: *Opponent-Adaptive Search in Imperfect-Information Card Games*.
+
 ## Repo layout
 
 ```
