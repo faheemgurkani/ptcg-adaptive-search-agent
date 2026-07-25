@@ -11,6 +11,7 @@ Build a competitive agent for the Pokémon Trading Card Game simulator (cabt eng
 ├── main.py          # Agent entry point (required for submission)
 ├── data/            # Competition data (deck.csv, cg/, etc.)
 ├── requirements.txt # Local dev dependencies
+├── notebooks/       # Merged agent workbench (see notebooks/ptcg-merged-agent-workbench.ipynb)
 └── docs/            # Project docs (see docs/README.md)
 ```
 
