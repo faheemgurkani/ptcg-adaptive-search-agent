@@ -5,14 +5,13 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 
 NOTEBOOKS = Path(__file__).resolve().parent
-sys.path.insert(0, str(NOTEBOOKS))
-
-OUTPUT_DIR = NOTEBOOKS / "output" / "phase1"
-SUMMARY_LATEST = OUTPUT_DIR / "phase1_holdout_summary_latest.json"
+DOCS = NOTEBOOKS.parent / "docs"
+OUTPUT_DIR = DOCS / "phases" / "phase_01" / "offline"
+RESULTS_DIR = OUTPUT_DIR / "results"
+SUMMARY_LATEST = RESULTS_DIR / "phase1_holdout_summary_latest.json"
 
 
 def load_summary(path: Path) -> list[dict]:
@@ -96,7 +95,7 @@ def analyze(rows: list[dict]) -> str:
 
     lines.append("## Next steps")
     lines.append("")
-    lines.append("1. **Kaggle:** submit Baseline A, then Baseline B; log ladder ratings in `docs/PHASE_01_LOG.md`.")
+    lines.append("1. **Kaggle:** submit Baseline A, then Baseline B; log ladder ratings in `docs/phases/phase_01/online/KAGGLE_LOG.md`.")
     lines.append("2. **Optional:** replace placeholder opponent decks under `notebooks/holdout/panel/`.")
     lines.append("3. **Phase 2:** deck selection (Dragapult vs Starmie) using the same holdout harness.")
     lines.append("")
@@ -115,7 +114,7 @@ def main() -> None:
     parser.add_argument(
         "--write",
         type=Path,
-        default=OUTPUT_DIR / "phase1_analysis.md",
+        default=OUTPUT_DIR / "HOLDOUT_ANALYSIS.md",
         help="Write markdown report to this path",
     )
     args = parser.parse_args()

@@ -1,33 +1,25 @@
 # Docs
 
-## cabt engine docs (local mirror)
-
-- [`CABT_DOCS_INDEX.md`](CABT_DOCS_INDEX.md) — tracked map to offline cabt documentation under `docs/resources/cabt/` (HTML mirror, SDK snapshot, Markdown API extracts).
-- Refresh + verify: `bash docs/resources/cabt/scripts/refresh_cabt_docs.sh` then `bash docs/resources/cabt/scripts/verify_cabt_runtime.sh` (uses `.venv`).
-
 ## Research plan
 
-- [`RESEARCH_EXPERIMENTATION_PLAN.md`](RESEARCH_EXPERIMENTATION_PLAN.md) — 2-week sprint version of the full 6-phase research & experimentation plan for `ptcg-adaptive-search-agent` (phases unchanged; schedule compressed from 8 weeks to 14 days).
+- [`RESEARCH_EXPERIMENTATION_PLAN.md`](RESEARCH_EXPERIMENTATION_PLAN.md) — 2-week sprint (Phases 1–6).
 
-## Phase 1 (baseline establishment)
+## Experiment phases (offline + online)
 
-- [`PHASE_01_LOG.md`](PHASE_01_LOG.md) — local completion log, holdout results, Kaggle submission checklist.
-- Notebook: [`notebooks/PHASE_01_BASELINE_EVAL.ipynb`](../notebooks/PHASE_01_BASELINE_EVAL.ipynb)
-- Run holdout: `python notebooks/run_phase1_holdout.py --games 40`
-- Analyze Kaggle replays: `python notebooks/analyze_kaggle_match_logs.py --rating baseline_a=433 --rating baseline_b=612`
+- [`phases/README.md`](phases/README.md) — phase index
+- **Phase 1 — Baseline:** [`phases/phase_01/README.md`](phases/phase_01/README.md)
+  - Offline holdout: [`phases/phase_01/offline/HOLDOUT_LOG.md`](phases/phase_01/offline/HOLDOUT_LOG.md)
+  - Online Kaggle: [`phases/phase_01/online/KAGGLE_LOG.md`](phases/phase_01/online/KAGGLE_LOG.md)
+
+Legacy redirect: [`PHASE_01_LOG.md`](PHASE_01_LOG.md).
+
+## cabt engine docs (local mirror)
+
+- [`CABT_DOCS_INDEX.md`](CABT_DOCS_INDEX.md) — map to `docs/resources/cabt/`
+- Refresh + verify: `bash docs/resources/cabt/scripts/refresh_cabt_docs.sh` then `bash docs/resources/cabt/scripts/verify_cabt_runtime.sh`
 
 ## Local-only resources
 
-The `docs/resources/` folder is **not tracked by git** (see `.gitignore`).
+The `docs/resources/` folder is **not tracked by git** (see `.gitignore`). Use it for reference notebooks, datasets, and cabt mirrors.
 
-Use it for:
-
-- Kaggle reference notebooks
-- Competition datasets downloaded locally
-- Notes, meta snapshots, and experiments
-
-Keep competition-specific or large files there so they are not pushed to GitHub.
-
-## Local extraction scripts
-
-Notebook extraction outputs live in `data/extractions/` (gitignored). They stay on your machine only.
+Notebook extraction outputs live in `data/extractions/` (gitignored).

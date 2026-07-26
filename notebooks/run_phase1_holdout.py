@@ -54,7 +54,7 @@ def main() -> None:
     cg_parent = paths.cg_dir.parent if paths.cg_dir else None
     our_deck = load_deck(paths.deck_path)
     panel_dir = NOTEBOOKS / "holdout" / "panel"
-    out_dir = NOTEBOOKS / "output" / "phase1"
+    out_dir = NOTEBOOKS.parent / "docs" / "phases" / "phase_01" / "offline" / "results"
     out_dir.mkdir(parents=True, exist_ok=True)
 
     all_rows: list[dict] = []

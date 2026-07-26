@@ -1,0 +1,9 @@
+baseline,opponent,game_index,wins,losses,ties,win_rate,games,holdout_gate,verdict
+baseline_a,alakazam,summary,0,2,0,0.0,2,holdout_fail,HOLD_DO_NOT_SUBMIT
+baseline_a,crustle,summary,1,1,0,0.5,2,holdout_fail,HOLD_DO_NOT_SUBMIT
+baseline_a,spidops,summary,2,0,0,1.0,2,holdout_pass,PROMOTE_CANDIDATE
+baseline_a,starmie,summary,1,1,0,0.5,2,holdout_fail,HOLD_DO_NOT_SUBMIT
+baseline_b,alakazam,summary,1,1,0,0.5,2,holdout_fail,HOLD_DO_NOT_SUBMIT
+baseline_b,crustle,summary,2,0,0,1.0,2,holdout_pass,PROMOTE_CANDIDATE
+baseline_b,spidops,summary,2,0,0,1.0,2,holdout_pass,PROMOTE_CANDIDATE
+baseline_b,starmie,summary,2,0,0,1.0,2,holdout_pass,PROMOTE_CANDIDATE

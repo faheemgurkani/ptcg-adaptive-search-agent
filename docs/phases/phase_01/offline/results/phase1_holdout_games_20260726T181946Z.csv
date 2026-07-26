@@ -1,0 +1,17 @@
+baseline,opponent,game_index,our_reward,elapsed_sec
+baseline_a,alakazam,0,-1.0,0.13
+baseline_a,alakazam,1,-1.0,0.292
+baseline_a,crustle,0,-1.0,0.071
+baseline_a,crustle,1,1.0,0.041
+baseline_a,spidops,0,1.0,0.042
+baseline_a,spidops,1,1.0,0.032
+baseline_a,starmie,0,1.0,0.035
+baseline_a,starmie,1,-1.0,0.057
+baseline_b,alakazam,0,1.0,0.139
+baseline_b,alakazam,1,-1.0,0.16
+baseline_b,crustle,0,1.0,0.043
+baseline_b,crustle,1,1.0,0.164
+baseline_b,spidops,0,1.0,0.146
+baseline_b,spidops,1,1.0,0.047
+baseline_b,starmie,0,1.0,0.028
+baseline_b,starmie,1,1.0,0.04

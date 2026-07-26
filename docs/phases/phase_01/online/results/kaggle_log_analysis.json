@@ -1,0 +1,1643 @@
+{
+  "phase": "phase1",
+  "log_root": "/Volumes/Sandisk 2TB/Documents/Hackathons and Competitions/Kaggle - PTCG/logs/phase1_logs",
+  "ladder_ratings": {
+    "baseline_a": 433,
+    "baseline_b": 612
+  },
+  "matches": [
+    {
+      "phase": "baseline_a",
+      "baseline": "baseline_a",
+      "folder_label": "lost",
+      "episode_id": 88299992,
+      "path": "baseline_a/lost/88299992.json",
+      "our_player": 0,
+      "won": false,
+      "folder_matches_outcome": true,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 92,
+      "our_decisions": 37,
+      "opp_decisions": 53,
+      "opp_deck_unique_count": 19,
+      "opp_deck_unique": [
+        1,
+        4,
+        11,
+        18,
+        37,
+        344,
+        345,
+        1081,
+        1094,
+        1097,
+        1121,
+        1122,
+        1147,
+        1159,
+        1182,
+        1192,
+        1197,
+        1198,
+        1227
+      ],
+      "opp_archetype": "other_19_types",
+      "opp_archetype_score": 0.158,
+      "opp_cards_seen": 16,
+      "top_opp_board_cards": [
+        [
+          37,
+          211
+        ],
+        [
+          345,
+          182
+        ],
+        [
+          1227,
+          172
+        ],
+        [
+          1182,
+          146
+        ],
+        [
+          1121,
+          143
+        ],
+        [
+          344,
+          85
+        ],
+        [
+          1197,
+          77
+        ],
+        [
+          4,
+          77
+        ]
+      ],
+      "our_hand_range": [
+        0,
+        9
+      ],
+      "opp_hand_range": [
+        0,
+        6
+      ]
+    },
+    {
+      "phase": "baseline_a",
+      "baseline": "baseline_a",
+      "folder_label": "lost",
+      "episode_id": 88301029,
+      "path": "baseline_a/lost/88301029.json",
+      "our_player": 0,
+      "won": false,
+      "folder_matches_outcome": true,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 48,
+      "our_decisions": 22,
+      "opp_decisions": 24,
+      "opp_deck_unique_count": 9,
+      "opp_deck_unique": [
+        3,
+        721,
+        722,
+        723,
+        1088,
+        1145,
+        1205,
+        1227,
+        1235
+      ],
+      "opp_archetype": "crustle",
+      "opp_archetype_score": 0.889,
+      "opp_cards_seen": 8,
+      "top_opp_board_cards": [
+        [
+          3,
+          60
+        ],
+        [
+          1205,
+          46
+        ],
+        [
+          723,
+          44
+        ],
+        [
+          721,
+          43
+        ],
+        [
+          722,
+          29
+        ],
+        [
+          1088,
+          15
+        ],
+        [
+          1227,
+          10
+        ],
+        [
+          1145,
+          10
+        ]
+      ],
+      "our_hand_range": [
+        0,
+        7
+      ],
+      "opp_hand_range": [
+        0,
+        7
+      ]
+    },
+    {
+      "phase": "baseline_a",
+      "baseline": "baseline_a",
+      "folder_label": "lost",
+      "episode_id": 88301557,
+      "path": "baseline_a/lost/88301557.json",
+      "our_player": 0,
+      "won": false,
+      "folder_matches_outcome": true,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 55,
+      "our_decisions": 13,
+      "opp_decisions": 39,
+      "opp_deck_unique_count": 16,
+      "opp_deck_unique": [
+        8,
+        57,
+        169,
+        190,
+        666,
+        1097,
+        1121,
+        1122,
+        1147,
+        1152,
+        1159,
+        1182,
+        1185,
+        1213,
+        1227,
+        1244
+      ],
+      "opp_archetype": "other_16_types",
+      "opp_archetype_score": 0.158,
+      "opp_cards_seen": 10,
+      "top_opp_board_cards": [
+        [
+          169,
+          81
+        ],
+        [
+          666,
+          76
+        ],
+        [
+          1227,
+          54
+        ],
+        [
+          1122,
+          54
+        ],
+        [
+          1152,
+          27
+        ],
+        [
+          1121,
+          27
+        ],
+        [
+          1244,
+          27
+        ],
+        [
+          1147,
+          27
+        ]
+      ],
+      "our_hand_range": [
+        0,
+        7
+      ],
+      "opp_hand_range": [
+        0,
+        9
+      ]
+    },
+    {
+      "phase": "baseline_a",
+      "baseline": "baseline_a",
+      "folder_label": "lost",
+      "episode_id": 88302605,
+      "path": "baseline_a/lost/88302605.json",
+      "our_player": 1,
+      "won": false,
+      "folder_matches_outcome": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 111,
+      "our_decisions": 38,
+      "opp_decisions": 71,
+      "opp_deck_unique_count": 19,
+      "opp_deck_unique": [
+        2,
+        3,
+        352,
+        353,
+        354,
+        717,
+        934,
+        1079,
+        1086,
+        1121,
+        1123,
+        1147,
+        1152,
+        1159,
+        1182,
+        1198,
+        1215,
+        1225,
+        1227
+      ],
+      "opp_archetype": "other_19_types",
+      "opp_archetype_score": 0.263,
+      "opp_cards_seen": 16,
+      "top_opp_board_cards": [
+        [
+          2,
+          300
+        ],
+        [
+          352,
+          238
+        ],
+        [
+          1215,
+          195
+        ],
+        [
+          1152,
+          135
+        ],
+        [
+          353,
+          117
+        ],
+        [
+          934,
+          116
+        ],
+        [
+          1086,
+          95
+        ],
+        [
+          1121,
+          89
+        ]
+      ],
+      "our_hand_range": [
+        3,
+        8
+      ],
+      "opp_hand_range": [
+        0,
+        7
+      ]
+    },
+    {
+      "phase": "baseline_a",
+      "baseline": "baseline_a",
+      "folder_label": "lost",
+      "episode_id": 88303662,
+      "path": "baseline_a/lost/88303662.json",
+      "our_player": 0,
+      "won": false,
+      "folder_matches_outcome": true,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 37,
+      "our_decisions": 12,
+      "opp_decisions": 23,
+      "opp_deck_unique_count": 19,
+      "opp_deck_unique": [
+        11,
+        12,
+        19,
+        65,
+        66,
+        304,
+        878,
+        879,
+        1086,
+        1097,
+        1115,
+        1122,
+        1152,
+        1171,
+        1182,
+        1194,
+        1210,
+        1227,
+        1255
+      ],
+      "opp_archetype": "other_19_types",
+      "opp_archetype_score": 0.316,
+      "opp_cards_seen": 7,
+      "top_opp_board_cards": [
+        [
+          878,
+          51
+        ],
+        [
+          65,
+          50
+        ],
+        [
+          304,
+          31
+        ],
+        [
+          1227,
+          28
+        ],
+        [
+          1086,
+          19
+        ],
+        [
+          879,
+          18
+        ],
+        [
+          1152,
+          9
+        ]
+      ],
+      "our_hand_range": [
+        0,
+        7
+      ],
+      "opp_hand_range": [
+        0,
+        6
+      ]
+    },
+    {
+      "phase": "baseline_a",
+      "baseline": "baseline_a",
+      "folder_label": "won",
+      "episode_id": 88300519,
+      "path": "baseline_a/won/88300519.json",
+      "our_player": 1,
+      "won": true,
+      "folder_matches_outcome": true,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 20,
+      "our_decisions": 11,
+      "opp_decisions": 7,
+      "opp_deck_unique_count": 19,
+      "opp_deck_unique": [
+        7,
+        104,
+        112,
+        646,
+        647,
+        648,
+        860,
+        1079,
+        1080,
+        1086,
+        1097,
+        1122,
+        1137,
+        1152,
+        1182,
+        1219,
+        1227,
+        1231,
+        1259
+      ],
+      "opp_archetype": "other_19_types",
+      "opp_archetype_score": 0.316,
+      "opp_cards_seen": 2,
+      "top_opp_board_cards": [
+        [
+          112,
+          15
+        ],
+        [
+          7,
+          2
+        ]
+      ],
+      "our_hand_range": [
+        5,
+        7
+      ],
+      "opp_hand_range": [
+        6,
+        7
+      ]
+    },
+    {
+      "phase": "baseline_a",
+      "baseline": "baseline_a",
+      "folder_label": "won",
+      "episode_id": 88302078,
+      "path": "baseline_a/won/88302078.json",
+      "our_player": 0,
+      "won": true,
+      "folder_matches_outcome": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 98,
+      "our_decisions": 29,
+      "opp_decisions": 67,
+      "opp_deck_unique_count": 18,
+      "opp_deck_unique": [
+        7,
+        104,
+        112,
+        646,
+        647,
+        648,
+        860,
+        1079,
+        1080,
+        1086,
+        1097,
+        1137,
+        1152,
+        1182,
+        1219,
+        1227,
+        1231,
+        1259
+      ],
+      "opp_archetype": "other_18_types",
+      "opp_archetype_score": 0.316,
+      "opp_cards_seen": 14,
+      "top_opp_board_cards": [
+        [
+          7,
+          520
+        ],
+        [
+          112,
+          194
+        ],
+        [
+          646,
+          182
+        ],
+        [
+          1086,
+          112
+        ],
+        [
+          1219,
+          78
+        ],
+        [
+          648,
+          78
+        ],
+        [
+          1079,
+          78
+        ],
+        [
+          860,
+          72
+        ]
+      ],
+      "our_hand_range": [
+        0,
+        8
+      ],
+      "opp_hand_range": [
+        0,
+        7
+      ]
+    },
+    {
+      "phase": "baseline_a",
+      "baseline": "baseline_a",
+      "folder_label": "won",
+      "episode_id": 88303144,
+      "path": "baseline_a/won/88303144.json",
+      "our_player": 1,
+      "won": true,
+      "folder_matches_outcome": true,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 70,
+      "our_decisions": 33,
+      "opp_decisions": 35,
+      "opp_deck_unique_count": 18,
+      "opp_deck_unique": [
+        6,
+        673,
+        674,
+        675,
+        676,
+        677,
+        678,
+        1102,
+        1123,
+        1141,
+        1142,
+        1152,
+        1159,
+        1182,
+        1189,
+        1192,
+        1227,
+        1252
+      ],
+      "opp_archetype": "other_18_types",
+      "opp_archetype_score": 0.111,
+      "opp_cards_seen": 13,
+      "top_opp_board_cards": [
+        [
+          6,
+          200
+        ],
+        [
+          673,
+          119
+        ],
+        [
+          1227,
+          104
+        ],
+        [
+          1192,
+          69
+        ],
+        [
+          677,
+          66
+        ],
+        [
+          678,
+          57
+        ],
+        [
+          1182,
+          52
+        ],
+        [
+          1142,
+          43
+        ]
+      ],
+      "our_hand_range": [
+        4,
+        8
+      ],
+      "opp_hand_range": [
+        2,
+        7
+      ]
+    },
+    {
+      "phase": "baseline_a",
+      "baseline": "baseline_a",
+      "folder_label": "won",
+      "episode_id": 88304270,
+      "path": "baseline_a/won/88304270.json",
+      "our_player": 0,
+      "won": true,
+      "folder_matches_outcome": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 113,
+      "our_decisions": 47,
+      "opp_decisions": 64,
+      "opp_deck_unique_count": 20,
+      "opp_deck_unique": [
+        7,
+        104,
+        112,
+        140,
+        646,
+        647,
+        648,
+        860,
+        1079,
+        1080,
+        1086,
+        1097,
+        1121,
+        1123,
+        1152,
+        1182,
+        1219,
+        1227,
+        1231,
+        1259
+      ],
+      "opp_archetype": "other_20_types",
+      "opp_archetype_score": 0.316,
+      "opp_cards_seen": 12,
+      "top_opp_board_cards": [
+        [
+          7,
+          296
+        ],
+        [
+          1219,
+          173
+        ],
+        [
+          646,
+          157
+        ],
+        [
+          112,
+          142
+        ],
+        [
+          1152,
+          130
+        ],
+        [
+          1097,
+          97
+        ],
+        [
+          1086,
+          94
+        ],
+        [
+          860,
+          78
+        ]
+      ],
+      "our_hand_range": [
+        0,
+        7
+      ],
+      "opp_hand_range": [
+        0,
+        8
+      ]
+    },
+    {
+      "phase": "baseline_b",
+      "baseline": "baseline_b",
+      "folder_label": "lost",
+      "episode_id": 88299983,
+      "path": "baseline_b/lost/88299983.json",
+      "our_player": 1,
+      "won": false,
+      "folder_matches_outcome": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 58,
+      "our_decisions": 10,
+      "opp_decisions": 46,
+      "opp_deck_unique_count": 20,
+      "opp_deck_unique": [
+        5,
+        13,
+        19,
+        66,
+        305,
+        741,
+        742,
+        743,
+        1079,
+        1081,
+        1086,
+        1097,
+        1129,
+        1152,
+        1182,
+        1184,
+        1197,
+        1225,
+        1231,
+        1266
+      ],
+      "opp_archetype": "alakazam",
+      "opp_archetype_score": 0.947,
+      "opp_cards_seen": 7,
+      "top_opp_board_cards": [
+        [
+          741,
+          96
+        ],
+        [
+          305,
+          68
+        ],
+        [
+          742,
+          66
+        ],
+        [
+          1152,
+          46
+        ],
+        [
+          743,
+          22
+        ],
+        [
+          1231,
+          22
+        ],
+        [
+          1079,
+          22
+        ]
+      ],
+      "our_hand_range": [
+        4,
+        7
+      ],
+      "opp_hand_range": [
+        6,
+        13
+      ]
+    },
+    {
+      "phase": "baseline_b",
+      "baseline": "baseline_b",
+      "folder_label": "lost",
+      "episode_id": 88300502,
+      "path": "baseline_b/lost/88300502.json",
+      "our_player": 0,
+      "won": false,
+      "folder_matches_outcome": true,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 85,
+      "our_decisions": 36,
+      "opp_decisions": 47,
+      "opp_deck_unique_count": 20,
+      "opp_deck_unique": [
+        11,
+        19,
+        304,
+        311,
+        878,
+        879,
+        1092,
+        1097,
+        1115,
+        1122,
+        1134,
+        1152,
+        1171,
+        1182,
+        1197,
+        1213,
+        1219,
+        1225,
+        1227,
+        1255
+      ],
+      "opp_archetype": "other_20_types",
+      "opp_archetype_score": 0.263,
+      "opp_cards_seen": 13,
+      "top_opp_board_cards": [
+        [
+          311,
+          174
+        ],
+        [
+          878,
+          154
+        ],
+        [
+          879,
+          97
+        ],
+        [
+          1219,
+          85
+        ],
+        [
+          304,
+          78
+        ],
+        [
+          1115,
+          78
+        ],
+        [
+          19,
+          69
+        ],
+        [
+          1134,
+          64
+        ]
+      ],
+      "our_hand_range": [
+        0,
+        7
+      ],
+      "opp_hand_range": [
+        0,
+        7
+      ]
+    },
+    {
+      "phase": "baseline_b",
+      "baseline": "baseline_b",
+      "folder_label": "lost",
+      "episode_id": 88301549,
+      "path": "baseline_b/lost/88301549.json",
+      "our_player": 0,
+      "won": false,
+      "folder_matches_outcome": true,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 73,
+      "our_decisions": 32,
+      "opp_decisions": 39,
+      "opp_deck_unique_count": 18,
+      "opp_deck_unique": [
+        1,
+        11,
+        14,
+        18,
+        344,
+        345,
+        756,
+        1086,
+        1087,
+        1122,
+        1123,
+        1147,
+        1159,
+        1182,
+        1197,
+        1225,
+        1227,
+        1264
+      ],
+      "opp_archetype": "other_18_types",
+      "opp_archetype_score": 0.211,
+      "opp_cards_seen": 8,
+      "top_opp_board_cards": [
+        [
+          344,
+          123
+        ],
+        [
+          345,
+          116
+        ],
+        [
+          1086,
+          114
+        ],
+        [
+          1227,
+          78
+        ],
+        [
+          1225,
+          64
+        ],
+        [
+          1197,
+          58
+        ],
+        [
+          756,
+          24
+        ],
+        [
+          1122,
+          3
+        ]
+      ],
+      "our_hand_range": [
+        0,
+        8
+      ],
+      "opp_hand_range": [
+        0,
+        10
+      ]
+    },
+    {
+      "phase": "baseline_b",
+      "baseline": "baseline_b",
+      "folder_label": "lost",
+      "episode_id": 88302593,
+      "path": "baseline_b/lost/88302593.json",
+      "our_player": 1,
+      "won": false,
+      "folder_matches_outcome": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 82,
+      "our_decisions": 24,
+      "opp_decisions": 56,
+      "opp_deck_unique_count": 22,
+      "opp_deck_unique": [
+        2,
+        5,
+        119,
+        120,
+        121,
+        140,
+        184,
+        235,
+        1071,
+        1079,
+        1080,
+        1086,
+        1097,
+        1120,
+        1121,
+        1152,
+        1156,
+        1182,
+        1198,
+        1210,
+        1227,
+        1256
+      ],
+      "opp_archetype": "other_22_types",
+      "opp_archetype_score": 0.316,
+      "opp_cards_seen": 14,
+      "top_opp_board_cards": [
+        [
+          235,
+          150
+        ],
+        [
+          1120,
+          115
+        ],
+        [
+          1086,
+          104
+        ],
+        [
+          120,
+          76
+        ],
+        [
+          121,
+          72
+        ],
+        [
+          140,
+          63
+        ],
+        [
+          1182,
+          63
+        ],
+        [
+          1210,
+          52
+        ]
+      ],
+      "our_hand_range": [
+        6,
+        8
+      ],
+      "opp_hand_range": [
+        1,
+        6
+      ]
+    },
+    {
+      "phase": "baseline_b",
+      "baseline": "baseline_b",
+      "folder_label": "lost",
+      "episode_id": 88304240,
+      "path": "baseline_b/lost/88304240.json",
+      "our_player": 0,
+      "won": false,
+      "folder_matches_outcome": true,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 61,
+      "our_decisions": 14,
+      "opp_decisions": 45,
+      "opp_deck_unique_count": 17,
+      "opp_deck_unique": [
+        6,
+        673,
+        674,
+        675,
+        676,
+        677,
+        678,
+        1102,
+        1123,
+        1141,
+        1142,
+        1152,
+        1159,
+        1182,
+        1192,
+        1227,
+        1252
+      ],
+      "opp_archetype": "other_17_types",
+      "opp_archetype_score": 0.111,
+      "opp_cards_seen": 11,
+      "top_opp_board_cards": [
+        [
+          1152,
+          99
+        ],
+        [
+          677,
+          66
+        ],
+        [
+          673,
+          66
+        ],
+        [
+          676,
+          55
+        ],
+        [
+          1142,
+          55
+        ],
+        [
+          1227,
+          44
+        ],
+        [
+          675,
+          33
+        ],
+        [
+          1141,
+          33
+        ]
+      ],
+      "our_hand_range": [
+        0,
+        7
+      ],
+      "opp_hand_range": [
+        0,
+        7
+      ]
+    },
+    {
+      "phase": "baseline_b",
+      "baseline": "baseline_b",
+      "folder_label": "won",
+      "episode_id": 88301030,
+      "path": "baseline_b/won/88301030.json",
+      "our_player": 0,
+      "won": true,
+      "folder_matches_outcome": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 80,
+      "our_decisions": 36,
+      "opp_decisions": 42,
+      "opp_deck_unique_count": 24,
+      "opp_deck_unique": [
+        1,
+        11,
+        18,
+        28,
+        29,
+        96,
+        339,
+        340,
+        397,
+        398,
+        655,
+        1081,
+        1094,
+        1097,
+        1100,
+        1118,
+        1121,
+        1152,
+        1157,
+        1182,
+        1197,
+        1219,
+        1227,
+        1261
+      ],
+      "opp_archetype": "other_24_types",
+      "opp_archetype_score": 0.211,
+      "opp_cards_seen": 14,
+      "top_opp_board_cards": [
+        [
+          1,
+          175
+        ],
+        [
+          655,
+          124
+        ],
+        [
+          96,
+          117
+        ],
+        [
+          1100,
+          63
+        ],
+        [
+          1094,
+          63
+        ],
+        [
+          18,
+          45
+        ],
+        [
+          29,
+          42
+        ],
+        [
+          28,
+          27
+        ]
+      ],
+      "our_hand_range": [
+        0,
+        8
+      ],
+      "opp_hand_range": [
+        0,
+        10
+      ]
+    },
+    {
+      "phase": "baseline_b",
+      "baseline": "baseline_b",
+      "folder_label": "won",
+      "episode_id": 88302072,
+      "path": "baseline_b/won/88302072.json",
+      "our_player": 0,
+      "won": true,
+      "folder_matches_outcome": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 62,
+      "our_decisions": 24,
+      "opp_decisions": 36,
+      "opp_deck_unique_count": 19,
+      "opp_deck_unique": [
+        6,
+        12,
+        20,
+        117,
+        312,
+        333,
+        602,
+        678,
+        682,
+        979,
+        1086,
+        1116,
+        1123,
+        1142,
+        1145,
+        1164,
+        1210,
+        1225,
+        1227
+      ],
+      "opp_archetype": "other_19_types",
+      "opp_archetype_score": 0.222,
+      "opp_cards_seen": 10,
+      "top_opp_board_cards": [
+        [
+          333,
+          129
+        ],
+        [
+          1227,
+          114
+        ],
+        [
+          6,
+          67
+        ],
+        [
+          678,
+          63
+        ],
+        [
+          312,
+          62
+        ],
+        [
+          682,
+          57
+        ],
+        [
+          602,
+          57
+        ],
+        [
+          979,
+          52
+        ]
+      ],
+      "our_hand_range": [
+        0,
+        10
+      ],
+      "opp_hand_range": [
+        0,
+        8
+      ]
+    },
+    {
+      "phase": "baseline_b",
+      "baseline": "baseline_b",
+      "folder_label": "won",
+      "episode_id": 88303131,
+      "path": "baseline_b/won/88303131.json",
+      "our_player": 0,
+      "won": true,
+      "folder_matches_outcome": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 20,
+      "our_decisions": 13,
+      "opp_decisions": 5,
+      "opp_deck_unique_count": 9,
+      "opp_deck_unique": [
+        1,
+        96,
+        1094,
+        1097,
+        1116,
+        1118,
+        1119,
+        1123,
+        1182
+      ],
+      "opp_archetype": "other_9_types",
+      "opp_archetype_score": 0.105,
+      "opp_cards_seen": 2,
+      "top_opp_board_cards": [
+        [
+          96,
+          15
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "our_hand_range": [
+        0,
+        7
+      ],
+      "opp_hand_range": [
+        0,
+        7
+      ]
+    },
+    {
+      "phase": "baseline_b",
+      "baseline": "baseline_b",
+      "folder_label": "won",
+      "episode_id": 88303651,
+      "path": "baseline_b/won/88303651.json",
+      "our_player": 0,
+      "won": true,
+      "folder_matches_outcome": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 75,
+      "our_decisions": 35,
+      "opp_decisions": 38,
+      "opp_deck_unique_count": 17,
+      "opp_deck_unique": [
+        7,
+        66,
+        112,
+        305,
+        646,
+        647,
+        648,
+        1079,
+        1086,
+        1097,
+        1137,
+        1152,
+        1159,
+        1182,
+        1227,
+        1231,
+        1259
+      ],
+      "opp_archetype": "other_17_types",
+      "opp_archetype_score": 0.421,
+      "opp_cards_seen": 9,
+      "top_opp_board_cards": [
+        [
+          112,
+          183
+        ],
+        [
+          7,
+          107
+        ],
+        [
+          305,
+          87
+        ],
+        [
+          1231,
+          56
+        ],
+        [
+          1097,
+          45
+        ],
+        [
+          1086,
+          31
+        ],
+        [
+          647,
+          17
+        ],
+        [
+          646,
+          14
+        ]
+      ],
+      "our_hand_range": [
+        0,
+        8
+      ],
+      "opp_hand_range": [
+        0,
+        7
+      ]
+    },
+    {
+      "phase": "baseline_b",
+      "baseline": "baseline_b",
+      "folder_label": "won",
+      "episode_id": 88304775,
+      "path": "baseline_b/won/88304775.json",
+      "our_player": 0,
+      "won": true,
+      "folder_matches_outcome": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 120,
+      "our_decisions": 36,
+      "opp_decisions": 82,
+      "opp_deck_unique_count": 23,
+      "opp_deck_unique": [
+        5,
+        13,
+        19,
+        66,
+        140,
+        142,
+        305,
+        343,
+        741,
+        742,
+        743,
+        858,
+        1079,
+        1081,
+        1086,
+        1097,
+        1129,
+        1152,
+        1156,
+        1182,
+        1225,
+        1231,
+        1264
+      ],
+      "opp_archetype": "alakazam",
+      "opp_archetype_score": 0.947,
+      "opp_cards_seen": 16,
+      "top_opp_board_cards": [
+        [
+          741,
+          302
+        ],
+        [
+          1152,
+          266
+        ],
+        [
+          1079,
+          162
+        ],
+        [
+          1086,
+          139
+        ],
+        [
+          1231,
+          139
+        ],
+        [
+          5,
+          112
+        ],
+        [
+          743,
+          111
+        ],
+        [
+          1225,
+          104
+        ]
+      ],
+      "our_hand_range": [
+        0,
+        8
+      ],
+      "opp_hand_range": [
+        0,
+        21
+      ]
+    }
+  ],
+  "baseline_summary": {
+    "baseline_a": {
+      "games": 9,
+      "wins": 4,
+      "losses": 5,
+      "win_rate": 0.4444,
+      "avg_steps_wins": 75.2,
+      "avg_steps_losses": 68.6,
+      "player_slot_p0": 6,
+      "player_slot_p1": 3,
+      "label_mismatches": 0
+    },
+    "baseline_b": {
+      "games": 10,
+      "wins": 5,
+      "losses": 5,
+      "win_rate": 0.5,
+      "avg_steps_wins": 71.4,
+      "avg_steps_losses": 71.8,
+      "player_slot_p0": 8,
+      "player_slot_p1": 2,
+      "label_mismatches": 0
+    }
+  },
+  "baseline_archetypes": {
+    "baseline_a": [
+      {
+        "opponent_archetype": "other_19_types",
+        "games": 4,
+        "wins": 1,
+        "win_rate": 0.25
+      },
+      {
+        "opponent_archetype": "other_18_types",
+        "games": 2,
+        "wins": 2,
+        "win_rate": 1.0
+      },
+      {
+        "opponent_archetype": "crustle",
+        "games": 1,
+        "wins": 0,
+        "win_rate": 0.0
+      },
+      {
+        "opponent_archetype": "other_16_types",
+        "games": 1,
+        "wins": 0,
+        "win_rate": 0.0
+      },
+      {
+        "opponent_archetype": "other_20_types",
+        "games": 1,
+        "wins": 1,
+        "win_rate": 1.0
+      }
+    ],
+    "baseline_b": [
+      {
+        "opponent_archetype": "alakazam",
+        "games": 2,
+        "wins": 1,
+        "win_rate": 0.5
+      },
+      {
+        "opponent_archetype": "other_17_types",
+        "games": 2,
+        "wins": 1,
+        "win_rate": 0.5
+      },
+      {
+        "opponent_archetype": "other_18_types",
+        "games": 1,
+        "wins": 0,
+        "win_rate": 0.0
+      },
+      {
+        "opponent_archetype": "other_19_types",
+        "games": 1,
+        "wins": 1,
+        "win_rate": 1.0
+      },
+      {
+        "opponent_archetype": "other_20_types",
+        "games": 1,
+        "wins": 0,
+        "win_rate": 0.0
+      },
+      {
+        "opponent_archetype": "other_22_types",
+        "games": 1,
+        "wins": 0,
+        "win_rate": 0.0
+      },
+      {
+        "opponent_archetype": "other_24_types",
+        "games": 1,
+        "wins": 1,
+        "win_rate": 1.0
+      },
+      {
+        "opponent_archetype": "other_9_types",
+        "games": 1,
+        "wins": 1,
+        "win_rate": 1.0
+      }
+    ]
+  }
+}

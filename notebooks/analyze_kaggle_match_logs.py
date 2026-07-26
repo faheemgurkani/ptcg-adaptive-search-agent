@@ -12,9 +12,10 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 
 NOTEBOOKS = Path(__file__).resolve().parent
+DOCS = NOTEBOOKS.parent / "docs"
 DEFAULT_LOG_ROOT = NOTEBOOKS.parent / "logs" / "phase1_logs"
 DEFAULT_PANEL = NOTEBOOKS / "holdout" / "panel"
-DEFAULT_OUT = NOTEBOOKS / "output" / "phase1"
+DEFAULT_OUT = DOCS / "phases" / "phase_01" / "online"
 
 OUR_DECK_SIGNATURE = {3, 721, 722, 723, 1145, 1158, 1205, 1227, 1235}
 
@@ -320,6 +321,7 @@ def render_markdown(
     lines.append("- **Opponent identity** (username / submission id) is not present in logs — only deck lists and board-visible cards.")
     lines.append("- **Archetype labels** compare opponent deck-submit unique IDs to holdout panel signatures; `other_N_types` = field deck not in panel.")
     lines.append("- Re-run: `python notebooks/analyze_kaggle_match_logs.py --rating baseline_a=433 --rating baseline_b=612`")
+    lines.append("- Docs: `docs/phases/phase_01/online/KAGGLE_LOG.md`")
     lines.append("")
     return "\n".join(lines)
 
@@ -372,8 +374,9 @@ def main() -> None:
         },
     }
 
-    json_path = args.out_dir / f"{args.phase}_kaggle_log_analysis.json"
-    md_path = args.out_dir / f"{args.phase}_kaggle_log_analysis.md"
+    json_path = args.out_dir / "results" / "kaggle_log_analysis.json"
+    md_path = args.out_dir / "KAGGLE_ANALYSIS.md"
+    json_path.parent.mkdir(parents=True, exist_ok=True)
     json_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
     md_path.write_text(render_markdown(records, ratings, args.log_root), encoding="utf-8")
 

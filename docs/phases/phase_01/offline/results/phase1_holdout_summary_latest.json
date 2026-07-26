@@ -1,0 +1,98 @@
+[
+  {
+    "baseline": "baseline_a",
+    "opponent": "alakazam",
+    "game_index": "summary",
+    "wins": 8,
+    "losses": 32,
+    "ties": 0,
+    "win_rate": 0.2,
+    "games": 40,
+    "holdout_gate": "holdout_fail",
+    "verdict": "HOLD_DO_NOT_SUBMIT"
+  },
+  {
+    "baseline": "baseline_a",
+    "opponent": "crustle",
+    "game_index": "summary",
+    "wins": 31,
+    "losses": 9,
+    "ties": 0,
+    "win_rate": 0.775,
+    "games": 40,
+    "holdout_gate": "holdout_pass",
+    "verdict": "PROMOTE_CANDIDATE"
+  },
+  {
+    "baseline": "baseline_a",
+    "opponent": "spidops",
+    "game_index": "summary",
+    "wins": 34,
+    "losses": 6,
+    "ties": 0,
+    "win_rate": 0.85,
+    "games": 40,
+    "holdout_gate": "holdout_pass",
+    "verdict": "PROMOTE_CANDIDATE"
+  },
+  {
+    "baseline": "baseline_a",
+    "opponent": "starmie",
+    "game_index": "summary",
+    "wins": 33,
+    "losses": 7,
+    "ties": 0,
+    "win_rate": 0.825,
+    "games": 40,
+    "holdout_gate": "holdout_pass",
+    "verdict": "PROMOTE_CANDIDATE"
+  },
+  {
+    "baseline": "baseline_b",
+    "opponent": "alakazam",
+    "game_index": "summary",
+    "wins": 6,
+    "losses": 34,
+    "ties": 0,
+    "win_rate": 0.15,
+    "games": 40,
+    "holdout_gate": "holdout_fail",
+    "verdict": "HOLD_DO_NOT_SUBMIT"
+  },
+  {
+    "baseline": "baseline_b",
+    "opponent": "crustle",
+    "game_index": "summary",
+    "wins": 34,
+    "losses": 6,
+    "ties": 0,
+    "win_rate": 0.85,
+    "games": 40,
+    "holdout_gate": "holdout_pass",
+    "verdict": "PROMOTE_CANDIDATE"
+  },
+  {
+    "baseline": "baseline_b",
+    "opponent": "spidops",
+    "game_index": "summary",
+    "wins": 30,
+    "losses": 10,
+    "ties": 0,
+    "win_rate": 0.75,
+    "games": 40,
+    "holdout_gate": "holdout_pass",
+    "verdict": "PROMOTE_CANDIDATE"
+  },
+  {
+    "baseline": "baseline_b",
+    "opponent": "starmie",
+    "game_index": "summary",
+    "wins": 32,
+    "losses": 8,
+    "ties": 0,
+    "win_rate": 0.8,
+    "games": 40,
+    "holdout_gate": "holdout_pass",
+    "verdict": "PROMOTE_CANDIDATE"
+  }
+]
