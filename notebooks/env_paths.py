@@ -24,8 +24,10 @@ def is_local_venv() -> bool:
 
 def _detect_local_repo_root() -> Path:
     cwd = Path.cwd().resolve()
-    for root in (cwd, cwd.parent):
-        if (root / "data").is_dir() or (root / "notebooks" / "env_paths.py").is_file():
+    for root in [cwd, *cwd.parents]:
+        if (root / "notebooks" / "env_paths.py").is_file():
+            return root
+        if (root / "notebooks" / "build_merged_agent.py").is_file():
             return root
     return cwd
 
@@ -146,7 +148,10 @@ def discover_notebooks_dir() -> Path:
 
 
 def _resolve_ref_dir(repo_root: Path, input_root: Path | None) -> Path:
-    candidates = [repo_root / "docs" / "resources" / "reference_notebooks"]
+    candidates = [
+        repo_root / "docs" / "resources" / "reference_notebooks",
+        repo_root / "data" / "extractions",
+    ]
     if input_root is not None:
         found = _glob_dir([str(input_root / "**/reference_notebooks")])
         if found is not None:

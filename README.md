@@ -17,7 +17,7 @@ Working paper title: *Opponent-Adaptive Search in Imperfect-Information Card Gam
 ```
 .
 ├── main.py          # Agent entry point (required for submission)
-├── data/            # Competition data (deck.csv, cg/, etc.)
+├── data/            # Official bundle: data/pokemon-tcg-ai-battle/ (+ optional data/deck.csv override)
 ├── requirements.txt # Local dev dependencies
 ├── notebooks/       # Merged agent workbench (see notebooks/ptcg-merged-agent-workbench.ipynb)
 └── docs/            # Project docs (see docs/README.md)
@@ -33,16 +33,13 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Add competition files under `data/` (for example `data/deck.csv` and the `cg/` library from Kaggle). Submissions bundle `main.py`, `deck.csv`, and the `cg/` package at the top level.
+Download the competition data into `data/pokemon-tcg-ai-battle/` (card CSVs, `sample_submission/`, `ptcg_engine/`). For local runs the notebook reads the official `cg/` SDK from `sample_submission/sample_submission/cg/`. Put your chosen deck in `data/deck.csv` to override the official sample list.
 
 ## Submission
 
 Kaggle expects a `.tar.gz` with `main.py` and `deck.csv` at the top level (plus any helper files such as `cg/`).
 
-```bash
-tar -czvf submission.tar.gz main.py data/deck.csv data/cg/
-# Rename paths in the archive so deck.csv and cg/ sit at the top level before upload.
-```
+Use section 6 in `notebooks/ptcg-merged-agent-workbench.ipynb` (`build_submission()`) to stage `main.py`, `deck.csv`, and `cg/` into `submission.tar.gz`.
 
 Upload `submission.tar.gz` under **My Submissions** on the competition page.
 
