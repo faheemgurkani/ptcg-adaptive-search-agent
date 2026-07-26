@@ -37,12 +37,31 @@ Search helps vs crustle/spidops/starmie placeholders in this run; both baselines
 
 Latest machine-readable summary: `notebooks/output/phase1/phase1_holdout_summary_latest.json`
 
-## Results (archive)
+## Kaggle ladder (Phase 1 submissions)
+
+| Baseline | Ladder rating | Logged replays | Logged W–L | Logged win rate |
+|----------|--------------:|---------------:|-----------:|----------------:|
+| baseline_a (no search) | **433** | 9 | 4–5 | 44.4% |
+| baseline_b (+ UCB1 search) | **612** | 10 | 5–5 | 50.0% |
+
+**Interpretation:** Baseline B leads by **+179 rating** and **+5.6 pp** on the downloaded replay sample. That matches the local holdout direction (search helps overall), though the logged episodes are a small subset of all ladder games behind each rating.
+
+Full EDA report: [`notebooks/output/phase1/phase1_kaggle_log_analysis.md`](../notebooks/output/phase1/phase1_kaggle_log_analysis.md)
+
+Re-run after adding replays:
+
+```bash
+python notebooks/analyze_kaggle_match_logs.py \
+  --rating baseline_a=433 --rating baseline_b=612
+```
+
+Log layout: `logs/phase1_logs/baseline_{a,b}/{won,lost}/<episode_id>.json`
 
 ## Your Kaggle tasks (Phase 1)
 
-1. Package **Baseline A** from `notebooks/agents/main_baseline_a.py` + active `deck.csv` + `cg/` → submit once → record ladder rating.
-2. Package **Baseline B** from `notebooks/agents/main_baseline_b.py` + active `deck.csv` + `cg/` → submit once → record ladder rating.
-3. Log ratings here or in your experiment notes for comparison with local holdout direction.
+1. ~~Package **Baseline A**~~ — submitted; rating **433**.
+2. ~~Package **Baseline B**~~ — submitted; rating **612**.
+3. ~~Log ratings~~ — recorded above; refresh when ratings move.
+4. Optional: download more won/lost replays into the folder layout above and re-run the analyzer.
 
 Use workbench section 6 (`build_submission()`) but point `PATHS.main_py` at the chosen baseline file before packaging.

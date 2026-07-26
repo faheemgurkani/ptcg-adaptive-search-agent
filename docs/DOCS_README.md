@@ -14,6 +14,7 @@
 - [`PHASE_01_LOG.md`](PHASE_01_LOG.md) — local completion log, holdout results, Kaggle submission checklist.
 - Notebook: [`notebooks/PHASE_01_BASELINE_EVAL.ipynb`](../notebooks/PHASE_01_BASELINE_EVAL.ipynb)
 - Run holdout: `python notebooks/run_phase1_holdout.py --games 40`
+- Analyze Kaggle replays: `python notebooks/analyze_kaggle_match_logs.py --rating baseline_a=433 --rating baseline_b=612`
 
 ## Local-only resources
 
