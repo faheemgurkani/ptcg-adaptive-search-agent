@@ -20,7 +20,7 @@ Working paper title: *Opponent-Adaptive Search in Imperfect-Information Card Gam
 ├── data/            # Official bundle: data/pokemon-tcg-ai-battle/ (+ optional data/deck.csv override)
 ├── requirements.txt # Local dev dependencies
 ├── notebooks/       # Merged agent workbench (see notebooks/ptcg-merged-agent-workbench.ipynb)
-└── docs/            # Project docs (see docs/README.md)
+└── docs/            # Project docs (see docs/DOCS_README.md)
 ```
 
 Local reference notebooks and competition downloads live in `docs/resources/`. That folder is gitignored and stays on your machine only.
