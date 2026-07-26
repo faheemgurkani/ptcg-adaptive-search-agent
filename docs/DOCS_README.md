@@ -1,5 +1,10 @@
 # Docs
 
+## cabt engine docs (local mirror)
+
+- [`CABT_DOCS_INDEX.md`](CABT_DOCS_INDEX.md) — tracked map to offline cabt documentation under `docs/resources/cabt/` (HTML mirror, SDK snapshot, Markdown API extracts).
+- Refresh: `bash docs/resources/cabt/scripts/refresh_cabt_docs.sh` (uses `.venv`).
+
 ## Research plan
 
 - [`RESEARCH_EXPERIMENTATION_PLAN.md`](RESEARCH_EXPERIMENTATION_PLAN.md) — 2-week sprint version of the full 6-phase research & experimentation plan for `ptcg-adaptive-search-agent` (phases unchanged; schedule compressed from 8 weeks to 14 days).
