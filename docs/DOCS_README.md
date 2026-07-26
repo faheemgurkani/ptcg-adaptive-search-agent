@@ -3,7 +3,7 @@
 ## cabt engine docs (local mirror)
 
 - [`CABT_DOCS_INDEX.md`](CABT_DOCS_INDEX.md) — tracked map to offline cabt documentation under `docs/resources/cabt/` (HTML mirror, SDK snapshot, Markdown API extracts).
-- Refresh: `bash docs/resources/cabt/scripts/refresh_cabt_docs.sh` (uses `.venv`).
+- Refresh + verify: `bash docs/resources/cabt/scripts/refresh_cabt_docs.sh` then `bash docs/resources/cabt/scripts/verify_cabt_runtime.sh` (uses `.venv`).
 
 ## Research plan
 
