@@ -1,1 +1,14 @@
+# Core — local cabt sim + Phase 1 holdout
 kaggle-environments>=1.14.10
+
+# PHASE_01_BASELINE_EVAL.ipynb + summaries
+pandas>=2.0
+
+# extract_holdout_panel.py (runs meta snapshot notebook cell)
+numpy>=1.24
+matplotlib>=3.7
+ipython>=8.0
+
+# Run notebooks with project .venv in Cursor/Jupyter
+ipykernel>=6.0
+jupyter>=1.0
