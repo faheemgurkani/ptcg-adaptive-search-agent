@@ -1,0 +1,140 @@
+# Research & Experimentation Plan for `ptcg-adaptive-search-agent`
+
+Compressed from the original 8-week plan into a **14-day sprint**. Phase goals, tasks, and paper mapping are **unchanged** — only the schedule is tighter.
+
+Related: [`notebooks/ptcg-merged-agent-workbench.ipynb`](../notebooks/ptcg-merged-agent-workbench.ipynb) (executable workbench).
+
+---
+
+## The Core Research Question
+
+> *Does opponent-adaptive heuristic search outperform static rule-based policy in an imperfect-information card game, and by how much does each component contribute?*
+
+This gives you one clean thesis for both the paper and the Kaggle writeup.
+
+---
+
+## Two-Week Calendar (14 Days)
+
+| Days | Original window | Phase |
+|------|-----------------|-------|
+| 1–2 | Week 1–2 | Phase 1 — Baseline establishment |
+| 3–4 | Week 2–3 | Phase 2 — Deck selection & meta analysis |
+| 5–9 | Week 3–5 | Phase 3 — Ablation study |
+| 10–11 | Week 4–5 | Phase 4 — Search depth analysis |
+| 11–12 | Week 5–6 | Phase 5 — Opponent adaptation analysis |
+| 13–14 | Week 6–7 | Phase 6 — Live ladder validation |
+
+Days 11–12 overlap Phases 4 and 5 on purpose — run search sweeps in the morning, adaptation analysis in the afternoon.
+
+---
+
+## Phase 1 — Baseline Establishment (Days 1–2)
+
+**Goal:** Get a working submission and a reproducible evaluation harness.
+
+**Tasks:**
+
+- Submit the Dragapult-only policy (no search, no opponent detection) as **Baseline A**
+- Submit the merged Dragapult + UCB1 Search agent as **Baseline B**
+- Record ladder ratings for both
+- Implement `run_holdout_suite()` properly — it needs to actually simulate games against a fixed panel of archetypes (Alakazam, Crustle, Spidops, Starmie) so you have offline results independent of the live ladder
+
+**Why it matters for paper:** You need clean ablation starting points. Baseline A = no search. Baseline B = search but no opponent adaptation.
+
+---
+
+## Phase 2 — Deck Selection & Meta Analysis (Days 3–4)
+
+**Goal:** Pick and commit to a deck with a principled justification.
+
+**Tasks:**
+
+- Run your holdout suite with both Dragapult and Starmie decks against the four key archetypes
+- Record win rates per matchup, not just overall
+- Apply the meta snapshot logic: usage share vs. actual score rate — pick the deck that has positive edge against the current field composition, not just the highest raw win rate
+- Document your deck selection decision with the actual numbers — this becomes Section 2 of your paper ("Deck Selection Under Meta Uncertainty")
+
+**Decision point:** Commit to one deck before Phase 3. Changing decks mid-experimentation ruins your ablation story.
+
+---
+
+## Phase 3 — Ablation Study (Days 5–9)
+
+**Goal:** Isolate the contribution of each component. This is the heart of the paper.
+
+Run four agent configurations against your fixed holdout panel:
+
+| Agent Version | Search | Opponent Detection | Expected Role |
+|---|---|---|---|
+| V1 | ✗ | ✗ | Pure Dragapult baseline |
+| V2 | ✓ UCB1 | ✗ | Search contribution |
+| V3 | ✗ | ✓ Adaptive weights | Adaptation contribution |
+| V4 | ✓ UCB1 | ✓ Adaptive weights | Full system |
+
+Measure per matchup win rate, not just overall. You want to show that opponent detection helps specifically against Crustle/stall matchups, and search helps in tactical decision points.
+
+**This is your Table 1 in the paper.**
+
+---
+
+## Phase 4 — Search Depth Analysis (Days 10–11)
+
+**Goal:** Answer how much search depth actually matters given the time budget.
+
+**Tasks:**
+
+- Vary UCB1 candidate count: 4, 8, 12, 16 candidates
+- Vary time budget: 0.5s, 1.0s, 1.5s, 2.0s per decision
+- Plot win rate vs. compute budget curve
+- Find the knee — where does additional search stop helping?
+
+**Why it matters for paper:** This is your Figure 2. It directly addresses the practical question of compute-performance tradeoff in real-time game AI, which is a standard analysis in MCTS literature.
+
+---
+
+## Phase 5 — Opponent Adaptation Analysis (Days 11–12)
+
+**Goal:** Show that adaptive weights matter and quantify how much.
+
+**Tasks:**
+
+- Against Crustle specifically: compare V1 vs V3 (Dragapult policy vs. Dragapult + Crustle-aware weights)
+- Log which archetype was detected and when during games
+- Track false positive rate — does the detector misidentify archetypes early game when the bench is empty?
+- Consider adding one more archetype detector beyond what the Expectimax agent has (e.g., Spidops or Festival detection)
+
+**Why it matters for paper:** Opponent modeling in hidden-information games is a known hard problem. Even a simple detector with real impact is a publishable contribution if properly measured.
+
+---
+
+## Phase 6 — Live Ladder Validation (Days 13–14)
+
+**Goal:** Confirm offline results transfer to the live ladder.
+
+**Tasks:**
+
+- Submit V4 (full system) and record ladder rating over time
+- Compare per-archetype matchup rates on the ladder vs. your holdout panel
+- Measure the gap — if holdout says 70% vs Crustle but ladder shows 60%, that's a calibration finding worth reporting
+- Apply the winner's curse check from the meta snapshot: if your holdout score drops significantly on a fresh panel, prefer the more stable configuration
+
+---
+
+## Paper Structure (Target: CoG 2027 or AAAI Workshop)
+
+| Section | Content | Source |
+|---|---|---|
+| Introduction | Imperfect-info card games as AI testbeds | Literature |
+| Background | PTCG mechanics, PIMC, UCB1, opponent modeling | Literature |
+| System Design | Dragapult policy + Search + Adaptation | Phase 1–2 |
+| Deck Selection | Meta-informed deck choice methodology | Phase 2 |
+| Experiments | Ablation table, search depth curve, adaptation analysis | Phase 3–5 |
+| Live Evaluation | Ladder validation, holdout-to-live transfer gap | Phase 6 |
+| Conclusion | What worked, what didn't, future work | All |
+
+---
+
+## One Rule to Follow Throughout
+
+**Document every decision as you make it, not at the end.** Every time you change a weight, add a detector, or switch a parameter — write one paragraph explaining why. That becomes your Kaggle writeup organically, and it becomes your paper's experimental section with almost no additional work.

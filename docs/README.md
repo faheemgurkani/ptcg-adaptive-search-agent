@@ -1,5 +1,9 @@
 # Docs
 
+## Research plan
+
+- [`research-experimentation-plan.md`](research-experimentation-plan.md) — 2-week sprint version of the full 6-phase research & experimentation plan for `ptcg-adaptive-search-agent` (phases unchanged; schedule compressed from 8 weeks to 14 days).
+
 ## Local-only resources
 
 The `docs/resources/` folder is **not tracked by git** (see `.gitignore`).
