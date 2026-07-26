@@ -141,6 +141,7 @@ for i in range(60):
     """,
         """DECK_PATHS = (
     "data/deck.csv",
+    "data/pokemon-tcg-ai-battle/sample_submission/sample_submission/deck.csv",
     "deck.csv",
     "/kaggle_simulations/agent/deck.csv",
 )
