@@ -1,0 +1,25 @@
+{
+  "phase": 1,
+  "opponents": {
+    "alakazam": {
+      "deck": "/Volumes/Sandisk 2TB/Documents/Hackathons and Competitions/Kaggle - PTCG/notebooks/holdout/panel/alakazam/deck.csv",
+      "agent": "/Volumes/Sandisk 2TB/Documents/Hackathons and Competitions/Kaggle - PTCG/notebooks/holdout/panel/alakazam/main.py",
+      "agent_type": "rule_based_meta_snapshot_B"
+    },
+    "crustle": {
+      "deck": "/Volumes/Sandisk 2TB/Documents/Hackathons and Competitions/Kaggle - PTCG/notebooks/holdout/panel/crustle/deck.csv",
+      "agent": "/Volumes/Sandisk 2TB/Documents/Hackathons and Competitions/Kaggle - PTCG/notebooks/holdout/panel/crustle/main.py",
+      "agent_type": "random_placeholder_deck"
+    },
+    "spidops": {
+      "deck": "/Volumes/Sandisk 2TB/Documents/Hackathons and Competitions/Kaggle - PTCG/notebooks/holdout/panel/spidops/deck.csv",
+      "agent": "/Volumes/Sandisk 2TB/Documents/Hackathons and Competitions/Kaggle - PTCG/notebooks/holdout/panel/spidops/main.py",
+      "agent_type": "random_placeholder_deck"
+    },
+    "starmie": {
+      "deck": "/Volumes/Sandisk 2TB/Documents/Hackathons and Competitions/Kaggle - PTCG/notebooks/holdout/panel/starmie/deck.csv",
+      "agent": "/Volumes/Sandisk 2TB/Documents/Hackathons and Competitions/Kaggle - PTCG/notebooks/holdout/panel/starmie/main.py",
+      "agent_type": "random_placeholder_deck"
+    }
+  }
+}

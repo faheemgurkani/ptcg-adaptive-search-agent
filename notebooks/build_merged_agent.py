@@ -8,8 +8,10 @@ Merge plan:
 
 from __future__ import annotations
 
+import argparse
 import json
 import textwrap
+from dataclasses import dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -19,10 +21,40 @@ try:
 
     _PATHS = get_paths()
     REF = _PATHS.ref_dir
-    OUT = _PATHS.merged_main_py
+    AGENTS_DIR = _PATHS.notebooks_dir / "agents"
 except ImportError:
     REF = ROOT / "docs" / "resources" / "reference_notebooks"
-    OUT = Path(__file__).with_name("merged_agent_main.py")
+    AGENTS_DIR = Path(__file__).with_name("agents")
+
+
+@dataclass(frozen=True)
+class BaselineConfig:
+    name: str
+    use_search: bool
+    use_opponent_adaptation: bool
+    doc: str
+
+
+BASELINES = {
+    "baseline_a": BaselineConfig(
+        name="baseline_a",
+        use_search=False,
+        use_opponent_adaptation=False,
+        doc="Baseline A — Dragapult policy only (no search, no opponent adaptation).",
+    ),
+    "baseline_b": BaselineConfig(
+        name="baseline_b",
+        use_search=True,
+        use_opponent_adaptation=False,
+        doc="Baseline B — Dragapult + UCB1 search (no opponent adaptation).",
+    ),
+    "merged": BaselineConfig(
+        name="merged",
+        use_search=True,
+        use_opponent_adaptation=True,
+        doc="Full merged agent — Dragapult + search + opponent adaptation hooks.",
+    ),
+}
 
 EVALUATE_STATE = '''
 def evaluate_state(obs):
@@ -120,7 +152,7 @@ def extract_writefile(nb_path: Path) -> str:
     raise ValueError(f"No %%writefile main.py cell in {nb_path}")
 
 
-def build() -> str:
+def build(config: BaselineConfig = BASELINES["merged"]) -> str:
     drag = extract_writefile(REF / "a-sample-rule-based-agent-dragapult-ex-deck.ipynb")
     exp = extract_writefile(REF / "improved-probabilistic-agent.ipynb")
 
@@ -165,8 +197,8 @@ my_deck = [int(csv[i]) for i in range(60)]
     )
 
     header = textwrap.dedent(
-        '''
-        """Merged agent: Dragapult policy skeleton + opponent reads + UCB1 search."""
+        f'''
+        """{config.doc}"""
         from __future__ import annotations
 
         import math
@@ -187,11 +219,12 @@ my_deck = [int(csv[i]) for i in range(60)]
         except Exception:
             pass
 
-        USE_SEARCH = True
+        USE_SEARCH = {config.use_search!r}
+        USE_OPPONENT_ADAPTATION = {config.use_opponent_adaptation!r}
         SEARCH_TIME_BUDGET = 1.5
         SEARCH_MAX_CANDIDATES = 8
-        OPP_WATER = {721, 722, 723}
-        OPP_CRUSTLE = {344, 345}
+        OPP_WATER = {{721, 722, 723}}
+        OPP_CRUSTLE = {{344, 345}}
         '''
     ).strip("\n")
 
@@ -208,10 +241,14 @@ my_deck = [int(csv[i]) for i in range(60)]
 
 
         def _opponent_is_water_deck(obs: Observation, player_index: int) -> bool:
+            if not USE_OPPONENT_ADAPTATION:
+                return False
             return _opponent_has(obs, player_index, OPP_WATER)
 
 
         def _opponent_is_crustle_wall(obs: Observation, player_index: int) -> bool:
+            if not USE_OPPONENT_ADAPTATION:
+                return False
             return _opponent_has(obs, player_index, OPP_CRUSTLE)
 
 
@@ -261,9 +298,35 @@ my_deck = [int(csv[i]) for i in range(60)]
     return header + "\n\n" + pre_agent + opponent + body + "\n\n" + EVALUATE_STATE + "\n\n" + search + agent_wrapper
 
 
+def output_path(config: BaselineConfig) -> Path:
+    if config.name == "merged":
+        try:
+            return _PATHS.merged_main_py
+        except NameError:
+            return Path(__file__).with_name("merged_agent_main.py")
+    AGENTS_DIR.mkdir(parents=True, exist_ok=True)
+    return AGENTS_DIR / f"main_{config.name}.py"
+
+
 def main() -> None:
-    OUT.write_text(build())
-    print(f"Wrote {OUT}")
+    parser = argparse.ArgumentParser(description="Build merged agent variants.")
+    parser.add_argument(
+        "--variant",
+        choices=[*BASELINES.keys(), "all"],
+        default="all",
+        help="Which agent variant to build (default: all).",
+    )
+    args = parser.parse_args()
+    targets = BASELINES.values() if args.variant == "all" else [BASELINES[args.variant]]
+    for cfg in targets:
+        out = output_path(cfg)
+        out.write_text(build(cfg), encoding="utf-8")
+        print(f"Wrote {out}")
+    if args.variant in ("merged", "all"):
+        merged = output_path(BASELINES["merged"])
+        root_main = ROOT / "main.py"
+        root_main.write_text(merged.read_text(encoding="utf-8"), encoding="utf-8")
+        print(f"Synced {root_main}")
 
 
 if __name__ == "__main__":

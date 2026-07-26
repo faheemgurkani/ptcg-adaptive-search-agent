@@ -1,4 +1,4 @@
-"""Merged agent: Dragapult policy skeleton + opponent reads + UCB1 search."""
+"""Full merged agent — Dragapult + search + opponent adaptation hooks."""
 from __future__ import annotations
 
 import math
@@ -20,6 +20,7 @@ except Exception:
     pass
 
 USE_SEARCH = True
+USE_OPPONENT_ADAPTATION = True
 SEARCH_TIME_BUDGET = 1.5
 SEARCH_MAX_CANDIDATES = 8
 OPP_WATER = {721, 722, 723}
@@ -323,10 +324,14 @@ def _opponent_has(obs: Observation, player_index: int, ids: set[int]) -> bool:
 
 
 def _opponent_is_water_deck(obs: Observation, player_index: int) -> bool:
+    if not USE_OPPONENT_ADAPTATION:
+        return False
     return _opponent_has(obs, player_index, OPP_WATER)
 
 
 def _opponent_is_crustle_wall(obs: Observation, player_index: int) -> bool:
+    if not USE_OPPONENT_ADAPTATION:
+        return False
     return _opponent_has(obs, player_index, OPP_CRUSTLE)
 
 

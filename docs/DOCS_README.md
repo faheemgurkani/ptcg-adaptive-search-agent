@@ -9,6 +9,12 @@
 
 - [`RESEARCH_EXPERIMENTATION_PLAN.md`](RESEARCH_EXPERIMENTATION_PLAN.md) — 2-week sprint version of the full 6-phase research & experimentation plan for `ptcg-adaptive-search-agent` (phases unchanged; schedule compressed from 8 weeks to 14 days).
 
+## Phase 1 (baseline establishment)
+
+- [`PHASE_01_LOG.md`](PHASE_01_LOG.md) — local completion log, holdout results, Kaggle submission checklist.
+- Notebook: [`notebooks/PHASE_01_BASELINE_EVAL.ipynb`](../notebooks/PHASE_01_BASELINE_EVAL.ipynb)
+- Run holdout: `python notebooks/run_phase1_holdout.py --games 40`
+
 ## Local-only resources
 
 The `docs/resources/` folder is **not tracked by git** (see `.gitignore`).

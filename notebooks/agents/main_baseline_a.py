@@ -1,4 +1,4 @@
-"""Full merged agent — Dragapult + search + opponent adaptation hooks."""
+"""Baseline A — Dragapult policy only (no search, no opponent adaptation)."""
 from __future__ import annotations
 
 import math
@@ -19,8 +19,8 @@ try:
 except Exception:
     pass
 
-USE_SEARCH = True
-USE_OPPONENT_ADAPTATION = True
+USE_SEARCH = False
+USE_OPPONENT_ADAPTATION = False
 SEARCH_TIME_BUDGET = 1.5
 SEARCH_MAX_CANDIDATES = 8
 OPP_WATER = {721, 722, 723}
