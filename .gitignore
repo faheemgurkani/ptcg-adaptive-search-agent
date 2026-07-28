@@ -1,5 +1,6 @@
 # Local reference material (Kaggle notebooks, datasets, notes)
 docs/resources/
+docs/research_paper_writeup/
 
 # Local extraction artifacts and competition data (keep on disk, not in git)
 data/extractions/

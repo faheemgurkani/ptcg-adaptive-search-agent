@@ -1,5 +1,9 @@
 # Docs
 
+## Data and logs
+
+- [`DATA_AND_LOGS.md`](DATA_AND_LOGS.md) — inventory of competition data, decks, holdout panel, offline results, and Kaggle ladder replays (origin, placement, use, preprocessing).
+
 ## Research plan
 
 - [`RESEARCH_EXPERIMENTATION_PLAN.md`](RESEARCH_EXPERIMENTATION_PLAN.md) — 2-week sprint (Phases 1–6).
