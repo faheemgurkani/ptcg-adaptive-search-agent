@@ -54,8 +54,11 @@ Source of truth: [`offline/results/phase1_holdout_summary_latest.json`](offline/
 
 | Metric | Baseline A | Baseline B |
 |--------|------------|------------|
-| Ladder rating | 433 | **612** |
-| Downloaded replays | 9 (4W–5L, 44.4%) | 10 (5W–5L, 50.0%) |
+| Ladder rating (early peak) | 433 | **612** (+179) |
+| Ladder rating (equilibrium) | **~507** | **~507** (≈ null) |
+| Downloaded replays (early window) | 9 (4W–5L, 44.4%) | 10 (5W–5L, 50.0%) |
+
+**Convergence finding:** Search provided a placement advantage (+179) but did not sustain a differential at equilibrium — base policy evaluation is the binding constraint. Offline search null (−2.5 pp) is corroborated. Documented in [`online/KAGGLE_LOG.md`](online/KAGGLE_LOG.md).
 
 - Written up: [`online/KAGGLE_LOG.md`](online/KAGGLE_LOG.md), [`online/KAGGLE_ANALYSIS.md`](online/KAGGLE_ANALYSIS.md), [`online/results/kaggle_log_analysis.json`](online/results/kaggle_log_analysis.json)
 
@@ -65,9 +68,11 @@ Source of truth: [`offline/results/phase1_holdout_summary_latest.json`](offline/
 |-------|------------------------|
 | Clean A vs B ablation (search on/off, adaptation off) | **Yes** |
 | Offline harness independent of ladder | **Yes** |
-| Live ratings recorded for both | **Yes** |
-| Search clearly wins offline overall | **No** — mixed (−2.5 pp pooled); **yes on ladder rating** (+179) |
-| Both struggle vs strong Alakazam-style play | **Yes** (holdout fail gate; B 1–1 vs Alakazam decks in logged ladder sample) |
+| Live ratings recorded for both | **Yes** (peak + equilibrium) |
+| Search clearly wins offline overall | **No** — mixed (−2.5 pp pooled) |
+| Search sustains online rating edge | **No** — converges to A ≈ B (~507) |
+| Both struggle vs strong Alakazam-style play | **Yes** |
+| Search-alone null strengthens Phase 3 story | **Yes** — if V4 lifts and V2 does not, adaptation is the mechanism |
 
 ---
 
