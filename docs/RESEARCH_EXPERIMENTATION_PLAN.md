@@ -31,14 +31,16 @@ Days 11–12 overlap Phases 4 and 5 on purpose — run search sweeps in the morn
 
 ## Phase 1 — Baseline Establishment (Days 1–2)
 
+**Status: COMPLETE** — see [`phases/phase_01/PHASE_01_COMPLETION.md`](phases/phase_01/PHASE_01_COMPLETION.md).
+
 **Goal:** Get a working submission and a reproducible evaluation harness.
 
 **Tasks:**
 
-- Submit the Dragapult-only policy (no search, no opponent detection) as **Baseline A**
-- Submit the merged Dragapult + UCB1 Search agent as **Baseline B**
-- Record ladder ratings for both
-- Implement `run_holdout_suite()` properly — it needs to actually simulate games against a fixed panel of archetypes (Alakazam, Crustle, Spidops, Starmie) so you have offline results independent of the live ladder
+- [x] Submit the Dragapult-only policy (no search, no opponent detection) as **Baseline A** — ladder **433**
+- [x] Submit the merged Dragapult + UCB1 Search agent as **Baseline B** — ladder **612**
+- [x] Record ladder ratings for both — [`phases/phase_01/online/KAGGLE_LOG.md`](phases/phase_01/online/KAGGLE_LOG.md)
+- [x] Implement `run_holdout_suite()` properly — fixed panel Alakazam / Crustle / Spidops / Starmie; results in [`phases/phase_01/offline/`](phases/phase_01/offline/)
 
 **Why it matters for paper:** You need clean ablation starting points. Baseline A = no search. Baseline B = search but no opponent adaptation.
 

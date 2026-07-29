@@ -2,6 +2,8 @@
 
 Live ladder submissions and downloaded replay analysis.
 
+**Phase 1 status:** complete — see [`../PHASE_01_COMPLETION.md`](../PHASE_01_COMPLETION.md).
+
 ## Submissions
 
 | Baseline | Agent | Ladder rating | Status |

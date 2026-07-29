@@ -28,6 +28,8 @@
 
 ## Next steps
 
-1. **Kaggle:** submit Baseline A, then Baseline B; log ladder ratings in `docs/phases/phase_01/online/KAGGLE_LOG.md`.
+1. ~~**Kaggle:** submit Baseline A/B and log ratings~~ — done (A 433, B 612); see [`../online/KAGGLE_LOG.md`](../online/KAGGLE_LOG.md).
 2. **Optional:** replace placeholder opponent decks under `notebooks/holdout/panel/`.
 3. **Phase 2:** deck selection (Dragapult vs Starmie) using the same holdout harness.
+
+Phase 1 close-out: [`../PHASE_01_COMPLETION.md`](../PHASE_01_COMPLETION.md).

@@ -1,5 +1,7 @@
 # Phase 1 — Baseline establishment
 
+**Status: COMPLETE** — [`PHASE_01_COMPLETION.md`](PHASE_01_COMPLETION.md)
+
 **Goal:** Working submission + reproducible offline evaluation harness (Baseline A vs B).
 
 | Track | Doc | Analysis | Results (machine-readable) |

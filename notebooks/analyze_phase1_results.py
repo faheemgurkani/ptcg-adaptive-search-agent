@@ -95,9 +95,11 @@ def analyze(rows: list[dict]) -> str:
 
     lines.append("## Next steps")
     lines.append("")
-    lines.append("1. **Kaggle:** submit Baseline A, then Baseline B; log ladder ratings in `docs/phases/phase_01/online/KAGGLE_LOG.md`.")
+    lines.append("1. ~~**Kaggle:** submit Baseline A/B and log ratings~~ — done; see `docs/phases/phase_01/online/KAGGLE_LOG.md`.")
     lines.append("2. **Optional:** replace placeholder opponent decks under `notebooks/holdout/panel/`.")
     lines.append("3. **Phase 2:** deck selection (Dragapult vs Starmie) using the same holdout harness.")
+    lines.append("")
+    lines.append("Phase 1 close-out: `docs/phases/phase_01/PHASE_01_COMPLETION.md`.")
     lines.append("")
 
     return "\n".join(lines)

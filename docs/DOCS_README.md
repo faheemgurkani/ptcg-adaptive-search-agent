@@ -11,7 +11,7 @@
 ## Experiment phases (offline + online)
 
 - [`phases/README.md`](phases/README.md) — phase index
-- **Phase 1 — Baseline:** [`phases/phase_01/README.md`](phases/phase_01/README.md)
+- **Phase 1 — Baseline (complete):** [`phases/phase_01/README.md`](phases/phase_01/README.md) · [`PHASE_01_COMPLETION.md`](phases/phase_01/PHASE_01_COMPLETION.md)
   - Offline holdout: [`phases/phase_01/offline/HOLDOUT_LOG.md`](phases/phase_01/offline/HOLDOUT_LOG.md)
   - Online Kaggle: [`phases/phase_01/online/KAGGLE_LOG.md`](phases/phase_01/online/KAGGLE_LOG.md)
 
