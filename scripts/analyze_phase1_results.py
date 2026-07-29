@@ -7,8 +7,9 @@ import argparse
 import json
 from pathlib import Path
 
-NOTEBOOKS = Path(__file__).resolve().parent
-DOCS = NOTEBOOKS.parent / "docs"
+SCRIPTS = Path(__file__).resolve().parent
+REPO_ROOT = SCRIPTS.parent
+DOCS = REPO_ROOT / "docs"
 OUTPUT_DIR = DOCS / "phases" / "phase_01" / "offline"
 RESULTS_DIR = OUTPUT_DIR / "results"
 SUMMARY_LATEST = RESULTS_DIR / "phase1_holdout_summary_latest.json"

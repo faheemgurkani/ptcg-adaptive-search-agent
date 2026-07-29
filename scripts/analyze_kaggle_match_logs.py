@@ -11,10 +11,11 @@ from collections import Counter, defaultdict
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
-NOTEBOOKS = Path(__file__).resolve().parent
-DOCS = NOTEBOOKS.parent / "docs"
-DEFAULT_LOG_ROOT = NOTEBOOKS.parent / "logs" / "phase1_logs"
-DEFAULT_PANEL = NOTEBOOKS / "holdout" / "panel"
+SCRIPTS = Path(__file__).resolve().parent
+REPO_ROOT = SCRIPTS.parent
+DOCS = REPO_ROOT / "docs"
+DEFAULT_LOG_ROOT = REPO_ROOT / "logs" / "phase1_logs"
+DEFAULT_PANEL = REPO_ROOT / "notebooks" / "holdout" / "panel"
 DEFAULT_OUT = DOCS / "phases" / "phase_01" / "online"
 
 OUR_DECK_SIGNATURE = {3, 721, 722, 723, 1145, 1158, 1205, 1227, 1235}
@@ -320,7 +321,7 @@ def render_markdown(
     lines.append("- **Player slot** alternates on the ladder; infer wins from `rewards[our_player]`, not raw `rewards[0]`.")
     lines.append("- **Opponent identity** (username / submission id) is not present in logs — only deck lists and board-visible cards.")
     lines.append("- **Archetype labels** compare opponent deck-submit unique IDs to holdout panel signatures; `other_N_types` = field deck not in panel.")
-    lines.append("- Re-run: `python notebooks/analyze_kaggle_match_logs.py --rating baseline_a=433 --rating baseline_b=612`")
+    lines.append("- Re-run: `python scripts/analyze_kaggle_match_logs.py --rating baseline_a=433 --rating baseline_b=612`")
     lines.append("- Docs: `docs/phases/phase_01/online/KAGGLE_LOG.md`")
     lines.append("")
     return "\n".join(lines)

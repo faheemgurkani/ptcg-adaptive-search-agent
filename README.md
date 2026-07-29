@@ -19,7 +19,8 @@ Working paper title: *Opponent-Adaptive Search in Imperfect-Information Card Gam
 ├── main.py          # Agent entry point (required for submission)
 ├── data/            # Official bundle: data/pokemon-tcg-ai-battle/ (+ optional data/deck.csv override)
 ├── requirements.txt # Local dev dependencies
-├── notebooks/       # Merged agent workbench (see notebooks/ptcg-merged-agent-workbench.ipynb)
+├── scripts/         # CLI + shared modules (env_paths, holdout, analyzers)
+├── notebooks/       # Workbench / eval notebooks, agents/, holdout panel
 └── docs/            # Project docs — see docs/DOCS_README.md, docs/phases/
 ```
 

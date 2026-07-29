@@ -15,8 +15,13 @@ from dataclasses import dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+SCRIPTS = Path(__file__).resolve().parent
 
 try:
+    import sys
+
+    if str(SCRIPTS) not in sys.path:
+        sys.path.insert(0, str(SCRIPTS))
     from env_paths import get_paths
 
     _PATHS = get_paths()
@@ -24,7 +29,7 @@ try:
     AGENTS_DIR = _PATHS.notebooks_dir / "agents"
 except ImportError:
     REF = ROOT / "docs" / "resources" / "reference_notebooks"
-    AGENTS_DIR = Path(__file__).with_name("agents")
+    AGENTS_DIR = ROOT / "notebooks" / "agents"
 
 
 @dataclass(frozen=True)
@@ -303,7 +308,7 @@ def output_path(config: BaselineConfig) -> Path:
         try:
             return _PATHS.merged_main_py
         except NameError:
-            return Path(__file__).with_name("merged_agent_main.py")
+            return ROOT / "notebooks" / "merged_agent_main.py"
     AGENTS_DIR.mkdir(parents=True, exist_ok=True)
     return AGENTS_DIR / f"main_{config.name}.py"
 

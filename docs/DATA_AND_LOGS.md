@@ -2,7 +2,7 @@
 
 This document describes every major data and log asset used in the project: what it is, where it came from, where it lives, how it is used, and any preprocessing.
 
-Path resolution for local vs Kaggle is centralized in [`notebooks/env_paths.py`](../notebooks/env_paths.py).
+Path resolution for local vs Kaggle is centralized in [`scripts/env_paths.py`](../scripts/env_paths.py).
 
 ---
 
@@ -110,7 +110,7 @@ Fixed Phase 1 archetypes: **Alakazam, Crustle, Spidops, Starmie**.
 | **Alakazam** | Meta snapshot notebook payload **B** (`docs/resources/reference_notebooks/pok-mon-tcg-ai-battle-meta-snapshot-07-july.ipynb`) | Rule-based `main.py` from same payload |
 | **Crustle / Spidops / Starmie** | Official sample `deck.csv` (placeholder until field-accurate lists exist) | Synthetic **random** agent |
 
-Extraction script: [`notebooks/extract_holdout_panel.py`](../notebooks/extract_holdout_panel.py).
+Extraction script: [`scripts/extract_holdout_panel.py`](../scripts/extract_holdout_panel.py).
 
 ### How it is placed and used
 
@@ -125,7 +125,7 @@ notebooks/holdout/
 ```
 
 - Consumed by `run_holdout_suite()` → `kaggle_environments.make("cabt", ...)` with our baseline vs each panel opponent.
-- CLI: `python notebooks/run_phase1_holdout.py --games 40`
+- CLI: `python scripts/run_phase1_holdout.py --games 40`
 - Notebook: `notebooks/PHASE_01_BASELINE_EVAL.ipynb`
 
 ### Processing / preprocessing
@@ -207,7 +207,7 @@ logs/phase1_logs/                    # gitignored (logs/)
 ```
 
 - Folder `won` / `lost` is a human label for your outcome; the analyzer re-checks via deck signature + `rewards[our_player]`.
-- Analyzer: `python notebooks/analyze_kaggle_match_logs.py --rating baseline_a=433 --rating baseline_b=612`
+- Analyzer: `python scripts/analyze_kaggle_match_logs.py --rating baseline_a=433 --rating baseline_b=612`
 - Docs / outputs: `docs/phases/phase_01/online/` (`KAGGLE_LOG.md`, `KAGGLE_ANALYSIS.md`, `results/kaggle_log_analysis.json`)
 
 ### Processing / preprocessing
@@ -335,9 +335,10 @@ flowchart TB
 
 | Script / notebook | Reads | Writes |
 |-------------------|-------|--------|
-| `env_paths.py` | Competition bundle, decks | — (resolves paths) |
-| `extract_holdout_panel.py` | Meta notebook, sample deck | `notebooks/holdout/panel/` |
-| `run_phase1_holdout.py` | Baselines, panel, deck, `cg` | `docs/phases/phase_01/offline/results/` |
-| `analyze_phase1_results.py` | Holdout summary JSON | `offline/HOLDOUT_ANALYSIS.md` |
-| `analyze_kaggle_match_logs.py` | `logs/phase1_logs/`, panel decks | `online/KAGGLE_ANALYSIS.md`, `online/results/` |
+| `scripts/env_paths.py` | Competition bundle, decks | — (resolves paths) |
+| `scripts/extract_holdout_panel.py` | Meta notebook, sample deck | `notebooks/holdout/panel/` |
+| `scripts/build_merged_agent.py` | Reference notebooks | `notebooks/agents/`, `merged_agent_main.py`, `main.py` |
+| `scripts/run_phase1_holdout.py` | Baselines, panel, deck, `cg` | `docs/phases/phase_01/offline/results/` |
+| `scripts/analyze_phase1_results.py` | Holdout summary JSON | `offline/HOLDOUT_ANALYSIS.md` |
+| `scripts/analyze_kaggle_match_logs.py` | `logs/phase1_logs/`, panel decks | `online/KAGGLE_ANALYSIS.md`, `online/results/` |
 | Workbench `build_submission()` | `main.py`, deck, `cg` | `submission.tar.gz` |

@@ -10,8 +10,10 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-NOTEBOOKS = Path(__file__).resolve().parent
-sys.path.insert(0, str(NOTEBOOKS))
+SCRIPTS = Path(__file__).resolve().parent
+REPO_ROOT = SCRIPTS.parent
+NOTEBOOKS = REPO_ROOT / "notebooks"
+sys.path.insert(0, str(SCRIPTS))
 
 from env_paths import get_paths
 from holdout_runner import (
@@ -54,7 +56,7 @@ def main() -> None:
     cg_parent = paths.cg_dir.parent if paths.cg_dir else None
     our_deck = load_deck(paths.deck_path)
     panel_dir = NOTEBOOKS / "holdout" / "panel"
-    out_dir = NOTEBOOKS.parent / "docs" / "phases" / "phase_01" / "offline" / "results"
+    out_dir = REPO_ROOT / "docs" / "phases" / "phase_01" / "offline" / "results"
     out_dir.mkdir(parents=True, exist_ok=True)
 
     all_rows: list[dict] = []

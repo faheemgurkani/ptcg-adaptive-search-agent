@@ -48,7 +48,7 @@ logs/phase1_logs/
 ## Analyze
 
 ```bash
-python notebooks/analyze_kaggle_match_logs.py \
+python scripts/analyze_kaggle_match_logs.py \
   --rating baseline_a=507 --rating baseline_b=507
 ```
 

@@ -25,9 +25,11 @@ def is_local_venv() -> bool:
 def _detect_local_repo_root() -> Path:
     cwd = Path.cwd().resolve()
     for root in [cwd, *cwd.parents]:
-        if (root / "notebooks" / "env_paths.py").is_file():
+        if (root / "scripts" / "env_paths.py").is_file():
             return root
-        if (root / "notebooks" / "build_merged_agent.py").is_file():
+        if (root / "notebooks" / "ptcg-merged-agent-workbench.ipynb").is_file():
+            return root
+        if (root / "notebooks" / "PHASE_01_BASELINE_EVAL.ipynb").is_file():
             return root
     return cwd
 
@@ -118,7 +120,9 @@ def _resolve_notebooks_dir(repo_root: Path, input_root: Path | None) -> Path:
         if found is not None:
             candidates.insert(0, found)
     for path in candidates:
-        if (path / "env_paths.py").exists() or (path / "build_merged_agent.py").exists():
+        if path.is_dir() and any(path.glob("*.ipynb")):
+            return path
+        if (path / "build_merged_agent.py").exists() or (path / "env_paths.py").exists():
             return path
     return repo_root / "notebooks"
 
@@ -127,10 +131,18 @@ def discover_notebooks_dir() -> Path:
     candidates: list[Path] = []
     if is_kaggle():
         candidates.extend([KAGGLE_WORKING / "notebooks", KAGGLE_WORKING])
-        candidates.extend(Path(p).parent for p in glob.glob(str(KAGGLE_INPUT / "**/env_paths.py"), recursive=True))
+        candidates.extend(
+            Path(p).parent
+            for p in glob.glob(str(KAGGLE_INPUT / "**/env_paths.py"), recursive=True)
+        )
+        candidates.extend(
+            Path(p).parent
+            for p in glob.glob(str(KAGGLE_INPUT / "**/ptcg-merged-agent-workbench.ipynb"), recursive=True)
+        )
     else:
         cwd = Path.cwd().resolve()
-        candidates.extend([cwd, cwd / "notebooks", _detect_local_repo_root() / "notebooks"])
+        repo = _detect_local_repo_root()
+        candidates.extend([cwd, cwd / "notebooks", repo / "notebooks", repo / "scripts"])
 
     seen: set[str] = set()
     for path in candidates:
@@ -138,13 +150,33 @@ def discover_notebooks_dir() -> Path:
         if key in seen:
             continue
         seen.add(key)
-        if (path / "env_paths.py").exists():
+        if path.is_dir() and any(path.glob("*.ipynb")):
             return path
+        if (path / "env_paths.py").exists() and (path.parent / "notebooks").is_dir():
+            return path.parent / "notebooks"
     raise FileNotFoundError(
-        "Could not locate notebooks/env_paths.py. "
-        "Local: run from repo with notebooks/env_paths.py present. "
+        "Could not locate notebooks/. "
+        "Local: run from repo with notebooks/ present and scripts/env_paths.py. "
         "Kaggle: add this repo as an input dataset or copy notebooks/ into /kaggle/working/."
     )
+
+
+def discover_scripts_dir() -> Path:
+    """Directory containing env_paths.py and other project CLI modules."""
+    if is_kaggle():
+        for match in sorted(glob.glob(str(KAGGLE_INPUT / "**/env_paths.py"), recursive=True)):
+            return Path(match).parent
+        for candidate in (KAGGLE_WORKING / "scripts", KAGGLE_WORKING):
+            if (candidate / "env_paths.py").exists():
+                return candidate
+    repo = _detect_local_repo_root()
+    scripts = repo / "scripts"
+    if (scripts / "env_paths.py").exists():
+        return scripts
+    here = Path(__file__).resolve().parent
+    if (here / "env_paths.py").exists():
+        return here
+    raise FileNotFoundError("Could not locate scripts/env_paths.py")
 
 
 def _resolve_ref_dir(repo_root: Path, input_root: Path | None) -> Path:

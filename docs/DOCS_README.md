@@ -1,5 +1,9 @@
 # Docs
 
+## Scripts
+
+- [`../scripts/README.md`](../scripts/README.md) — CLI modules (`env_paths`, holdout, analyzers, agent build).
+
 ## Data and logs
 
 - [`DATA_AND_LOGS.md`](DATA_AND_LOGS.md) — inventory of competition data, decks, holdout panel, offline results, and Kaggle ladder replays (origin, placement, use, preprocessing).

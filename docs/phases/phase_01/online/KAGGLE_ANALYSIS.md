@@ -78,5 +78,5 @@ Log root: `/Volumes/Sandisk 2TB/Documents/Hackathons and Competitions/Kaggle - P
 - **Player slot** alternates on the ladder; infer wins from `rewards[our_player]`, not raw `rewards[0]`.
 - **Opponent identity** (username / submission id) is not present in logs — only deck lists and board-visible cards.
 - **Archetype labels** compare opponent deck-submit unique IDs to holdout panel signatures; `other_N_types` = field deck not in panel.
-- Re-run: `python notebooks/analyze_kaggle_match_logs.py --rating baseline_a=433 --rating baseline_b=612`
+- Re-run: `python scripts/analyze_kaggle_match_logs.py --rating baseline_a=433 --rating baseline_b=612`
 - Docs: `docs/phases/phase_01/online/KAGGLE_LOG.md`

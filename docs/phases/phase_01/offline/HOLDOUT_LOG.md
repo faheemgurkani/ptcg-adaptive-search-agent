@@ -9,14 +9,14 @@ Local evaluation independent of the Kaggle ladder.
 - Built **Baseline A** (`notebooks/agents/main_baseline_a.py`) — Dragapult only, no search, no opponent adaptation.
 - Built **Baseline B** (`notebooks/agents/main_baseline_b.py`) — Dragapult + UCB1 search, no opponent adaptation.
 - Holdout panel under `notebooks/holdout/panel/` — opponents: **Alakazam, Crustle, Spidops, Starmie**.
-- Implemented `run_holdout_suite()` in `notebooks/holdout_runner.py` (real `cabt` simulations via `kaggle_environments`).
+- Implemented `run_holdout_suite()` in `scripts/holdout_runner.py` (real `cabt` simulations via `kaggle_environments`).
 - Eval notebook: `notebooks/PHASE_01_BASELINE_EVAL.ipynb`.
 
 ## Run
 
 ```bash
-python notebooks/run_phase1_holdout.py --games 40
-python notebooks/analyze_phase1_results.py
+python scripts/run_phase1_holdout.py --games 40
+python scripts/analyze_phase1_results.py
 ```
 
 ## Opponent panel notes

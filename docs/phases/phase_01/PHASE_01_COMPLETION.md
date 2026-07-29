@@ -14,7 +14,7 @@
 | 1 | Submit Dragapult-only policy as **Baseline A** (no search, no opponent detection) | **Done** | Agent: `notebooks/agents/main_baseline_a.py` (`USE_SEARCH=False`, `USE_OPPONENT_ADAPTATION=False`). Ladder rating **433**. Replays under `logs/phase1_logs/baseline_a/`. |
 | 2 | Submit Dragapult + UCB1 Search as **Baseline B** | **Done** | Agent: `notebooks/agents/main_baseline_b.py` (`USE_SEARCH=True`, `USE_OPPONENT_ADAPTATION=False`). Ladder rating **612**. Replays under `logs/phase1_logs/baseline_b/`. |
 | 3 | Record ladder ratings for both | **Done** | [`online/KAGGLE_LOG.md`](online/KAGGLE_LOG.md) — A **433**, B **612** (+179). |
-| 4 | Implement `run_holdout_suite()` vs fixed panel (Alakazam, Crustle, Spidops, Starmie) | **Done** | `notebooks/holdout_runner.py` → `kaggle_environments.make("cabt")` + `env.run`. Panel: `notebooks/holdout/panel/`. Results: [`offline/results/`](offline/results/). |
+| 4 | Implement `run_holdout_suite()` vs fixed panel (Alakazam, Crustle, Spidops, Starmie) | **Done** | `scripts/holdout_runner.py` → `kaggle_environments.make("cabt")` + `env.run`. Panel: `notebooks/holdout/panel/`. Results: [`offline/results/`](offline/results/). |
 
 ---
 
@@ -26,10 +26,10 @@
 - [x] Baseline B agent built and flagged correctly
 - [x] Holdout panel dirs for all four archetypes (`deck.csv` + `main.py`)
 - [x] `run_holdout_suite()` simulates real cabt games (not stubs)
-- [x] CLI runner: `notebooks/run_phase1_holdout.py`
+- [x] CLI runner: `scripts/run_phase1_holdout.py`
 - [x] Eval notebook: `notebooks/PHASE_01_BASELINE_EVAL.ipynb`
-- [x] Offline analyzer: `notebooks/analyze_phase1_results.py`
-- [x] Online analyzer: `notebooks/analyze_kaggle_match_logs.py`
+- [x] Offline analyzer: `scripts/analyze_phase1_results.py`
+- [x] Online analyzer: `scripts/analyze_kaggle_match_logs.py`
 
 ### Offline results (fetched & documented)
 
