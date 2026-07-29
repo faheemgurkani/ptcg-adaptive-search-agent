@@ -48,16 +48,18 @@ Days 11–12 overlap Phases 4 and 5 on purpose — run search sweeps in the morn
 
 ## Phase 2 — Deck Selection & Meta Analysis (Days 3–4)
 
+**Status: COMPLETE** — committed **Dragapult** (`data/deck.csv`). See [`phases/phase_02/PHASE_02_COMPLETION.md`](phases/phase_02/PHASE_02_COMPLETION.md).
+
 **Goal:** Pick and commit to a deck with a principled justification.
 
 **Tasks:**
 
-- Run your holdout suite with both Dragapult and Starmie decks against the four key archetypes
-- Record win rates per matchup, not just overall
-- Apply the meta snapshot logic: usage share vs. actual score rate — pick the deck that has positive edge against the current field composition, not just the highest raw win rate
-- Document your deck selection decision with the actual numbers — this becomes Section 2 of your paper ("Deck Selection Under Meta Uncertainty")
+- [x] Run holdout suite with both Dragapult and Starmie decks against the four key archetypes
+- [x] Record win rates per matchup, not just overall
+- [x] Apply the meta snapshot logic: usage share vs. actual score rate — pick with field-composition edge (ladder EV primary under agent asymmetry)
+- [x] Document deck selection decision — Section 2 / [`phases/phase_02/`](phases/phase_02/)
 
-**Decision point:** Commit to one deck before Phase 3. Changing decks mid-experimentation ruins your ablation story.
+**Decision:** Commit **Dragapult** before Phase 3. Ladder EV gap vs Starmie +3.7pp (<5pp); local Starmie lead is agent-asymmetric.
 
 ---
 

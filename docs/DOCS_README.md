@@ -18,6 +18,8 @@
 - **Phase 1 — Baseline (complete):** [`phases/phase_01/README.md`](phases/phase_01/README.md) · [`PHASE_01_COMPLETION.md`](phases/phase_01/PHASE_01_COMPLETION.md)
   - Offline holdout: [`phases/phase_01/offline/HOLDOUT_LOG.md`](phases/phase_01/offline/HOLDOUT_LOG.md)
   - Online Kaggle: [`phases/phase_01/online/KAGGLE_LOG.md`](phases/phase_01/online/KAGGLE_LOG.md)
+- **Phase 2 — Deck selection (complete):** [`phases/phase_02/README.md`](phases/phase_02/README.md) · [`PHASE_02_COMPLETION.md`](phases/phase_02/PHASE_02_COMPLETION.md)
+  - Decision: **Dragapult** — [`DECK_SELECTION_DECISION.json`](phases/phase_02/DECK_SELECTION_DECISION.json)
 
 Legacy redirect: [`PHASE_01_LOG.md`](PHASE_01_LOG.md).
 

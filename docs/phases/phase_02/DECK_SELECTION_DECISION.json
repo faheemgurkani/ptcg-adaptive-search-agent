@@ -1,0 +1,112 @@
+{
+  "candidates": {
+    "dragapult": {
+      "matchup_win_rates": {
+        "alakazam": 0.075,
+        "crustle": 0.25,
+        "spidops": 0.45,
+        "starmie": 0.45
+      },
+      "pooled_equal_weight": 0.30625,
+      "weighted_score_rate": 0.24113950550177024,
+      "weighted_field_score_rate": 0.5202282742981387,
+      "weighted_edge_vs_field": -0.27908876879636846,
+      "covered_field_weight": 0.340345,
+      "matchups_used": [
+        {
+          "panel": "alakazam",
+          "meta_archetype": "alakazam_dunsparce",
+          "usage_share": 0.189559,
+          "field_score_rate": 0.513369,
+          "our_win_rate": 0.075,
+          "matchup_edge_vs_field_score": -0.43836899999999995
+        },
+        {
+          "panel": "spidops",
+          "meta_archetype": "team_rocket_spidops",
+          "usage_share": 0.012249,
+          "field_score_rate": 0.641379,
+          "our_win_rate": 0.45,
+          "matchup_edge_vs_field_score": -0.19137900000000002
+        },
+        {
+          "panel": "starmie",
+          "meta_archetype": "starmie",
+          "usage_share": 0.138537,
+          "field_score_rate": 0.518902,
+          "our_win_rate": 0.45,
+          "matchup_edge_vs_field_score": -0.06890199999999996
+        }
+      ],
+      "matchups_skipped": [
+        "crustle"
+      ]
+    },
+    "starmie": {
+      "matchup_win_rates": {
+        "alakazam": 0.05,
+        "crustle": 0.725,
+        "spidops": 0.85,
+        "starmie": 0.675
+      },
+      "pooled_equal_weight": 0.575,
+      "weighted_score_rate": 0.3331974173265363,
+      "weighted_field_score_rate": 0.5202282742981387,
+      "weighted_edge_vs_field": -0.18703085697160238,
+      "covered_field_weight": 0.340345,
+      "matchups_used": [
+        {
+          "panel": "alakazam",
+          "meta_archetype": "alakazam_dunsparce",
+          "usage_share": 0.189559,
+          "field_score_rate": 0.513369,
+          "our_win_rate": 0.05,
+          "matchup_edge_vs_field_score": -0.463369
+        },
+        {
+          "panel": "spidops",
+          "meta_archetype": "team_rocket_spidops",
+          "usage_share": 0.012249,
+          "field_score_rate": 0.641379,
+          "our_win_rate": 0.85,
+          "matchup_edge_vs_field_score": 0.20862099999999995
+        },
+        {
+          "panel": "starmie",
+          "meta_archetype": "starmie",
+          "usage_share": 0.138537,
+          "field_score_rate": 0.518902,
+          "our_win_rate": 0.675,
+          "matchup_edge_vs_field_score": 0.15609800000000007
+        }
+      ],
+      "matchups_skipped": [
+        "crustle"
+      ]
+    }
+  },
+  "ladder_ev_reference": {
+    "dragapult": {
+      "usage_share": 0.07307,
+      "field_score_rate": 0.491329,
+      "matchup_weighted_winrate": 0.4947237828039537
+    },
+    "starmie": {
+      "usage_share": 0.138537,
+      "field_score_rate": 0.518902,
+      "matchup_weighted_winrate": 0.5314006193906129
+    }
+  },
+  "ranking_by_weighted_edge": [
+    "starmie",
+    "dragapult"
+  ],
+  "committed_deck": "dragapult",
+  "decision_reasons": [
+    "Local holdout meta-weighted leader: starmie (edge -0.187, weighted score 0.333).",
+    "Ladder EV gap (Starmie \u2212 Dragapult) = +3.7% (53.1% vs 49.5%).",
+    "Ladder EV gap < 5pp and local comparison is agent-asymmetric (DragapultPolicy vs thin Starmie heuristic) \u2192 commit Dragapult so Phase 3\u20135 ablations remain on a single policy stack. Starmie's local win is noted as a sensitivity check, not an equal-pilot deck verdict.",
+    "Meta snapshot (2026-06-28) ladder EV: Starmie usage=13.9% score=51.9% EV=53.1%; Dragapult usage=7.3% score=49.1% EV=49.5%."
+  ],
+  "field_snapshot_date": "2026-06-28"
+}

@@ -1,1 +1,1 @@
-starmie: placeholder deck (official sample list). Replace deck.csv when a field-accurate starmie list is available.
+Starmie: constructed Misty/Mega Starmie list for Phase 2. Agent remains random.

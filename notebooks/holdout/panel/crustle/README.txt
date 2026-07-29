@@ -1,1 +1,1 @@
-crustle: placeholder deck (official sample list). Replace deck.csv when a field-accurate crustle list is available.
+Crustle: ladder-extracted Dwebble/Crustle list (Phase 1 logs). Agent remains random.

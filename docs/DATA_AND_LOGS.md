@@ -62,8 +62,8 @@ data/
 
 ### Origin
 
-- Primary research deck: Dragapult line from public sample / reference notebooks (card IDs such as `1158`, `721`–`723`, trainers, energy).
-- Active override: `data/deck.csv` (and often mirrored at repo-root `deck.csv` during holdout staging).
+- Primary research deck (Phase 2+): **Dragapult** at `data/decks/dragapult.csv` (ladder-extracted; synced to `data/deck.csv`).
+- Phase 2 alternate candidate: **Starmie** at `data/decks/starmie.csv` (constructed Misty/Mega Starmie list).
 - Fallback: official sample at `data/pokemon-tcg-ai-battle/sample_submission/sample_submission/deck.csv`.
 
 ### How it is placed and used

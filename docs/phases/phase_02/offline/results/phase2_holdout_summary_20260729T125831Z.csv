@@ -1,0 +1,9 @@
+baseline,opponent,game_index,wins,losses,ties,win_rate,games,candidate_deck,agent,holdout_gate,verdict
+dragapult,alakazam,summary,0,2,0,0.0,2,dragapult,baseline_a_dragapult_policy,holdout_fail,HOLD_DO_NOT_SUBMIT
+dragapult,crustle,summary,1,1,0,0.5,2,dragapult,baseline_a_dragapult_policy,holdout_fail,HOLD_DO_NOT_SUBMIT
+dragapult,spidops,summary,2,0,0,1.0,2,dragapult,baseline_a_dragapult_policy,holdout_pass,PROMOTE_CANDIDATE
+dragapult,starmie,summary,1,1,0,0.5,2,dragapult,baseline_a_dragapult_policy,holdout_fail,HOLD_DO_NOT_SUBMIT
+starmie,alakazam,summary,0,2,0,0.0,2,starmie,starmie_heuristic,holdout_fail,HOLD_DO_NOT_SUBMIT
+starmie,crustle,summary,1,1,0,0.5,2,starmie,starmie_heuristic,holdout_fail,HOLD_DO_NOT_SUBMIT
+starmie,spidops,summary,1,1,0,0.5,2,starmie,starmie_heuristic,holdout_fail,HOLD_DO_NOT_SUBMIT
+starmie,starmie,summary,1,1,0,0.5,2,starmie,starmie_heuristic,holdout_fail,HOLD_DO_NOT_SUBMIT

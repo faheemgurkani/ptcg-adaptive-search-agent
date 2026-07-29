@@ -1,0 +1,17 @@
+baseline,opponent,game_index,our_reward,elapsed_sec,candidate_deck,agent
+dragapult,alakazam,0,-1.0,0.332,dragapult,baseline_a_dragapult_policy
+dragapult,alakazam,1,-1.0,0.134,dragapult,baseline_a_dragapult_policy
+dragapult,crustle,0,-1.0,0.231,dragapult,baseline_a_dragapult_policy
+dragapult,crustle,1,1.0,0.345,dragapult,baseline_a_dragapult_policy
+dragapult,spidops,0,1.0,0.054,dragapult,baseline_a_dragapult_policy
+dragapult,spidops,1,1.0,0.34,dragapult,baseline_a_dragapult_policy
+dragapult,starmie,0,1.0,0.379,dragapult,baseline_a_dragapult_policy
+dragapult,starmie,1,-1.0,0.276,dragapult,baseline_a_dragapult_policy
+starmie,alakazam,0,-1.0,0.236,starmie,starmie_heuristic
+starmie,alakazam,1,-1.0,0.073,starmie,starmie_heuristic
+starmie,crustle,0,1.0,0.373,starmie,starmie_heuristic
+starmie,crustle,1,-1.0,0.165,starmie,starmie_heuristic
+starmie,spidops,0,1.0,0.226,starmie,starmie_heuristic
+starmie,spidops,1,-1.0,0.098,starmie,starmie_heuristic
+starmie,starmie,0,-1.0,0.051,starmie,starmie_heuristic
+starmie,starmie,1,1.0,0.241,starmie,starmie_heuristic
