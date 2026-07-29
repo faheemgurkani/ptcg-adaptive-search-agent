@@ -94,5 +94,53 @@
     "games": 40,
     "holdout_gate": "holdout_pass",
     "verdict": "PROMOTE_CANDIDATE"
+  },
+  {
+    "baseline": "baseline_merged",
+    "opponent": "alakazam",
+    "game_index": "summary",
+    "wins": 1,
+    "losses": 39,
+    "ties": 0,
+    "win_rate": 0.025,
+    "games": 40,
+    "holdout_gate": "holdout_fail",
+    "verdict": "HOLD_DO_NOT_SUBMIT"
+  },
+  {
+    "baseline": "baseline_merged",
+    "opponent": "crustle",
+    "game_index": "summary",
+    "wins": 12,
+    "losses": 28,
+    "ties": 0,
+    "win_rate": 0.3,
+    "games": 40,
+    "holdout_gate": "holdout_fail",
+    "verdict": "HOLD_DO_NOT_SUBMIT"
+  },
+  {
+    "baseline": "baseline_merged",
+    "opponent": "spidops",
+    "game_index": "summary",
+    "wins": 30,
+    "losses": 10,
+    "ties": 0,
+    "win_rate": 0.75,
+    "games": 40,
+    "holdout_gate": "holdout_pass",
+    "verdict": "PROMOTE_CANDIDATE"
+  },
+  {
+    "baseline": "baseline_merged",
+    "opponent": "starmie",
+    "game_index": "summary",
+    "wins": 24,
+    "losses": 16,
+    "ties": 0,
+    "win_rate": 0.6,
+    "games": 40,
+    "holdout_gate": "holdout_pass",
+    "verdict": "PROMOTE_CANDIDATE"
   }
 ]

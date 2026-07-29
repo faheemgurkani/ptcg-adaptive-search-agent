@@ -162,11 +162,20 @@ Generated locally by `run_phase1_holdout.py` / eval notebook — **not** from Ka
 
 ### Processing
 
-- Aggregate by baseline × opponent.
-- Compare Baseline A vs B deltas.
+- Aggregate by baseline × opponent (A / B / Merged).
+- Compare deltas: B−A (search), Merged−B (adaptation), Merged−A (full stack).
 - Gate flag: `holdout_pass` if win rate ≥ 0.52 else `holdout_fail`.
 
----
+### Canonical Phase 1 offline KPIs (40×4×3 = 480 games)
+
+| Baseline | Pooled WR | Record | Notes |
+|----------|----------:|--------|-------|
+| A | 66.2% | 106/160 | no search, no adaptation |
+| B | 63.7% | 102/160 | UCB1 only; B−A = −2.5 pp |
+| Merged (C) | 41.9% | 67/160 | UCB1 + adaptation; C−B = −21.9 pp |
+
+Source: `docs/phases/phase_01/offline/results/phase1_holdout_summary_latest.json`.
+Merged games CSV: `phase1_holdout_games_20260729T132234Z.csv`.
 
 ## 5. Online Kaggle ladder logs (replays)
 
@@ -190,7 +199,7 @@ Optional companion files (if downloaded): `<episode>-0.json` / `<episode>-1.json
 
 ### Origin
 
-- **Source:** Kaggle competition UI — download episode / replay after ladder matches for your submissions (Baseline A / Baseline B).
+- **Source:** Kaggle competition UI — download episode / replay after ladder matches for your submissions (Baseline A / B / Merged).
 - **Not** produced by local holdout.
 - Ladder **ratings** (e.g. 433 / 612) come from the UI and are entered manually into analysis (`--rating baseline_a=433`); they are **not** inside the JSON.
 
@@ -201,13 +210,16 @@ logs/phase1_logs/                    # gitignored (logs/)
 ├── baseline_a/
 │   ├── won/<episode_id>.json
 │   └── lost/<episode_id>.json
-└── baseline_b/
+├── baseline_b/
+│   ├── won/<episode_id>.json
+│   └── lost/<episode_id>.json
+└── baseline_merged/                 # add when Merged replays downloaded
     ├── won/<episode_id>.json
     └── lost/<episode_id>.json
 ```
 
 - Folder `won` / `lost` is a human label for your outcome; the analyzer re-checks via deck signature + `rewards[our_player]`.
-- Analyzer: `python scripts/analyze_kaggle_match_logs.py --rating baseline_a=433 --rating baseline_b=612`
+- Analyzer: `python scripts/analyze_kaggle_match_logs.py --rating baseline_a=507 --rating baseline_b=507`
 - Docs / outputs: `docs/phases/phase_01/online/` (`KAGGLE_LOG.md`, `KAGGLE_ANALYSIS.md`, `results/kaggle_log_analysis.json`)
 
 ### Processing / preprocessing
@@ -273,7 +285,8 @@ Local API reference for Search / Observation / game loop — not training data.
 |-------|------|
 | `notebooks/agents/main_baseline_a.py` | Phase 1 A — no search |
 | `notebooks/agents/main_baseline_b.py` | Phase 1 B — UCB1 search |
-| `notebooks/merged_agent_main.py` / `main.py` | Full / active entry agent |
+| `notebooks/agents/main_baseline_merged.py` | Phase 1 C — search + adaptation |
+| `notebooks/merged_agent_main.py` / `main.py` | Full / active entry agent (same flags as merged) |
 | `submission.tar.gz` | Packaged `main.py` + `deck.csv` + `cg/` for Kaggle upload |
 
 ### Origin

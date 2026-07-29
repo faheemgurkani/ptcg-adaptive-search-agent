@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run Phase 1 holdout suite for Baseline A and Baseline B."""
+"""Run Phase 1 holdout suite for Baseline A, B, and merged (C)."""
 
 from __future__ import annotations
 
@@ -24,6 +24,14 @@ from holdout_runner import (
     summarize_holdout,
 )
 
+BASELINE_CHOICES = ("baseline_a", "baseline_b", "baseline_merged")
+
+AGENT_PATHS = {
+    "baseline_a": NOTEBOOKS / "agents" / "main_baseline_a.py",
+    "baseline_b": NOTEBOOKS / "agents" / "main_baseline_b.py",
+    "baseline_merged": NOTEBOOKS / "agents" / "main_baseline_merged.py",
+}
+
 
 def write_csv(path: Path, rows: list[dict]) -> None:
     if not rows:
@@ -40,6 +48,24 @@ def write_csv(path: Path, rows: list[dict]) -> None:
         writer.writerows(rows)
 
 
+def merge_summaries(existing: list[dict], new_rows: list[dict]) -> list[dict]:
+    """Replace summaries for baselines present in new_rows; keep others."""
+    by_key = {(r["baseline"], r["opponent"]): r for r in existing}
+    for row in new_rows:
+        by_key[(row["baseline"], row["opponent"])] = row
+    order = ["baseline_a", "baseline_b", "baseline_merged"]
+    out: list[dict] = []
+    for baseline in order:
+        for opponent in PHASE1_OPPONENTS:
+            key = (baseline, opponent)
+            if key in by_key:
+                out.append(by_key[key])
+    for key, row in by_key.items():
+        if key[0] not in order:
+            out.append(row)
+    return out
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Phase 1 local holdout evaluation")
     parser.add_argument("--games", type=int, default=40, help="Games per opponent (default: 40)")
@@ -47,7 +73,12 @@ def main() -> None:
         "--baselines",
         nargs="+",
         default=["baseline_a", "baseline_b"],
-        choices=["baseline_a", "baseline_b"],
+        choices=list(BASELINE_CHOICES),
+    )
+    parser.add_argument(
+        "--merge-latest",
+        action="store_true",
+        help="Merge new summaries into phase1_holdout_summary_latest.json (keep other baselines)",
     )
     args = parser.parse_args()
 
@@ -58,11 +89,15 @@ def main() -> None:
     panel_dir = NOTEBOOKS / "holdout" / "panel"
     out_dir = REPO_ROOT / "docs" / "phases" / "phase_01" / "offline" / "results"
     out_dir.mkdir(parents=True, exist_ok=True)
+    latest_path = out_dir / "phase1_holdout_summary_latest.json"
 
     all_rows: list[dict] = []
     for baseline in args.baselines:
+        agent_path = AGENT_PATHS[baseline]
+        if not agent_path.exists():
+            raise FileNotFoundError(f"Missing agent file: {agent_path}")
         agent = load_baseline_agent(
-            NOTEBOOKS / "agents" / f"main_{baseline}.py",
+            agent_path,
             our_deck,
             cg_parent=cg_parent,
             repo_root=paths.repo_root,
@@ -80,18 +115,19 @@ def main() -> None:
     per_game = [r for r in all_rows if r.get("game_index") != "summary"]
     summaries = summarize_holdout(all_rows)
 
+    if args.merge_latest and latest_path.exists():
+        existing = json.loads(latest_path.read_text(encoding="utf-8"))
+        summaries = merge_summaries(existing, summaries)
+
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     write_csv(out_dir / f"phase1_holdout_games_{stamp}.csv", per_game)
     write_csv(out_dir / f"phase1_holdout_summary_{stamp}.csv", summaries)
-    (out_dir / "phase1_holdout_summary_latest.json").write_text(
-        json.dumps(summaries, indent=2) + "\n",
-        encoding="utf-8",
-    )
+    latest_path.write_text(json.dumps(summaries, indent=2) + "\n", encoding="utf-8")
 
     print(f"Wrote results to {out_dir}")
     for row in summaries:
         print(
-            f"{row['baseline']:12} vs {row['opponent']:8} "
+            f"{row['baseline']:16} vs {row['opponent']:8} "
             f"win_rate={row['win_rate']:.3f} ({row['wins']}/{row['games']})"
         )
 

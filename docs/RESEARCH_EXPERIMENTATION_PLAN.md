@@ -31,18 +31,19 @@ Days 11–12 overlap Phases 4 and 5 on purpose — run search sweeps in the morn
 
 ## Phase 1 — Baseline Establishment (Days 1–2)
 
-**Status: COMPLETE** — see [`phases/phase_01/PHASE_01_COMPLETION.md`](phases/phase_01/PHASE_01_COMPLETION.md).
+**Status: COMPLETE** (Merged ladder ratings pending) — see [`phases/phase_01/PHASE_01_COMPLETION.md`](phases/phase_01/PHASE_01_COMPLETION.md).
 
 **Goal:** Get a working submission and a reproducible evaluation harness.
 
 **Tasks:**
 
-- [x] Submit the Dragapult-only policy (no search, no opponent detection) as **Baseline A** — ladder **433**
-- [x] Submit the merged Dragapult + UCB1 Search agent as **Baseline B** — ladder **612**
-- [x] Record ladder ratings for both — [`phases/phase_01/online/KAGGLE_LOG.md`](phases/phase_01/online/KAGGLE_LOG.md)
-- [x] Implement `run_holdout_suite()` properly — fixed panel Alakazam / Crustle / Spidops / Starmie; results in [`phases/phase_01/offline/`](phases/phase_01/offline/)
+- [x] Submit the Dragapult-only policy (no search, no opponent detection) as **Baseline A** — peak **433** → ~**507**
+- [x] Submit Dragapult + UCB1 Search as **Baseline B** — peak **612** → ~**507**
+- [x] Submit Dragapult + UCB1 + adaptation as **Merged (C / V4)** — ladder ratings TBD
+- [x] Record A/B ladder ratings — [`phases/phase_01/online/KAGGLE_LOG.md`](phases/phase_01/online/KAGGLE_LOG.md)
+- [x] Implement `run_holdout_suite()` — A/B/Merged vs Alakazam / Crustle / Spidops / Starmie; [`phases/phase_01/offline/`](phases/phase_01/offline/)
 
-**Why it matters for paper:** You need clean ablation starting points. Baseline A = no search. Baseline B = search but no opponent adaptation.
+**Why it matters for paper:** Clean ablation starting points. A = no search. B = search, no adaptation. C = search + adaptation (early V4). Offline C currently **−21.9 pp** vs B on this panel.
 
 ---
 

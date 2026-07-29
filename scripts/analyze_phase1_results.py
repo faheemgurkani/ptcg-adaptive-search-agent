@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Analyze Phase 1 holdout results (Baseline A vs B)."""
+"""Analyze Phase 1 holdout results (Baseline A / B / merged)."""
 
 from __future__ import annotations
 
@@ -14,10 +14,16 @@ OUTPUT_DIR = DOCS / "phases" / "phase_01" / "offline"
 RESULTS_DIR = OUTPUT_DIR / "results"
 SUMMARY_LATEST = RESULTS_DIR / "phase1_holdout_summary_latest.json"
 
+LABELS = {
+    "baseline_a": "A (no search)",
+    "baseline_b": "B (+ search)",
+    "baseline_merged": "Merged / C (+ search + adaptation)",
+}
+
 
 def load_summary(path: Path) -> list[dict]:
     if not path.exists():
-        raise FileNotFoundError(f"No summary at {path}. Run PHASE_01_BASELINE_EVAL.ipynb first.")
+        raise FileNotFoundError(f"No summary at {path}. Run holdout first.")
     return json.loads(path.read_text(encoding="utf-8"))
 
 
@@ -26,60 +32,77 @@ def analyze(rows: list[dict]) -> str:
     for row in rows:
         by_baseline.setdefault(row["baseline"], []).append(row)
 
+    baselines = [b for b in ("baseline_a", "baseline_b", "baseline_merged") if b in by_baseline]
+    opponents = sorted({r["opponent"] for r in rows})
+
     lines = ["# Phase 1 holdout analysis", ""]
 
     # Per-matchup table
-    lines.append("## Win rate by matchup (40 games each)")
-    lines.append("")
-    lines.append("| Opponent | Baseline A | Baseline B | B − A | Search helped? |")
-    lines.append("|----------|------------|------------|-------|----------------|")
+    header = "| Opponent |"
+    sep = "|----------|"
+    for b in baselines:
+        short = {"baseline_a": "A", "baseline_b": "B", "baseline_merged": "Merged"}.get(b, b)
+        header += f" {short} |"
+        sep += "-------:|"
+    if "baseline_a" in by_baseline and "baseline_b" in by_baseline:
+        header += " B − A |"
+        sep += "------:|"
+    if "baseline_b" in by_baseline and "baseline_merged" in by_baseline:
+        header += " Merged − B |"
+        sep += "----------:|"
+    lines.extend(["## Win rate by matchup (40 games each)", "", header, sep])
 
-    opponents = sorted({r["opponent"] for r in rows})
-    deltas = []
     for opp in opponents:
-        a = next(r for r in rows if r["baseline"] == "baseline_a" and r["opponent"] == opp)
-        b = next(r for r in rows if r["baseline"] == "baseline_b" and r["opponent"] == opp)
-        da = float(a["win_rate"])
-        db = float(b["win_rate"])
-        delta = db - da
-        deltas.append(delta)
-        helped = "yes" if delta > 0 else ("no" if delta < 0 else "tie")
-        lines.append(
-            f"| {opp} | {da:.1%} ({a['wins']}/{a['games']}) | "
-            f"{db:.1%} ({b['wins']}/{b['games']}) | {delta:+.1%} | {helped} |"
-        )
+        cells = [opp]
+        rates: dict[str, float] = {}
+        for b in baselines:
+            r = next(x for x in rows if x["baseline"] == b and x["opponent"] == opp)
+            rates[b] = float(r["win_rate"])
+            cells.append(f"{rates[b]:.1%} ({r['wins']}/{r['games']})")
+        if "baseline_a" in rates and "baseline_b" in rates:
+            cells.append(f"{rates['baseline_b'] - rates['baseline_a']:+.1%}")
+        if "baseline_b" in rates and "baseline_merged" in rates:
+            cells.append(f"{rates['baseline_merged'] - rates['baseline_b']:+.1%}")
+        lines.append("| " + " | ".join(cells) + " |")
 
     lines.append("")
 
-    # Overall
     def overall(name: str) -> tuple[float, int, int]:
         subset = by_baseline[name]
         wins = sum(int(r["wins"]) for r in subset)
         games = sum(int(r["games"]) for r in subset)
         return wins / games if games else 0.0, wins, games
 
-    oa, wa, ga = overall("baseline_a")
-    ob, wb, gb = overall("baseline_b")
     lines.append("## Overall (all opponents pooled)")
     lines.append("")
-    lines.append(f"- **Baseline A:** {oa:.1%} ({wa}/{ga})")
-    lines.append(f"- **Baseline B:** {ob:.1%} ({wb}/{gb})")
-    lines.append(f"- **Search net change:** {ob - oa:+.1%}")
+    pooled: dict[str, tuple[float, int, int]] = {}
+    for b in baselines:
+        pooled[b] = overall(b)
+        rate, wins, games = pooled[b]
+        lines.append(f"- **{LABELS.get(b, b)}:** {rate:.1%} ({wins}/{games})")
+    if "baseline_a" in pooled and "baseline_b" in pooled:
+        lines.append(f"- **Search net (B − A):** {pooled['baseline_b'][0] - pooled['baseline_a'][0]:+.1%}")
+    if "baseline_b" in pooled and "baseline_merged" in pooled:
+        lines.append(
+            f"- **Adaptation net (Merged − B):** {pooled['baseline_merged'][0] - pooled['baseline_b'][0]:+.1%}"
+        )
+    if "baseline_a" in pooled and "baseline_merged" in pooled:
+        lines.append(
+            f"- **Full stack net (Merged − A):** {pooled['baseline_merged'][0] - pooled['baseline_a'][0]:+.1%}"
+        )
     lines.append("")
 
-    # Gates
     lines.append("## Holdout gates (≥52% per matchup)")
     lines.append("")
-    for baseline in ("baseline_a", "baseline_b"):
+    for baseline in baselines:
         fails = [r["opponent"] for r in by_baseline[baseline] if r["holdout_gate"] == "holdout_fail"]
-        label = "A (no search)" if baseline == "baseline_a" else "B (+ search)"
+        label = LABELS.get(baseline, baseline)
         if fails:
             lines.append(f"- **{label}** fails vs: {', '.join(fails)}")
         else:
             lines.append(f"- **{label}** passes all matchups")
     lines.append("")
 
-    # Interpretation
     lines.append("## What this means")
     lines.append("")
     lines.append(
@@ -88,17 +111,26 @@ def analyze(rows: list[dict]) -> str:
     lines.append(
         "- **Crustle / Spidops / Starmie** still use placeholder decks + random agent — treat those numbers as directional only."
     )
-    if sum(d > 0 for d in deltas) > sum(d < 0 for d in deltas):
-        lines.append("- Search wins more matchups than it loses in this run → keep search on for Phase 3 ablations.")
-    else:
-        lines.append("- Search is mixed or negative overall → still worth keeping for ablation story, but tune budget/candidates later.")
+    if "baseline_merged" in by_baseline:
+        lines.append(
+            "- **Merged (Baseline C)** = search + opponent adaptation; offline KPIs below pair with pending ladder logs."
+        )
+        if "baseline_b" in pooled and "baseline_merged" in pooled:
+            d = pooled["baseline_merged"][0] - pooled["baseline_b"][0]
+            if d > 0.01:
+                lines.append("- Adaptation on top of search improved pooled holdout vs Baseline B.")
+            elif d < -0.01:
+                lines.append("- Adaptation did not improve pooled holdout vs Baseline B in this panel.")
+            else:
+                lines.append("- Adaptation ≈ null vs Baseline B on this holdout panel (pooled).")
     lines.append("")
 
     lines.append("## Next steps")
     lines.append("")
-    lines.append("1. ~~**Kaggle:** submit Baseline A/B and log ratings~~ — done; see `docs/phases/phase_01/online/KAGGLE_LOG.md`.")
-    lines.append("2. **Optional:** replace placeholder opponent decks under `notebooks/holdout/panel/`.")
-    lines.append("3. **Phase 2:** deck selection (Dragapult vs Starmie) using the same holdout harness.")
+    lines.append("1. ~~Baselines A/B offline + ladder~~ — see `docs/phases/phase_01/`.")
+    lines.append("2. Record merged agent ladder ratings / replays when available (`online/KAGGLE_LOG.md`).")
+    lines.append("3. **Optional:** replace placeholder opponent decks under `notebooks/holdout/panel/`.")
+    lines.append("4. **Phase 2:** deck selection (Dragapult vs Starmie) using the same holdout harness.")
     lines.append("")
     lines.append("Phase 1 close-out: `docs/phases/phase_01/PHASE_01_COMPLETION.md`.")
     lines.append("")

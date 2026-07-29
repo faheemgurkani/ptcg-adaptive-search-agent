@@ -1,0 +1,13 @@
+baseline,opponent,game_index,wins,losses,ties,win_rate,games,holdout_gate,verdict
+baseline_a,alakazam,summary,8,32,0,0.2,40,holdout_fail,HOLD_DO_NOT_SUBMIT
+baseline_a,crustle,summary,31,9,0,0.775,40,holdout_pass,PROMOTE_CANDIDATE
+baseline_a,spidops,summary,34,6,0,0.85,40,holdout_pass,PROMOTE_CANDIDATE
+baseline_a,starmie,summary,33,7,0,0.825,40,holdout_pass,PROMOTE_CANDIDATE
+baseline_b,alakazam,summary,6,34,0,0.15,40,holdout_fail,HOLD_DO_NOT_SUBMIT
+baseline_b,crustle,summary,34,6,0,0.85,40,holdout_pass,PROMOTE_CANDIDATE
+baseline_b,spidops,summary,30,10,0,0.75,40,holdout_pass,PROMOTE_CANDIDATE
+baseline_b,starmie,summary,32,8,0,0.8,40,holdout_pass,PROMOTE_CANDIDATE
+baseline_merged,alakazam,summary,1,39,0,0.025,40,holdout_fail,HOLD_DO_NOT_SUBMIT
+baseline_merged,crustle,summary,12,28,0,0.3,40,holdout_fail,HOLD_DO_NOT_SUBMIT
+baseline_merged,spidops,summary,30,10,0,0.75,40,holdout_pass,PROMOTE_CANDIDATE
+baseline_merged,starmie,summary,24,16,0,0.6,40,holdout_pass,PROMOTE_CANDIDATE
