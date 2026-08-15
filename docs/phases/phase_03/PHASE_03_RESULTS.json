@@ -1,0 +1,272 @@
+{
+  "phase": 3,
+  "status": "complete",
+  "protocol": {
+    "total_games": 640,
+    "games_per_matchup": 40,
+    "committed_deck": "dragapult",
+    "deck_path": "data/decks/dragapult.csv",
+    "panel_version": "v2",
+    "search_time_budget_sec": 1.5,
+    "search_max_candidates": 8
+  },
+  "matchups": {
+    "v1": {
+      "alakazam": {
+        "win_rate": 0.075,
+        "wins": 3,
+        "losses": 37,
+        "ties": 0,
+        "games": 40,
+        "holdout_gate": "holdout_fail"
+      },
+      "crustle": {
+        "win_rate": 0.275,
+        "wins": 11,
+        "losses": 29,
+        "ties": 0,
+        "games": 40,
+        "holdout_gate": "holdout_fail"
+      },
+      "spidops": {
+        "win_rate": 0.725,
+        "wins": 29,
+        "losses": 11,
+        "ties": 0,
+        "games": 40,
+        "holdout_gate": "holdout_pass"
+      },
+      "starmie": {
+        "win_rate": 0.525,
+        "wins": 21,
+        "losses": 19,
+        "ties": 0,
+        "games": 40,
+        "holdout_gate": "holdout_pass"
+      }
+    },
+    "v2": {
+      "alakazam": {
+        "win_rate": 0.05,
+        "wins": 2,
+        "losses": 38,
+        "ties": 0,
+        "games": 40,
+        "holdout_gate": "holdout_fail"
+      },
+      "crustle": {
+        "win_rate": 0.275,
+        "wins": 11,
+        "losses": 29,
+        "ties": 0,
+        "games": 40,
+        "holdout_gate": "holdout_fail"
+      },
+      "spidops": {
+        "win_rate": 0.65,
+        "wins": 26,
+        "losses": 14,
+        "ties": 0,
+        "games": 40,
+        "holdout_gate": "holdout_pass"
+      },
+      "starmie": {
+        "win_rate": 0.325,
+        "wins": 13,
+        "losses": 27,
+        "ties": 0,
+        "games": 40,
+        "holdout_gate": "holdout_fail"
+      }
+    },
+    "v3": {
+      "alakazam": {
+        "win_rate": 0.05,
+        "wins": 2,
+        "losses": 38,
+        "ties": 0,
+        "games": 40,
+        "holdout_gate": "holdout_fail"
+      },
+      "crustle": {
+        "win_rate": 0.2,
+        "wins": 8,
+        "losses": 32,
+        "ties": 0,
+        "games": 40,
+        "holdout_gate": "holdout_fail"
+      },
+      "spidops": {
+        "win_rate": 0.7,
+        "wins": 28,
+        "losses": 11,
+        "ties": 1,
+        "games": 40,
+        "holdout_gate": "holdout_pass"
+      },
+      "starmie": {
+        "win_rate": 0.5,
+        "wins": 20,
+        "losses": 20,
+        "ties": 0,
+        "games": 40,
+        "holdout_gate": "holdout_fail"
+      }
+    },
+    "v4": {
+      "alakazam": {
+        "win_rate": 0.025,
+        "wins": 1,
+        "losses": 39,
+        "ties": 0,
+        "games": 40,
+        "holdout_gate": "holdout_fail"
+      },
+      "crustle": {
+        "win_rate": 0.275,
+        "wins": 11,
+        "losses": 29,
+        "ties": 0,
+        "games": 40,
+        "holdout_gate": "holdout_fail"
+      },
+      "spidops": {
+        "win_rate": 0.675,
+        "wins": 27,
+        "losses": 13,
+        "ties": 0,
+        "games": 40,
+        "holdout_gate": "holdout_pass"
+      },
+      "starmie": {
+        "win_rate": 0.4,
+        "wins": 16,
+        "losses": 24,
+        "ties": 0,
+        "games": 40,
+        "holdout_gate": "holdout_fail"
+      }
+    }
+  },
+  "pooled": {
+    "v1": {
+      "equal_weight_pool": 0.4,
+      "record_pool": 0.4,
+      "wins": 64,
+      "games": 160,
+      "baseline_key": "baseline_a",
+      "agent_path": "notebooks/agents/main_baseline_a.py",
+      "use_search": false,
+      "use_adaptation": false,
+      "gate_failures": [
+        "alakazam",
+        "crustle"
+      ]
+    },
+    "v2": {
+      "equal_weight_pool": 0.325,
+      "record_pool": 0.325,
+      "wins": 52,
+      "games": 160,
+      "baseline_key": "baseline_b",
+      "agent_path": "notebooks/agents/main_baseline_b.py",
+      "use_search": true,
+      "use_adaptation": false,
+      "gate_failures": [
+        "alakazam",
+        "crustle",
+        "starmie"
+      ]
+    },
+    "v3": {
+      "equal_weight_pool": 0.3625,
+      "record_pool": 0.3625,
+      "wins": 58,
+      "games": 160,
+      "baseline_key": "baseline_v3",
+      "agent_path": "notebooks/agents/main_baseline_v3.py",
+      "use_search": false,
+      "use_adaptation": true,
+      "gate_failures": [
+        "alakazam",
+        "crustle",
+        "starmie"
+      ]
+    },
+    "v4": {
+      "equal_weight_pool": 0.34375,
+      "record_pool": 0.34375,
+      "wins": 55,
+      "games": 160,
+      "baseline_key": "baseline_merged",
+      "agent_path": "notebooks/agents/main_baseline_merged.py",
+      "use_search": true,
+      "use_adaptation": true,
+      "gate_failures": [
+        "alakazam",
+        "crustle",
+        "starmie"
+      ]
+    }
+  },
+  "contrasts_pooled_pp": {
+    "search_v2_minus_v1": -7.500000000000001,
+    "adaptation_v3_minus_v1": -3.7500000000000036,
+    "adaptation_on_search_v4_minus_v2": 1.874999999999999,
+    "search_on_adaptation_v4_minus_v3": -1.874999999999999,
+    "full_stack_v4_minus_v1": -5.625000000000002
+  },
+  "contrasts_per_matchup_pp": {
+    "alakazam": {
+      "v2_minus_v1": -2.4999999999999996,
+      "v3_minus_v1": -2.4999999999999996,
+      "v4_minus_v2": -2.5,
+      "v4_minus_v3": -2.5
+    },
+    "crustle": {
+      "v2_minus_v1": 0.0,
+      "v3_minus_v1": -7.500000000000001,
+      "v4_minus_v2": 0.0,
+      "v4_minus_v3": 7.500000000000001
+    },
+    "spidops": {
+      "v2_minus_v1": -7.499999999999996,
+      "v3_minus_v1": -2.500000000000002,
+      "v4_minus_v2": 2.500000000000002,
+      "v4_minus_v3": -2.499999999999991
+    },
+    "starmie": {
+      "v2_minus_v1": -20.0,
+      "v3_minus_v1": -2.500000000000002,
+      "v4_minus_v2": 7.500000000000001,
+      "v4_minus_v3": -9.999999999999998
+    }
+  },
+  "cross_phase_v1_vs_v2": {
+    "v1": {
+      "phase1_panel_v1_pooled": 0.662,
+      "phase3_panel_v2_pooled": 0.4,
+      "panel_delta_pp": -26.200000000000003
+    },
+    "v2": {
+      "phase1_panel_v1_pooled": 0.637,
+      "phase3_panel_v2_pooled": 0.325,
+      "panel_delta_pp": -31.2
+    },
+    "v4": {
+      "phase1_panel_v1_pooled": 0.419,
+      "phase3_panel_v2_pooled": 0.34375,
+      "panel_delta_pp": -7.524999999999999
+    }
+  },
+  "findings": [
+    "V1 (pure policy) is the strongest offline configuration on panel v2 (40.0% pooled).",
+    "Search (V2\u2212V1) hurts pooled performance by 7.5 pp; largest regression vs Starmie (\u221220.0 pp).",
+    "Adaptation alone (V3\u2212V1) hurts pooled by 3.8 pp; Crustle/stall hypothesis fails (\u22127.5 pp).",
+    "Full system V4 (34.4% pooled) does not beat V1; interaction effects (V4\u2212V2, V4\u2212V3) are \u00b11.9 pp.",
+    "All versions fail vs Alakazam (rule-based opponent).",
+    "Phase 1 panel v1 numbers are not comparable; cross-phase deltas reflect panel hardness change.",
+    "Kaggle submission remains Phase 2 commitment: Baseline A (V1) + Dragapult deck."
+  ],
+  "verdict": "Neither search nor adaptation improves the committed Dragapult stack offline on panel v2."
+}
