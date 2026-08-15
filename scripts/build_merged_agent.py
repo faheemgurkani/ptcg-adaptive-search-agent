@@ -53,6 +53,12 @@ BASELINES = {
         use_opponent_adaptation=False,
         doc="Baseline B — Dragapult + UCB1 search (no opponent adaptation).",
     ),
+    "baseline_v3": BaselineConfig(
+        name="baseline_v3",
+        use_search=False,
+        use_opponent_adaptation=True,
+        doc="Baseline V3 — Dragapult + opponent adaptation (no search).",
+    ),
     "merged": BaselineConfig(
         name="merged",
         use_search=True,
