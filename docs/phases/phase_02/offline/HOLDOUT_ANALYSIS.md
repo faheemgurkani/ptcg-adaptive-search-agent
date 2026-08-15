@@ -4,8 +4,8 @@
 
 | Candidate | Alakazam | Crustle | Spidops | Starmie | Equal-weight pool |
 |-----------|----------|---------|---------|---------|-------------------|
-| dragapult | 7.5% (3/40) | 25.0% (10/40) | 45.0% (18/40) | 45.0% (18/40) | 30.6% |
-| starmie | 5.0% (2/40) | 72.5% (29/40) | 85.0% (34/40) | 67.5% (27/40) | 57.5% |
+| dragapult | 2.5% (1/40) | 25.0% (10/40) | 77.5% (31/40) | 50.0% (20/40) | 38.8% |
+| starmie | 2.5% (1/40) | 67.5% (27/40) | 82.5% (33/40) | 65.0% (26/40) | 54.4% |
 
 ## Meta-weighted edge (usage share × matchup)
 
@@ -13,14 +13,14 @@ Weights from meta snapshot field chart. Panel rows without a meta mapping (curre
 
 | Candidate | Weighted score | Field score (usage-weighted) | Edge vs field | Coverage |
 |-----------|----------------|------------------------------|---------------|----------|
-| dragapult | 24.1% | 52.0% | -27.9% | 34.0% |
-| starmie | 33.3% | 52.0% | -18.7% | 34.0% |
+| dragapult | 24.5% | 52.0% | -27.5% | 34.0% |
+| starmie | 30.8% | 52.0% | -21.2% | 34.0% |
 
-### Matchup-level edges (winner candidate detail)
+### Matchup-level edges (committed deck detail)
 
-- vs **alakazam** (alakazam_dunsparce): our 7.5% vs field score 51.3% (usage 19.0%) → matchup edge -43.8%
-- vs **spidops** (team_rocket_spidops): our 45.0% vs field score 64.1% (usage 1.2%) → matchup edge -19.1%
-- vs **starmie** (starmie): our 45.0% vs field score 51.9% (usage 13.9%) → matchup edge -6.9%
+- vs **alakazam** (alakazam_dunsparce): our 2.5% vs field score 51.3% (usage 19.0%) → matchup edge -48.8%
+- vs **spidops** (team_rocket_spidops): our 77.5% vs field score 64.1% (usage 1.2%) → matchup edge +13.4%
+- vs **starmie** (starmie): our 50.0% vs field score 51.9% (usage 13.9%) → matchup edge -1.9%
 
 ## Ladder EV reference (meta snapshot, not local holdout)
 
@@ -31,7 +31,7 @@ Weights from meta snapshot field chart. Panel rows without a meta mapping (curre
 
 **Committed deck: `dragapult`**
 
-- Local holdout meta-weighted leader: starmie (edge -0.187, weighted score 0.333).
+- Local holdout meta-weighted leader: starmie (edge -0.212, weighted score 0.308).
 - Ladder EV gap (Starmie − Dragapult) = +3.7% (53.1% vs 49.5%).
 - Ladder EV gap < 5pp and local comparison is agent-asymmetric (DragapultPolicy vs thin Starmie heuristic) → commit Dragapult so Phase 3–5 ablations remain on a single policy stack. Starmie's local win is noted as a sensitivity check, not an equal-pilot deck verdict.
 - Meta snapshot (2026-06-28) ladder EV: Starmie usage=13.9% score=51.9% EV=53.1%; Dragapult usage=7.3% score=49.1% EV=49.5%.
