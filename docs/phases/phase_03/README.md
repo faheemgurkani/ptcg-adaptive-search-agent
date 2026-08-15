@@ -1,6 +1,6 @@
 # Phase 3 — Ablation study
 
-**Status:** in progress — see [`PHASE_03_COMPLETION.md`](PHASE_03_COMPLETION.md)
+**Status: COMPLETE** — see [`PHASE_03_COMPLETION.md`](PHASE_03_COMPLETION.md)
 
 **Goal:** Isolate search vs adaptation on committed Dragapult deck (panel v2).
 
