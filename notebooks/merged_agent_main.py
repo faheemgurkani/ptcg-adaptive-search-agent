@@ -32,6 +32,8 @@ POLICY_CHOOSE_OK = 0
 POLICY_CHOOSE_FAIL = 0
 POLICY_NON_FALLBACK = 0
 POLICY_LAST_ERROR = ""
+SEARCH_SIMULATE_OK = 0
+SEARCH_SIMULATE_FAIL = 0
 
 import os
 import sys
@@ -895,7 +897,7 @@ class DragapultPolicy:
         if len(scores) >= 1:
             # Select in descending order of score
             sorted_scores = sorted(enumerate(scores), key=lambda x: x[1], reverse=True)
-            for i in range(select.maxCount):
+            for i in range(len(sorted_scores)):
                 # If the score is negative, do not select it if skipping is possible
                 if (sorted_scores[i][1] >= 0
                     or select.minCount > i
@@ -1111,18 +1113,23 @@ def rollout_turn(sid, cur_obs, your_index):
 
 
 def simulate_action(obs, action):
+    global SEARCH_SIMULATE_OK, SEARCH_SIMULATE_FAIL
     try:
         sbi = _search_begin_hidden(obs)
         nxt = _unwrap_search(sbi)
         if nxt is None:
+            SEARCH_SIMULATE_FAIL += 1
             return -float("inf")
         ar = search_step(nxt.searchId, [action])
         stepped = _unwrap_search(ar)
         if stepped is None:
+            SEARCH_SIMULATE_FAIL += 1
             return -float("inf")
         cur = rollout_turn(stepped.searchId, stepped.observation, obs.current.yourIndex)
+        SEARCH_SIMULATE_OK += 1
         return evaluate_state(cur)
     except Exception:
+        SEARCH_SIMULATE_FAIL += 1
         return -float("inf")
     finally:
         try:

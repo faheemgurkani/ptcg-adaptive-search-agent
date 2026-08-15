@@ -277,18 +277,23 @@ def rollout_turn(sid, cur_obs, your_index):
 
 
 def simulate_action(obs, action):
+    global SEARCH_SIMULATE_OK, SEARCH_SIMULATE_FAIL
     try:
         sbi = _search_begin_hidden(obs)
         nxt = _unwrap_search(sbi)
         if nxt is None:
+            SEARCH_SIMULATE_FAIL += 1
             return -float("inf")
         ar = search_step(nxt.searchId, [action])
         stepped = _unwrap_search(ar)
         if stepped is None:
+            SEARCH_SIMULATE_FAIL += 1
             return -float("inf")
         cur = rollout_turn(stepped.searchId, stepped.observation, obs.current.yourIndex)
+        SEARCH_SIMULATE_OK += 1
         return evaluate_state(cur)
     except Exception:
+        SEARCH_SIMULATE_FAIL += 1
         return -float("inf")
     finally:
         try:
@@ -416,11 +421,15 @@ my_deck = [int(csv[i]) for i in range(60)]
         "            do_switch = True\n",
     )
     body = body.replace(
-        "            elif o.type == OptionType.ATTACK:\n"
-        "                score = o.attackId\n",
-        "            elif o.type == OptionType.ATTACK:\n"
-        "                score = (20000 + o.attackId) if can_main_attack else o.attackId\n",
-    )
+            "            elif o.type == OptionType.ATTACK:\n"
+            "                score = o.attackId\n",
+            "            elif o.type == OptionType.ATTACK:\n"
+            "                score = (20000 + o.attackId) if can_main_attack else o.attackId\n",
+        )
+    body = body.replace(
+            "            for i in range(select.maxCount):\n",
+            "            for i in range(len(sorted_scores)):\n",
+        )
 
     header = textwrap.dedent(
         f'''
@@ -458,6 +467,8 @@ my_deck = [int(csv[i]) for i in range(60)]
         POLICY_CHOOSE_FAIL = 0
         POLICY_NON_FALLBACK = 0
         POLICY_LAST_ERROR = ""
+        SEARCH_SIMULATE_OK = 0
+        SEARCH_SIMULATE_FAIL = 0
         '''
     ).strip("\n")
 
