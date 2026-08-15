@@ -411,12 +411,16 @@ my_deck = [int(csv[i]) for i in range(60)]
     end = agent_src.index("    return output\n") + len("    return output\n")
     body = textwrap.indent(agent_src[start:end], "    ")
     body = body.replace(
-        "        damage = 200\n",
-        "        damage = 200\n"
-        "        if _opponent_is_crustle_wall(obs, my_index):\n"
-        "            damage = max(120, damage - 40)\n"
-        "        if _opponent_is_water_deck(obs, my_index) and len(op_state.prize) <= 3:\n"
-        "            can_main_attack = False\n",
+        "        do_switch = (not can_main_attack and (bench_attacker or (active_id != Budew and field_counts[Budew] >= 1 and state.turn >= 2)))\n",
+        "        do_switch = (not can_main_attack and (bench_attacker or (active_id != Budew and field_counts[Budew] >= 1 and state.turn >= 2)))\n"
+        "        if USE_OPPONENT_ADAPTATION and _opponent_is_crustle_wall(obs, my_index) and active_id == Budew:\n"
+        "            do_switch = True\n",
+    )
+    body = body.replace(
+        "            elif o.type == OptionType.ATTACK:\n"
+        "                score = o.attackId\n",
+        "            elif o.type == OptionType.ATTACK:\n"
+        "                score = (20000 + o.attackId) if can_main_attack else o.attackId\n",
     )
 
     header = textwrap.dedent(
@@ -427,7 +431,9 @@ my_deck = [int(csv[i]) for i in range(60)]
         import math
         import os
         import random
+        import sys
         import time
+        import traceback
         from collections import defaultdict
 
         from cg.api import (
@@ -436,8 +442,9 @@ my_deck = [int(csv[i]) for i in range(60)]
         )
 
         _SEARCH_OK = False
+        search_end = lambda: None
         try:
-            from cg.api import search_begin, search_step
+            from cg.api import search_begin, search_step, search_end
             _SEARCH_OK = True
         except Exception:
             pass
@@ -446,8 +453,12 @@ my_deck = [int(csv[i]) for i in range(60)]
         USE_OPPONENT_ADAPTATION = {config.use_opponent_adaptation!r}
         SEARCH_TIME_BUDGET = 1.5
         SEARCH_MAX_CANDIDATES = 8
-        OPP_WATER = {{721, 722, 723}}
+        OPP_WATER = {{721, 722, 723, 360, 361, 1030, 1031}}
         OPP_CRUSTLE = {{344, 345}}
+        POLICY_CHOOSE_OK = 0
+        POLICY_CHOOSE_FAIL = 0
+        POLICY_NON_FALLBACK = 0
+        POLICY_LAST_ERROR = ""
         '''
     ).strip("\n")
 
@@ -482,18 +493,17 @@ my_deck = [int(csv[i]) for i in range(60)]
                 self.obs = obs
 
             def choose(self) -> list[int]:
+                global pre_turn_log, current_turn_log, prize, bench_attacker
+                global can_main_attack, can_switch, can_attack, can_energy_attach, use_support
                 obs = self.obs
         '''
     )
-
-    rollout_start = exp.index("def rollout_turn(sid, cur_obs, your_index):")
-    search = exp[rollout_start:exp.index("def agent(obs_dict: dict) -> list[int]:")]
-    search = search.replace("AdvancedPolicy", "DragapultPolicy")
 
     agent_wrapper = textwrap.dedent(
         '''
 
         def agent(obs_dict: dict) -> list[int]:
+            global POLICY_CHOOSE_OK, POLICY_CHOOSE_FAIL, POLICY_NON_FALLBACK, POLICY_LAST_ERROR
             try:
                 obs = to_observation_class(obs_dict)
             except Exception:
@@ -502,23 +512,42 @@ my_deck = [int(csv[i]) for i in range(60)]
             if obs.select is None:
                 return my_deck
 
+            n = len(obs.select.option)
+            fallback = list(range(min(max(1, obs.select.minCount), n))) if n else [0]
             try:
                 ordered = SEARCH_ALGO(obs_dict, obs)
                 if ordered is None:
                     ordered = DragapultPolicy(obs).choose()
-                n = len(obs.select.option)
                 ordered = [i for i in ordered if 0 <= i < n]
                 if not ordered:
-                    return list(range(min(max(1, obs.select.minCount), n)))
+                    print("policy returned empty action list", file=sys.stderr)
+                    return fallback
                 k = max(min(obs.select.maxCount, n), min(max(1, obs.select.minCount), n))
-                return ordered[:k]
-            except Exception:
-                n = len(obs.select.option)
-                return list(range(min(max(1, obs.select.minCount), n)))
+                chosen = ordered[:k]
+                POLICY_CHOOSE_OK += 1
+                if chosen != fallback:
+                    POLICY_NON_FALLBACK += 1
+                return chosen
+            except Exception as exc:
+                POLICY_CHOOSE_FAIL += 1
+                POLICY_LAST_ERROR = f"{type(exc).__name__}: {exc}"
+                traceback.print_exc(file=sys.stderr)
+                return fallback
         '''
     )
 
-    return header + "\n\n" + pre_agent + opponent + body + "\n\n" + EVALUATE_STATE + "\n\n" + search + agent_wrapper
+    return (
+        header
+        + "\n\n"
+        + pre_agent
+        + opponent
+        + body
+        + "\n\n"
+        + EVALUATE_STATE
+        + "\n\n"
+        + SEARCH_IMPL
+        + agent_wrapper
+    )
 
 
 def output_path(config: BaselineConfig) -> Path:
