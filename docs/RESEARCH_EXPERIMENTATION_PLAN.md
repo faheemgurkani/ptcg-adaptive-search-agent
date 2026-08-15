@@ -62,6 +62,17 @@ Days 11–12 overlap Phases 4 and 5 on purpose — run search sweeps in the morn
 
 **Decision:** Commit **Dragapult** before Phase 3. Ladder EV gap vs Starmie +3.7pp (<5pp); local Starmie lead is agent-asymmetric.
 
+**Holdout panel v2:** Before Phase 2, Crustle/Spidops/Starmie opponent decks were upgraded (ladder Crustle; constructed Spidops/Starmie). Phase 1 canonical numbers used **panel v1** (placeholder decks). **Do not compare Phase 1 and Phase 2 win rates directly** (e.g. Baseline A 66.2% vs Phase 2 Dragapult 38.8% reflects panel hardness, not agent regression).
+
+**Phase 2 canonical offline (panel v2, 40 games/matchup):**
+
+| Candidate | Alakazam | Crustle | Spidops | Starmie | Pool |
+|-----------|----------|---------|---------|---------|------|
+| Dragapult | 2.5% | 25.0% | 77.5% | 50.0% | 38.8% |
+| Starmie | 2.5% | 67.5% | 82.5% | 65.0% | 54.4% |
+
+Meta-weighted edge: Dragapult −27.5pp, Starmie −21.2pp. Ladder EV: Starmie 53.1% vs Dragapult 49.5%.
+
 ---
 
 ## Phase 3 — Ablation Study (Days 5–9)

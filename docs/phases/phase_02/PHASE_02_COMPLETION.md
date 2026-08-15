@@ -22,4 +22,8 @@
 
 **Committed deck: Dragapult.**
 
-Local holdout favors Starmie on equal-weight and usage-weighted scores, but the Starmie pilot is a thin heuristic while Dragapult uses the full `DragapultPolicy`. Ladder EV (equal-pilot field data) favors Starmie by only **+3.7pp** (< 5pp threshold). Commitment prioritizes a single policy stack for Phase 3–5 ablations; Starmie's local lead is retained as a sensitivity finding.
+Local holdout (panel v2) favors Starmie on equal-weight (54.4% vs 38.8%) and usage-weighted scores (−21.2pp vs −27.5pp edge), but the Starmie pilot is a thin heuristic while Dragapult uses the full `DragapultPolicy`. Ladder EV (equal-pilot field data) favors Starmie by only **+3.7pp** (< 5pp threshold). Commitment prioritizes a single policy stack for Phase 3–5 ablations; Starmie's local lead is retained as a sensitivity finding.
+
+## Panel version note
+
+Phase 1 canonical runs used **panel v1** (placeholder Crustle/Spidops/Starmie decks). Phase 2+ uses **panel v2** (upgraded lists). Baseline A pooled **66.2%** (Phase 1) vs Dragapult **38.8%** (Phase 2, same policy) is **not** comparable across phases — see [`phase_01/offline/HOLDOUT_LOG.md`](../phase_01/offline/HOLDOUT_LOG.md) and [`offline/HOLDOUT_LOG.md`](offline/HOLDOUT_LOG.md).
