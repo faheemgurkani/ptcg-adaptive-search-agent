@@ -148,17 +148,59 @@ def build_payload(rows: list[dict]) -> dict:
             for opp, d in per_matchup_contrasts.items()
         },
         "cross_phase_v1_vs_v2": cross_phase,
-        "findings": [
-            "V1 (pure policy) is the strongest offline configuration on panel v2 (40.0% pooled).",
-            "Search (V2−V1) hurts pooled performance by 7.5 pp; largest regression vs Starmie (−20.0 pp).",
-            "Adaptation alone (V3−V1) hurts pooled by 3.8 pp; Crustle/stall hypothesis fails (−7.5 pp).",
-            "Full system V4 (34.4% pooled) does not beat V1; interaction effects (V4−V2, V4−V3) are ±1.9 pp.",
-            "All versions fail vs Alakazam (rule-based opponent).",
-            "Phase 1 panel v1 numbers are not comparable; cross-phase deltas reflect panel hardness change.",
-            "Kaggle submission remains Phase 2 commitment: Baseline A (V1) + Dragapult deck.",
-        ],
-        "verdict": "Neither search nor adaptation improves the committed Dragapult stack offline on panel v2.",
+        "findings": _findings(versions, pooled, contrasts, matchups),
+        "verdict": _verdict(versions, pooled, contrasts),
     }
+
+
+def _pct(rate: float) -> str:
+    return f"{rate:.1%}"
+
+
+def _pp(delta: float | None) -> str:
+    return "n/a" if delta is None else f"{delta * 100:+.1f} pp"
+
+
+def _findings(versions, pooled, contrasts, matchups) -> list[str]:
+    out: list[str] = []
+    if "v1" in pooled:
+        best = max(versions, key=lambda v: pooled[v]["record_pool"])
+        out.append(
+            f"{best.upper()} is the strongest offline configuration on panel v2 "
+            f"({_pct(pooled[best]['record_pool'])} pooled, {pooled[best]['wins']}/{pooled[best]['games']})."
+        )
+    if contrasts.get("search_v2_minus_v1") is not None:
+        out.append(f"Search (V2−V1) is {_pp(contrasts['search_v2_minus_v1'])} pooled.")
+    if contrasts.get("adaptation_v3_minus_v1") is not None:
+        crustle = None
+        if "v1" in matchups and "v3" in matchups:
+            crustle = matchups["v3"]["crustle"]["win_rate"] - matchups["v1"]["crustle"]["win_rate"]
+        extra = f"; Crustle {_pp(crustle)}" if crustle is not None else ""
+        out.append(f"Adaptation (V3−V1) is {_pp(contrasts['adaptation_v3_minus_v1'])} pooled{extra}.")
+    if contrasts.get("full_stack_v4_minus_v1") is not None:
+        out.append(f"Full stack (V4−V1) is {_pp(contrasts['full_stack_v4_minus_v1'])} pooled.")
+    if "v1" in matchups:
+        ala = matchups["v1"]["alakazam"]["win_rate"]
+        out.append(f"Alakazam remains the hardest cell (V1 {_pct(ala)}).")
+    out.append(
+        "choose() now runs (POLICY_CHOOSE_FAIL=0); Phase 1–3 stub numbers are not comparable."
+    )
+    out.append("Kaggle submission: strongest offline variant + Dragapult deck.")
+    return out
+
+
+def _verdict(versions, pooled, contrasts) -> str:
+    if "v1" not in pooled:
+        return "Incomplete ablation."
+    best = max(versions, key=lambda v: pooled[v]["record_pool"])
+    search = contrasts.get("search_v2_minus_v1")
+    adapt = contrasts.get("adaptation_v3_minus_v1")
+    bits = [f"{best.upper()} leads at {_pct(pooled[best]['record_pool'])} pooled."]
+    if search is not None:
+        bits.append("Search does not improve on the repaired policy." if search <= 0 else "Search helps.")
+    if adapt is not None:
+        bits.append("Adaptation does not improve on the repaired policy." if adapt <= 0 else "Adaptation helps.")
+    return " ".join(bits)
 
 
 def render_markdown(payload: dict) -> str:
@@ -195,6 +237,9 @@ def render_markdown(payload: dict) -> str:
         cm = p["contrasts_per_matchup_pp"][opp]
         cells = [opp]
         for v in VERSION_ORDER:
+            if v not in p["matchups"]:
+                cells.append("—")
+                continue
             m = p["matchups"][v][opp]
             cells.append(f"{m['win_rate']:.1%} ({m['wins']}/{m['games']})")
         cells.extend(
@@ -245,10 +290,11 @@ def render_markdown(payload: dict) -> str:
         f"- **Starmie (search / tactical):** V2 − V1 = {cm['starmie']['v2_minus_v1']:+.1f} pp "
         f"({p['matchups']['v1']['starmie']['win_rate']:.1%} → {p['matchups']['v2']['starmie']['win_rate']:.1%}) — search **hurts**"
     )
-    lines.append(
-        f"- **Alakazam (rule-based):** all versions ≤7.5%; V4 worst at "
-        f"{p['matchups']['v4']['alakazam']['win_rate']:.1%}"
-    )
+    ala_bits = []
+    for v in VERSION_ORDER:
+        if v in p["matchups"]:
+            ala_bits.append(f"{v.upper()} {p['matchups'][v]['alakazam']['win_rate']:.1%}")
+    lines.append(f"- **Alakazam (rule-based):** {', '.join(ala_bits)}")
 
     lines.extend(["", "## Cross-phase reference (panel v1 vs v2 — not directly comparable)", ""])
     lines.append("| Version | Phase 1 pool (v1) | Phase 3 pool (v2) | Δ (v2−v1 panel)* |")
@@ -266,11 +312,7 @@ def render_markdown(payload: dict) -> str:
         "> Does opponent-adaptive heuristic search outperform a static rule-based policy?"
     )
     lines.append("")
-    lines.append(
-        "**On panel v2 offline: No.** V1 (static policy) beats V2, V3, and V4 on pooled win rate. "
-        "Search and adaptation each **reduce** performance; the Crustle adaptation hook is counterproductive. "
-        "Online ladder shows A≈B at ~507 (null search effect), consistent with offline search regression."
-    )
+    lines.append(f"**On panel v2 offline (repaired policy):** {p['verdict']}")
 
     lines.extend(["", "## Findings summary", ""])
     for f in p["findings"]:
@@ -281,11 +323,10 @@ def render_markdown(payload: dict) -> str:
             "",
             "## Caveats",
             "",
-            "- Panel **v2**; not comparable to Phase 1 panel v1 without explicit labeling.",
+            "- Panel **v2**; Phase 1 panel v1 used sample-water stand-ins and is not comparable.",
             "- Crustle/Spidops/Starmie opponents use random agents; Alakazam is rule-based.",
-            "- Phase 2 deck-selection run reported Dragapult at 38.8% pooled (same V1 policy); "
-            "Phase 3 canonical ablation run: **40.0%** — run-to-run variance on panel v2.",
-            "- Phase 1 Merged C (early V4) on panel v1: 41.9% — not comparable to Phase 3 V4 (34.4% on v2).",
+            "- `choose()` scoping is fixed; POLICY_CHOOSE_FAIL=0 on this run. Pre-fix 35–40% numbers were first-option stubs.",
+            "- Holdout search budget is `PTCG_SEARCH_TIME_BUDGET` (0.3s); submission default remains 1.5s.",
             "",
         ]
     )

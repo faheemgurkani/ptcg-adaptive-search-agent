@@ -1,0 +1,17 @@
+baseline,opponent,game_index,wins,losses,ties,win_rate,games,choose_ok,choose_fail,non_fallback,search_ok,search_fail,last_error,version,baseline_key,use_search,use_adaptation,committed_deck,panel_version,holdout_gate,verdict
+v1,alakazam,summary,23,17,0,0.575,40,12062,0,7414,0,0,,v1,baseline_a,False,False,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+v1,crustle,summary,39,1,0,0.975,40,12062,0,7414,0,0,,v1,baseline_a,False,False,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+v1,spidops,summary,40,0,0,1.0,40,12062,0,7414,0,0,,v1,baseline_a,False,False,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+v1,starmie,summary,40,0,0,1.0,40,12062,0,7414,0,0,,v1,baseline_a,False,False,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+v2,alakazam,summary,4,36,0,0.1,40,6929,0,4834,2011692,0,,v2,baseline_b,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+v2,crustle,summary,19,21,0,0.475,40,6929,0,4834,2011692,0,,v2,baseline_b,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+v2,spidops,summary,10,30,0,0.25,40,6929,0,4834,2011692,0,,v2,baseline_b,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+v2,starmie,summary,12,28,0,0.3,40,6929,0,4834,2011692,0,,v2,baseline_b,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+v3,alakazam,summary,26,14,0,0.65,40,13090,0,8370,0,0,,v3,baseline_v3,False,True,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+v3,crustle,summary,38,2,0,0.95,40,13090,0,8370,0,0,,v3,baseline_v3,False,True,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+v3,spidops,summary,39,1,0,0.975,40,13090,0,8370,0,0,,v3,baseline_v3,False,True,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+v3,starmie,summary,39,1,0,0.975,40,13090,0,8370,0,0,,v3,baseline_v3,False,True,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+v4,alakazam,summary,2,38,0,0.05,40,7371,0,4990,1568428,0,,v4,baseline_merged,True,True,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+v4,crustle,summary,16,24,0,0.4,40,7371,0,4990,1568428,0,,v4,baseline_merged,True,True,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+v4,spidops,summary,12,27,1,0.3,40,7371,0,4990,1568428,0,,v4,baseline_merged,True,True,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+v4,starmie,summary,12,28,0,0.3,40,7371,0,4990,1568428,0,,v4,baseline_merged,True,True,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT

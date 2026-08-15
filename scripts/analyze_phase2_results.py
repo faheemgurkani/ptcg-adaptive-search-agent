@@ -126,12 +126,15 @@ def analyze(rows: list[dict]) -> tuple[str, dict, str]:
             decision_reason_parts.append(
                 "Ladder EV gap ≥ 5pp in Starmie's favor → commit Starmie on field-composition grounds."
             )
+        elif local_winner == "dragapult":
+            decision_reason_parts.append(
+                "Ladder EV gap < 5pp and local holdout favors Dragapult after the "
+                "choose() scoping fix → commit Dragapult."
+            )
         else:
             decision_reason_parts.append(
-                "Ladder EV gap < 5pp and local comparison is agent-asymmetric "
-                "(DragapultPolicy vs thin Starmie heuristic) → commit Dragapult so Phase 3–5 "
-                "ablations remain on a single policy stack. Starmie's local win is noted as a "
-                "sensitivity check, not an equal-pilot deck verdict."
+                "Ladder EV gap < 5pp; commit Dragapult so Phase 3–5 ablations remain "
+                "on a single policy stack."
             )
     else:
         decision_reason_parts.append(
