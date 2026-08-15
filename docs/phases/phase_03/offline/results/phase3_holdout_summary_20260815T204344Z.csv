@@ -1,0 +1,17 @@
+baseline,opponent,game_index,wins,losses,ties,win_rate,games,version,baseline_key,use_search,use_adaptation,committed_deck,panel_version,holdout_gate,verdict
+v1,alakazam,summary,3,37,0,0.075,40,v1,baseline_a,False,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+v1,crustle,summary,11,29,0,0.275,40,v1,baseline_a,False,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+v1,spidops,summary,29,11,0,0.725,40,v1,baseline_a,False,False,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+v1,starmie,summary,21,19,0,0.525,40,v1,baseline_a,False,False,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+v2,alakazam,summary,2,38,0,0.05,40,v2,baseline_b,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+v2,crustle,summary,11,29,0,0.275,40,v2,baseline_b,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+v2,spidops,summary,26,14,0,0.65,40,v2,baseline_b,True,False,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+v2,starmie,summary,13,27,0,0.325,40,v2,baseline_b,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+v3,alakazam,summary,2,38,0,0.05,40,v3,baseline_v3,False,True,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+v3,crustle,summary,8,32,0,0.2,40,v3,baseline_v3,False,True,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+v3,spidops,summary,28,11,1,0.7,40,v3,baseline_v3,False,True,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+v3,starmie,summary,20,20,0,0.5,40,v3,baseline_v3,False,True,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+v4,alakazam,summary,1,39,0,0.025,40,v4,baseline_merged,True,True,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+v4,crustle,summary,11,29,0,0.275,40,v4,baseline_merged,True,True,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+v4,spidops,summary,27,13,0,0.675,40,v4,baseline_merged,True,True,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+v4,starmie,summary,16,24,0,0.4,40,v4,baseline_merged,True,True,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
