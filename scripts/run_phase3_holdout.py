@@ -154,27 +154,19 @@ def main() -> None:
             row["committed_deck"] = "dragapult"
             row["panel_version"] = "v2"
         all_rows.extend(rows)
+        summaries = flush()
+        print(f"Finished {version} ({cfg['label']})", flush=True)
+        for row in summaries:
+            if row["version"] != version:
+                continue
+            print(
+                f"{row['version']:3} vs {row['opponent']:8} "
+                f"win_rate={row['win_rate']:.3f} ({row['wins']}/{row['games']}) "
+                f"[{row['holdout_gate']}]",
+                flush=True,
+            )
 
-    per_game = [r for r in all_rows if r.get("game_index") != "summary"]
-    summaries = summarize_holdout(all_rows)
-    for row in summaries:
-        version = row["baseline"]
-        cfg = ABLATION_VARIANTS[version]
-        row["version"] = version
-        row["baseline_key"] = cfg["baseline_key"]
-        row["use_search"] = cfg["search"]
-        row["use_adaptation"] = cfg["adaptation"]
-        row["committed_deck"] = "dragapult"
-        row["panel_version"] = "v2"
-
-    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    write_csv(out_dir / f"phase3_holdout_games_{stamp}.csv", per_game)
-    write_csv(out_dir / f"phase3_holdout_summary_{stamp}.csv", summaries)
-    (out_dir / "phase3_holdout_summary_latest.json").write_text(
-        json.dumps(summaries, indent=2) + "\n",
-        encoding="utf-8",
-    )
-
+    summaries = flush()
     print(f"Deck: {deck_path}")
     print(f"Panel: v2 — {panel_dir}")
     print(f"Wrote results to {out_dir}")
