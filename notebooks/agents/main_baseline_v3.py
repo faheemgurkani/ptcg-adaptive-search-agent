@@ -4,7 +4,9 @@ from __future__ import annotations
 import math
 import os
 import random
+import sys
 import time
+import traceback
 from collections import defaultdict
 
 from cg.api import (
@@ -13,8 +15,9 @@ from cg.api import (
 )
 
 _SEARCH_OK = False
+search_end = lambda: None
 try:
-    from cg.api import search_begin, search_step
+    from cg.api import search_begin, search_step, search_end
     _SEARCH_OK = True
 except Exception:
     pass
@@ -23,8 +26,12 @@ USE_SEARCH = False
 USE_OPPONENT_ADAPTATION = True
 SEARCH_TIME_BUDGET = 1.5
 SEARCH_MAX_CANDIDATES = 8
-OPP_WATER = {721, 722, 723}
+OPP_WATER = {721, 722, 723, 360, 361, 1030, 1031}
 OPP_CRUSTLE = {344, 345}
+POLICY_CHOOSE_OK = 0
+POLICY_CHOOSE_FAIL = 0
+POLICY_NON_FALLBACK = 0
+POLICY_LAST_ERROR = ""
 
 import os
 import sys
@@ -342,6 +349,8 @@ class DragapultPolicy:
         self.obs = obs
 
     def choose(self) -> list[int]:
+        global pre_turn_log, current_turn_log, prize, bench_attacker
+        global can_main_attack, can_switch, can_attack, can_energy_attach, use_support
         obs = self.obs
         state = obs.current
         select = obs.select
@@ -404,10 +413,6 @@ class DragapultPolicy:
         evolve_dreepy_count = 0
         can_evolve_drakloak = False
         damage = 200
-        if _opponent_is_crustle_wall(obs, my_index):
-            damage = max(120, damage - 40)
-        if _opponent_is_water_deck(obs, my_index) and len(op_state.prize) <= 3:
-            can_main_attack = False
         for card in my_state.active:
             if card == None:
                 continue
@@ -668,6 +673,8 @@ class DragapultPolicy:
 
         no_draw = (my_state.deckCount <= 8)  # Whether to restrict actions that reduce the deck
         do_switch = (not can_main_attack and (bench_attacker or (active_id != Budew and field_counts[Budew] >= 1 and state.turn >= 2)))
+        if USE_OPPONENT_ADAPTATION and _opponent_is_crustle_wall(obs, my_index) and active_id == Budew:
+            do_switch = True
         effect_card_id = 0 if select.effect == None else select.effect.id
         context_card_id = 0 if select.contextCard == None else select.contextCard.id
     
@@ -880,7 +887,7 @@ class DragapultPolicy:
                 else:
                     score = -1
             elif o.type == OptionType.ATTACK:
-                score = o.attackId
+                score = (20000 + o.attackId) if can_main_attack else o.attackId
 
             scores.append(score)
 
@@ -952,15 +959,16 @@ def evaluate_state(obs):
             op_dmg = 270 if assumed_energies >= 2 else 130 if assumed_energies >= 1 else 0
         elif pokemon.id == 674:
             op_dmg = 210 if assumed_energies >= 3 else 0
-        elif pokemon.id == 721:
-            op_dmg = 130 if assumed_energies >= 3 else 0
-        elif pokemon.id == 723:
-            op_dmg = 240 if assumed_energies >= 4 else 0
+        elif pokemon.id in (721, 723, 360, 361, 1030, 1031):
+            op_dmg = 240 if assumed_energies >= 2 else 130 if assumed_energies >= 1 else 0
         elif pokemon.id == Dragapult_ex:
             op_dmg = 200 if assumed_energies >= 2 else 0
         else:
             op_dmg = assumed_energies * 40
         op_max_damage = max(op_max_damage, op_dmg)
+
+    if is_crustle and me.active and me.active[0] is not None and me.active[0].id == 235:
+        val -= 8000.0
 
     if me.active and me.active[0] is not None:
         my_active = me.active[0]
@@ -980,74 +988,190 @@ def evaluate_state(obs):
         val -= 10000.0
     return val
 
+def _unwrap_search(result):
+    if result is None:
+        return None
+    if getattr(result, "observation", None) is not None and hasattr(result, "searchId"):
+        return result
+    nested = getattr(result, "state", None)
+    if nested is not None and getattr(nested, "observation", None) is not None:
+        return nested
+    return None
+
+
+def _fill_ids(n, pool):
+    n = int(n or 0)
+    if n <= 0:
+        return []
+    src = [int(x) for x in pool if x is not None]
+    if not src:
+        src = list(my_deck) if my_deck else [1, 119]
+    if len(src) >= n:
+        return random.sample(src, n) if len(src) > n else list(src)
+    out = list(src)
+    pad = [1, 119]
+    i = 0
+    while len(out) < n:
+        out.append(pad[i % len(pad)])
+        i += 1
+    return out
+
+
+def _known_player_ids(player):
+    ids = []
+    for zone in (getattr(player, "active", None), getattr(player, "bench", None),
+                 getattr(player, "hand", None), getattr(player, "discard", None)):
+        for card in zone or []:
+            if card is None:
+                continue
+            cid = getattr(card, "id", None)
+            if cid is not None:
+                ids.append(int(cid))
+            for energy in getattr(card, "energies", None) or []:
+                eid = energy if isinstance(energy, int) else getattr(energy, "id", None)
+                if eid is not None:
+                    ids.append(int(eid))
+    return ids
+
+
+def _remaining_from_list(known):
+    remaining = list(my_deck)
+    for kid in known:
+        try:
+            remaining.remove(int(kid))
+        except ValueError:
+            pass
+    return remaining
+
+
+def _search_begin_hidden(obs):
+    state = obs.current
+    yi = state.yourIndex
+    me = state.players[yi]
+    op = state.players[1 - yi]
+    remaining = _remaining_from_list(_known_player_ids(me))
+    your_deck = _fill_ids(getattr(me, "deckCount", 0), remaining or my_deck)
+    prize_n = len(me.prize or [])
+    if prize and len(prize) >= prize_n:
+        your_prize = [int(x) for x in prize[:prize_n]]
+    else:
+        face = []
+        for card in me.prize or []:
+            cid = getattr(card, "id", None) if card is not None else None
+            if cid is not None:
+                face.append(int(cid))
+        your_prize = _fill_ids(prize_n, face or remaining or my_deck)
+    opponent_deck = _fill_ids(getattr(op, "deckCount", 0), [119, 1])
+    opponent_prize = _fill_ids(len(op.prize or []), [1])
+    opponent_hand = _fill_ids(getattr(op, "handCount", 0), [1, 119])
+    opponent_active = []
+    active = op.active or []
+    if len(active) > 0 and active[0] is None:
+        opponent_active = [119]
+    return search_begin(
+        obs,
+        your_deck=your_deck,
+        your_prize=your_prize,
+        opponent_deck=opponent_deck,
+        opponent_prize=opponent_prize,
+        opponent_hand=opponent_hand,
+        opponent_active=opponent_active,
+    )
+
+
 def rollout_turn(sid, cur_obs, your_index):
     steps = 0
     while steps < 20:
-        if cur_obs.current.result is not None and cur_obs.current.result != -1: break
-        if cur_obs.current.yourIndex != your_index: break
+        if cur_obs.current is None:
+            break
+        if cur_obs.current.result is not None and cur_obs.current.result != -1:
+            break
+        if cur_obs.current.yourIndex != your_index:
+            break
+        if cur_obs.select is None:
+            break
         if cur_obs.select.context != SelectContext.MAIN:
             sub = DragapultPolicy(cur_obs).choose()
             sel = sub[: max(1, cur_obs.select.minCount)]
         else:
             nxt = DragapultPolicy(cur_obs).choose()
-            if not nxt: break
+            if not nxt:
+                break
             sel = [nxt[0]]
             if cur_obs.select.option[nxt[0]].type == OptionType.END:
                 search_step(sid, sel)
                 break
         ar = search_step(sid, sel)
-        if getattr(ar, "error", 0) != 0 or ar.state is None: break
-        cur_obs, sid = ar.state.observation, ar.state.searchId
+        nxt = _unwrap_search(ar)
+        if nxt is None:
+            break
+        cur_obs, sid = nxt.observation, nxt.searchId
         steps += 1
     return cur_obs
 
 
 def simulate_action(obs, action):
-    my_p = obs.current.players[obs.current.yourIndex]
-    yd = random.sample(my_deck, getattr(my_p, "deckCount", 60))
-    sbi = search_begin(obs, your_deck=yd)
-    if getattr(sbi, "error", 0) != 0 or sbi.state is None: return -float('inf')
-    ar = search_step(sbi.state.searchId, [action])
-    if getattr(ar, "error", 0) != 0 or ar.state is None: return -float('inf')
-    cur = rollout_turn(ar.state.searchId, ar.state.observation, obs.current.yourIndex)
-    return evaluate_state(cur)
+    try:
+        sbi = _search_begin_hidden(obs)
+        nxt = _unwrap_search(sbi)
+        if nxt is None:
+            return -float("inf")
+        ar = search_step(nxt.searchId, [action])
+        stepped = _unwrap_search(ar)
+        if stepped is None:
+            return -float("inf")
+        cur = rollout_turn(stepped.searchId, stepped.observation, obs.current.yourIndex)
+        return evaluate_state(cur)
+    except Exception:
+        return -float("inf")
+    finally:
+        try:
+            search_end()
+        except Exception:
+            pass
+
 
 def SEARCH_ALGO(obs_dict, obs):
-    if not (_SEARCH_OK and USE_SEARCH): return None
+    if not (_SEARCH_OK and USE_SEARCH):
+        return None
     select = obs.select
-    if select is None or select.context != SelectContext.MAIN: return None
+    if select is None or select.context != SelectContext.MAIN:
+        return None
     t0 = time.time()
-    
+    budget = float(os.environ.get("PTCG_SEARCH_TIME_BUDGET", SEARCH_TIME_BUDGET))
+
     base_order = DragapultPolicy(obs).choose()
     candidates = base_order[:SEARCH_MAX_CANDIDATES]
-    if not candidates: return None
-    if len(candidates) == 1: return [candidates[0]] + [i for i in base_order if i != candidates[0]]
-    
-    import math
+    if not candidates:
+        return None
+    if len(candidates) == 1:
+        return [candidates[0]] + [i for i in base_order if i != candidates[0]]
+
     visits = {a: 0 for a in candidates}
     total_val = {a: 0.0 for a in candidates}
-    
+
     try:
-        # Phase 1: Exploration
         for a in candidates:
-            if time.time() - t0 > SEARCH_TIME_BUDGET: break
+            if time.time() - t0 > budget:
+                break
             val = simulate_action(obs, a)
-            if val != -float('inf'):
+            if val != -float("inf"):
                 visits[a] += 1
                 total_val[a] += val
-                
-        # Phase 2: UCB1
-        while time.time() - t0 < SEARCH_TIME_BUDGET:
+
+        while time.time() - t0 < budget:
             total_visits = sum(visits.values())
-            if total_visits == 0: break
-            
-            valid_scores = [total_val[a]/visits[a] for a in candidates if visits[a] > 0]
-            if not valid_scores: break
+            if total_visits == 0:
+                break
+            valid_scores = [total_val[a] / visits[a] for a in candidates if visits[a] > 0]
+            if not valid_scores:
+                break
             min_s = min(valid_scores)
             max_s = max(valid_scores)
-            if max_s == min_s: max_s = min_s + 1.0
-            
-            best_ucb, best_a = -float('inf'), candidates[0]
+            if max_s == min_s:
+                max_s = min_s + 1.0
+
+            best_ucb, best_a = -float("inf"), candidates[0]
             for a in candidates:
                 if visits[a] == 0:
                     best_a = a
@@ -1058,20 +1182,22 @@ def SEARCH_ALGO(obs_dict, obs):
                 if ucb > best_ucb:
                     best_ucb = ucb
                     best_a = a
-                    
+
             val = simulate_action(obs, best_a)
-            if val != -float('inf'):
+            if val != -float("inf"):
                 visits[best_a] += 1
                 total_val[best_a] += val
-                
-        best_action = max(candidates, key=lambda a: total_val[a]/visits[a] if visits[a] > 0 else -float('inf'))
+
+        best_action = max(
+            candidates,
+            key=lambda a: total_val[a] / visits[a] if visits[a] > 0 else -float("inf"),
+        )
         return [best_action] + [i for i in base_order if i != best_action]
-    except Exception: return None
-
-
-
+    except Exception:
+        return None
 
 def agent(obs_dict: dict) -> list[int]:
+    global POLICY_CHOOSE_OK, POLICY_CHOOSE_FAIL, POLICY_NON_FALLBACK, POLICY_LAST_ERROR
     try:
         obs = to_observation_class(obs_dict)
     except Exception:
@@ -1080,16 +1206,24 @@ def agent(obs_dict: dict) -> list[int]:
     if obs.select is None:
         return my_deck
 
+    n = len(obs.select.option)
+    fallback = list(range(min(max(1, obs.select.minCount), n))) if n else [0]
     try:
         ordered = SEARCH_ALGO(obs_dict, obs)
         if ordered is None:
             ordered = DragapultPolicy(obs).choose()
-        n = len(obs.select.option)
         ordered = [i for i in ordered if 0 <= i < n]
         if not ordered:
-            return list(range(min(max(1, obs.select.minCount), n)))
+            print("policy returned empty action list", file=sys.stderr)
+            return fallback
         k = max(min(obs.select.maxCount, n), min(max(1, obs.select.minCount), n))
-        return ordered[:k]
-    except Exception:
-        n = len(obs.select.option)
-        return list(range(min(max(1, obs.select.minCount), n)))
+        chosen = ordered[:k]
+        POLICY_CHOOSE_OK += 1
+        if chosen != fallback:
+            POLICY_NON_FALLBACK += 1
+        return chosen
+    except Exception as exc:
+        POLICY_CHOOSE_FAIL += 1
+        POLICY_LAST_ERROR = f"{type(exc).__name__}: {exc}"
+        traceback.print_exc(file=sys.stderr)
+        return fallback

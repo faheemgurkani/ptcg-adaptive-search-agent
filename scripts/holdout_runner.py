@@ -221,6 +221,18 @@ def run_holdout_suite(
                 "games": total,
             }
         )
+    mod = getattr(our_agent, "_module", None)
+    if mod is not None and hasattr(mod, "POLICY_CHOOSE_OK"):
+        assert_policy_healthy(mod, context=f"{baseline_name} after holdout")
+        health = policy_health(mod)
+        for row in rows:
+            if row.get("game_index") == "summary":
+                row.update(health)
+        print(
+            f"policy health {baseline_name}: ok={health['choose_ok']} "
+            f"fail={health['choose_fail']} non_fallback={health['non_fallback']}",
+            file=sys.stderr,
+        )
     return rows
 
 
