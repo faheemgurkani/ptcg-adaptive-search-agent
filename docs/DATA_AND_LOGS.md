@@ -108,7 +108,7 @@ Fixed archetypes: **Alakazam, Crustle, Spidops, Starmie**.
 | Version | Used in | Crustle / Spidops / Starmie decks |
 |---------|---------|-----------------------------------|
 | **v1** | Phase 1 canonical offline runs | Official sample `deck.csv` (placeholder) |
-| **v2** | Phase 2 deck selection; Phase 3+ planned | Ladder Crustle; constructed Spidops + Starmie |
+| **v2** | Phase 2 deck selection; Phase 3 ablation (complete) | Ladder Crustle; constructed Spidops + Starmie |
 
 Alakazam unchanged across versions. Example: Baseline A pooled **66.2%** (Phase 1, v1) vs Dragapult **38.8%** (Phase 2, v2, same policy) — panel hardness change, not agent regression.
 
@@ -403,5 +403,9 @@ flowchart TB
 | `scripts/build_merged_agent.py` | Reference notebooks | `notebooks/agents/`, `merged_agent_main.py`, `main.py` |
 | `scripts/run_phase1_holdout.py` | Baselines, panel, deck, `cg` | `docs/phases/phase_01/offline/results/` |
 | `scripts/analyze_phase1_results.py` | Holdout summary JSON | `offline/HOLDOUT_ANALYSIS.md` |
+| `scripts/run_phase2_holdout.py` | Dragapult/Starmie decks, panel v2 | `docs/phases/phase_02/offline/results/` |
+| `scripts/analyze_phase2_results.py` | Phase 2 summary + meta snapshot | `DECK_SELECTION_DECISION.json`, `HOLDOUT_ANALYSIS.md` |
+| `scripts/run_phase3_holdout.py` | V1–V4 agents, Dragapult deck, panel v2 | `docs/phases/phase_03/offline/results/` |
+| `scripts/analyze_phase3_results.py` | Phase 3 summary JSON | `PHASE_03_RESULTS.json`, `HOLDOUT_ANALYSIS.md` |
 | `scripts/analyze_kaggle_match_logs.py` | `logs/phase1_logs/`, panel decks | `online/KAGGLE_ANALYSIS.md`, `online/results/` |
 | Workbench `build_submission()` | `main.py`, deck, `cg` | `submission.tar.gz` |
