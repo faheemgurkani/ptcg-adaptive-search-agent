@@ -77,20 +77,18 @@ Meta-weighted edge: Dragapult −27.5pp, Starmie −21.2pp. Ladder EV: Starmie 5
 
 ## Phase 3 — Ablation Study (Days 5–9)
 
+**Status: COMPLETE** — see [`phases/phase_03/PHASE_03_COMPLETION.md`](phases/phase_03/PHASE_03_COMPLETION.md).
+
 **Goal:** Isolate the contribution of each component. This is the heart of the paper.
 
-Run four agent configurations against your fixed holdout panel:
-
-| Agent Version | Search | Opponent Detection | Expected Role |
+| Agent Version | Search | Opponent Detection | Offline pool (panel v2) |
 |---|---|---|---|
-| V1 | ✗ | ✗ | Pure Dragapult baseline |
-| V2 | ✓ UCB1 | ✗ | Search contribution |
-| V3 | ✗ | ✓ Adaptive weights | Adaptation contribution |
-| V4 | ✓ UCB1 | ✓ Adaptive weights | Full system |
+| V1 | ✗ | ✗ | **40.0%** |
+| V2 | ✓ UCB1 | ✗ | 32.5% (−7.5 pp vs V1) |
+| V3 | ✗ | ✓ Adaptive weights | 36.2% (−3.8 pp vs V1) |
+| V4 | ✓ UCB1 | ✓ Adaptive weights | 34.4% (−5.6 pp vs V1) |
 
-Measure per matchup win rate, not just overall. You want to show that opponent detection helps specifically against Crustle/stall matchups, and search helps in tactical decision points.
-
-**This is your Table 1 in the paper.**
+**Key finding:** Neither search nor adaptation helps on panel v2; Crustle adaptation hypothesis fails (V3−V1 = −7.5 pp). V1 remains strongest offline.
 
 ---
 
