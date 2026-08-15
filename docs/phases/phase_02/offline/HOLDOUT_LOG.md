@@ -44,6 +44,25 @@ Source: [`results/phase2_holdout_summary_latest.json`](results/phase2_holdout_su
 
 **Ladder EV (meta snapshot 2026-06-28):** Starmie 53.1% vs Dragapult 49.5% (**+3.7pp**).
 
+## Holdout panel (panel v2)
+
+| Opponent | Deck | Agent |
+|----------|------|-------|
+| Alakazam | Meta snapshot payload B | Rule-based (unchanged from Phase 1) |
+| Crustle | Ladder-extracted Dwebble/Crustle list | Random |
+| Spidops | Constructed Team Rocket Tarountula/Spidops | Random |
+| Starmie | Constructed Misty/Mega Starmie | Random |
+
+## Cross-phase discontinuity
+
+Phase 2 used **panel v2** (upgraded opponent decks). Phase 1 canonical runs used **panel v1** (placeholder sample decks for Crustle/Spidops/Starmie).
+
+| Metric | Phase 1 Baseline A (panel v1) | Phase 2 Dragapult (panel v2) | Same agent? |
+|--------|------------------------------:|-----------------------------:|-------------|
+| Pooled win rate | **66.2%** (106/160) | **38.8%** (62/160) | Yes (`DragapultPolicy`, no search) |
+
+The **−27.4 pp** gap is a panel-version effect, not evidence that the agent regressed. Do not mix Phase 1 ablation numbers with Phase 2 deck-selection numbers in a single table without labeling the panel version.
+
 ## Decision
 
 **Commit Dragapult.** See [`../DECK_SELECTION_DECISION.json`](../DECK_SELECTION_DECISION.json) and [`HOLDOUT_ANALYSIS.md`](HOLDOUT_ANALYSIS.md).

@@ -25,7 +25,7 @@ python scripts/run_phase1_holdout.py --games 40 --baselines baseline_merged --me
 python scripts/analyze_phase1_results.py
 ```
 
-## Opponent panel notes
+## Opponent panel notes (panel v1 — Phase 1 canonical run)
 
 | Opponent | Deck | Agent |
 |----------|------|-------|
@@ -34,7 +34,9 @@ python scripts/analyze_phase1_results.py
 | Spidops | Placeholder (official sample list) | Random agent |
 | Starmie | Placeholder (official sample list) | Random agent |
 
-Replace Crustle / Spidops / Starmie `deck.csv` files when field-accurate lists are available. Comparisons remain valid as long as all baselines use the same panel.
+**Panel v2 (Phase 2+):** Crustle → ladder-extracted Dwebble/Crustle list; Spidops → constructed Team Rocket list; Starmie → constructed Misty/Mega Starmie list (agents still random except Alakazam). Phase 2 deck-selection runs used panel v2.
+
+**Cross-phase warning:** Phase 1 numbers below are **not directly comparable** to Phase 2 holdout win rates (e.g. Baseline A pooled 66.2% vs Phase 2 Dragapult 38.8% on the same policy). Compare only within the same panel version.
 
 ## Results (canonical — 40 games/opponent)
 
