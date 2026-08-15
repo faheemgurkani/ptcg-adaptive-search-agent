@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -82,6 +83,8 @@ def main() -> None:
         choices=list(ABLATION_VARIANTS.keys()),
     )
     args = parser.parse_args()
+
+    os.environ.setdefault("PTCG_SEARCH_TIME_BUDGET", "0.3")
 
     paths = get_paths()
     paths.ensure_dirs()

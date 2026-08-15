@@ -18,7 +18,9 @@ DEFAULT_LOG_ROOT = REPO_ROOT / "logs" / "phase1_logs"
 DEFAULT_PANEL = REPO_ROOT / "notebooks" / "holdout" / "panel"
 DEFAULT_OUT = DOCS / "phases" / "phase_01" / "online"
 
-OUR_DECK_SIGNATURE = {3, 721, 722, 723, 1145, 1158, 1205, 1227, 1235}
+OUR_AGENT_NAME = "Muhammad Faheem"
+OUR_DECK_SIGNATURE = {119, 120, 121}  # Dreepy / Drakloak / Dragapult-ex
+SAMPLE_WATER_SIGNATURE = {3, 721, 722, 723, 1145, 1158, 1205, 1227, 1235}
 
 
 @dataclass
@@ -77,20 +79,29 @@ def classify_opponent_deck(unique_ids: list[int] | None, signatures: dict[str, s
             best_name = name
     if best_score >= 0.45:
         return best_name, best_score
-    if len(deck & OUR_DECK_SIGNATURE) >= 5:
-        return "mirror_dragapult_water", best_score
+    if len(deck & OUR_DECK_SIGNATURE) >= 3:
+        return "mirror_dragapult", best_score
+    if len(deck & SAMPLE_WATER_SIGNATURE) >= 5:
+        return "sample_wugtrio_water", best_score
     return f"other_{len(deck)}_types", best_score
 
 
 def infer_our_player(data: dict) -> int:
+    info = data.get("info") or {}
+    agents = info.get("Agents") or []
+    for i, agent in enumerate(agents):
+        name = agent.get("Name") if isinstance(agent, dict) else ""
+        if name == OUR_AGENT_NAME:
+            return i
     steps = data.get("steps") or []
     for pi in (0, 1):
         try:
             action = steps[1][pi].get("action")
             if isinstance(action, list) and len(action) == 60:
-                if len(set(action) & OUR_DECK_SIGNATURE) >= 5:
+                ids = set(int(x) for x in action)
+                if OUR_DECK_SIGNATURE <= ids or len(ids & OUR_DECK_SIGNATURE) >= 3:
                     return pi
-        except (IndexError, TypeError, AttributeError):
+        except (IndexError, TypeError, AttributeError, ValueError):
             continue
     rewards = data.get("rewards") or [0, 0]
     return 0 if rewards[0] >= rewards[1] else 1
