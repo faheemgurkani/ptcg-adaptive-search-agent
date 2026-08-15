@@ -87,6 +87,8 @@ def policy_health(mod: Any) -> dict[str, Any]:
 
 
 def assert_policy_healthy(mod: Any, *, context: str) -> None:
+    if not hasattr(mod, "POLICY_CHOOSE_OK"):
+        return
     health = policy_health(mod)
     if health["choose_fail"] > 0:
         raise RuntimeError(
@@ -148,7 +150,10 @@ def play_game(
 ) -> float:
     if seed is not None:
         random.seed(seed)
-    env = make("cabt", configuration={"decks": [our_deck, opp_deck]})
+    configuration: dict[str, Any] = {"decks": [our_deck, opp_deck]}
+    if seed is not None:
+        configuration["seed"] = int(seed)
+    env = make("cabt", configuration=configuration)
     env.run([our_agent, opp_agent])
     return float(env.steps[-1][0].reward)
 
@@ -172,7 +177,7 @@ def run_holdout_suite(
         summary[key] = {"wins": 0, "losses": 0, "ties": 0}
 
         for game_idx in range(games):
-            seed = seed_base + hash((baseline_name, opponent, game_idx)) % 10_000_000
+            seed = paired_seed(seed_base, opponent, game_idx)
             t0 = time.time()
             reward = play_game(
                 our_agent,
@@ -182,6 +187,9 @@ def run_holdout_suite(
                 seed=seed,
             )
             elapsed = time.time() - t0
+            mod = getattr(our_agent, "_module", None)
+            if game_idx == 0 and opponent == opponents[0] and mod is not None:
+                assert_policy_healthy(mod, context=f"{baseline_name} vs {opponent} game 0")
             if reward > 0:
                 summary[key]["wins"] += 1
             elif reward < 0:
