@@ -29,18 +29,18 @@ Source: [`results/phase2_holdout_summary_latest.json`](results/phase2_holdout_su
 
 | Candidate | Opponent | Win rate | Record | Gate (≥52%) |
 |-----------|----------|---------:|--------|-------------|
-| dragapult | alakazam | 0.075 | 3/40 | fail |
+| dragapult | alakazam | 0.025 | 1/40 | fail |
 | dragapult | crustle | 0.250 | 10/40 | fail |
-| dragapult | spidops | 0.450 | 18/40 | fail |
-| dragapult | starmie | 0.450 | 18/40 | fail |
-| starmie | alakazam | 0.050 | 2/40 | fail |
-| starmie | crustle | 0.725 | 29/40 | pass |
-| starmie | spidops | 0.850 | 34/40 | pass |
-| starmie | starmie | 0.675 | 27/40 | pass |
+| dragapult | spidops | 0.775 | 31/40 | pass |
+| dragapult | starmie | 0.500 | 20/40 | fail |
+| starmie | alakazam | 0.025 | 1/40 | fail |
+| starmie | crustle | 0.675 | 27/40 | pass |
+| starmie | spidops | 0.825 | 33/40 | pass |
+| starmie | starmie | 0.650 | 26/40 | pass |
 
-**Equal-weight pool:** Dragapult 30.6% (49/160), Starmie 57.5% (92/160).
+**Equal-weight pool:** Dragapult 38.8% (62/160), Starmie 54.4% (87/160).
 
-**Usage-weighted edge** (Alakazam / Spidops / Starmie; Crustle excluded): Dragapult −27.9pp, Starmie −18.7pp (both negative vs field score rates — Alakazam weight dominates).
+**Usage-weighted edge** (Alakazam / Spidops / Starmie; Crustle excluded): Dragapult −27.5pp, Starmie −21.2pp (both negative vs field score rates — Alakazam weight dominates).
 
 **Ladder EV (meta snapshot 2026-06-28):** Starmie 53.1% vs Dragapult 49.5% (**+3.7pp**).
 
