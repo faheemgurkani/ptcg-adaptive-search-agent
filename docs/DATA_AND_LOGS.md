@@ -101,14 +101,27 @@ Per-opponent directory under `notebooks/holdout/panel/<name>/`:
 | `main.py` | Python agent | Opponent policy |
 | `panel_manifest.json` | JSON index | Phase 1 opponent registry |
 
-Fixed Phase 1 archetypes: **Alakazam, Crustle, Spidops, Starmie**.
+Fixed archetypes: **Alakazam, Crustle, Spidops, Starmie**.
 
-### Origin
+### Panel versions (do not mix win rates across versions)
+
+| Version | Used in | Crustle / Spidops / Starmie decks |
+|---------|---------|-----------------------------------|
+| **v1** | Phase 1 canonical offline runs | Official sample `deck.csv` (placeholder) |
+| **v2** | Phase 2 deck selection; Phase 3+ planned | Ladder Crustle; constructed Spidops + Starmie |
+
+Alakazam unchanged across versions. Example: Baseline A pooled **66.2%** (Phase 1, v1) vs Dragapult **38.8%** (Phase 2, v2, same policy) — panel hardness change, not agent regression.
+
+### Origin (current panel v2 on disk)
 
 | Opponent | Deck origin | Agent origin |
 |----------|-------------|--------------|
-| **Alakazam** | Meta snapshot notebook payload **B** (`docs/resources/reference_notebooks/pok-mon-tcg-ai-battle-meta-snapshot-07-july.ipynb`) | Rule-based `main.py` from same payload |
-| **Crustle / Spidops / Starmie** | Official sample `deck.csv` (placeholder until field-accurate lists exist) | Synthetic **random** agent |
+| **Alakazam** | Meta snapshot notebook payload **B** | Rule-based `main.py` from same payload |
+| **Crustle** | Ladder-extracted Dwebble/Crustle list (`panel/crustle/README.txt`) | Random agent |
+| **Spidops** | Constructed Team Rocket Tarountula/Spidops list | Random agent |
+| **Starmie** | Constructed Misty/Mega Starmie list | Random agent |
+
+Phase 1 canonical JSON was collected on **panel v1** (placeholder Crustle/Spidops/Starmie). See `docs/phases/phase_01/offline/HOLDOUT_LOG.md` vs `docs/phases/phase_02/offline/HOLDOUT_LOG.md`.
 
 Extraction script: [`scripts/extract_holdout_panel.py`](../scripts/extract_holdout_panel.py).
 

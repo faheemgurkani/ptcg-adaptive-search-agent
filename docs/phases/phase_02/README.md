@@ -25,3 +25,4 @@
 | List | `data/decks/dragapult.csv` (synced to `data/deck.csv`) |
 | Agent stack | `DragapultPolicy` (Baseline A/B / V1–V4) |
 | Rationale | Ladder EV gap vs Starmie only **+3.7pp**; local Starmie lead is agent-asymmetric; Phase 3–5 require one policy stack |
+| Holdout panel | **v2** (upgraded Crustle/Spidops/Starmie decks) — not comparable to Phase 1 panel v1 numbers |

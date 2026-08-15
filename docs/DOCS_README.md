@@ -20,6 +20,7 @@
   - Online Kaggle: [`phases/phase_01/online/KAGGLE_LOG.md`](phases/phase_01/online/KAGGLE_LOG.md)
 - **Phase 2 — Deck selection (complete):** [`phases/phase_02/README.md`](phases/phase_02/README.md) · [`PHASE_02_COMPLETION.md`](phases/phase_02/PHASE_02_COMPLETION.md)
   - Decision: **Dragapult** — [`DECK_SELECTION_DECISION.json`](phases/phase_02/DECK_SELECTION_DECISION.json)
+  - **Holdout panel v2** (upgraded opponent decks); Phase 1 used **panel v1** — win rates are not cross-comparable
 
 Legacy redirect: [`PHASE_01_LOG.md`](PHASE_01_LOG.md).
 
