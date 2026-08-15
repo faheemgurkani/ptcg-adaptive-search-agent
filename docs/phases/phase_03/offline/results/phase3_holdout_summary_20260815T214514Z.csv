@@ -1,0 +1,9 @@
+baseline,opponent,game_index,wins,losses,ties,win_rate,games,choose_ok,choose_fail,non_fallback,search_ok,search_fail,last_error,version,baseline_key,use_search,use_adaptation,committed_deck,panel_version,holdout_gate,verdict
+v1,alakazam,summary,26,14,0,0.65,40,11831,0,7350,0,0,,v1,baseline_a,False,False,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+v1,crustle,summary,39,1,0,0.975,40,11831,0,7350,0,0,,v1,baseline_a,False,False,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+v1,spidops,summary,39,0,1,0.975,40,11831,0,7350,0,0,,v1,baseline_a,False,False,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+v1,starmie,summary,40,0,0,1.0,40,11831,0,7350,0,0,,v1,baseline_a,False,False,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+v3,alakazam,summary,24,16,0,0.6,40,12797,0,8188,0,0,,v3,baseline_v3,False,True,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+v3,crustle,summary,33,7,0,0.825,40,12797,0,8188,0,0,,v3,baseline_v3,False,True,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+v3,spidops,summary,40,0,0,1.0,40,12797,0,8188,0,0,,v3,baseline_v3,False,True,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+v3,starmie,summary,39,1,0,0.975,40,12797,0,8188,0,0,,v3,baseline_v3,False,True,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
