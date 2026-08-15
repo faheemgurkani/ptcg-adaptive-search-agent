@@ -1,0 +1,3144 @@
+{
+  "current": [
+    {
+      "episode": 93412894,
+      "agents": [
+        "Muhammad Faheem",
+        "DeMoN_2202"
+      ],
+      "our_slot": 0,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "DeMoN_2202",
+      "id_kind": "dragapult",
+      "won": false,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 185,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 101,
+      "first_option": 101,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "41": 1,
+        "1": 1,
+        "0": 62,
+        "5": 3,
+        "7": 19,
+        "30": 5,
+        "3": 6,
+        "43": 1,
+        "8": 1,
+        "22": 1,
+        "21": 1
+      },
+      "our_board_peak": {
+        "dreepy": 2,
+        "drakloak": 3,
+        "dragapult_ex": 2
+      },
+      "last_active_energy": 0,
+      "our_prize_end": 6,
+      "opp_prize_end": 1,
+      "opp_deck_unique": [
+        6,
+        675,
+        676,
+        677,
+        678,
+        979,
+        1102,
+        1123,
+        1141,
+        1142,
+        1152,
+        1159,
+        1182,
+        1192,
+        1227,
+        1238,
+        1252
+      ],
+      "opp_top_board": [
+        [
+          979,
+          330
+        ],
+        [
+          678,
+          234
+        ],
+        [
+          676,
+          151
+        ],
+        [
+          675,
+          151
+        ],
+        [
+          677,
+          96
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "losses",
+      "cohort": "current"
+    },
+    {
+      "episode": 93413802,
+      "agents": [
+        "Ryan Offstein",
+        "Muhammad Faheem"
+      ],
+      "our_slot": 1,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "Ryan Offstein",
+      "id_kind": "dragapult",
+      "won": false,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 94,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 41,
+      "first_option": 41,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "1": 1,
+        "5": 1,
+        "0": 26,
+        "8": 1,
+        "7": 5,
+        "30": 2,
+        "3": 3,
+        "4": 2
+      },
+      "our_board_peak": {
+        "dreepy": 3,
+        "drakloak": 1,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 0,
+      "our_prize_end": 6,
+      "opp_prize_end": 2,
+      "opp_deck_unique": [
+        1,
+        73,
+        74,
+        89,
+        90,
+        93,
+        100,
+        149,
+        240,
+        343,
+        1080,
+        1086,
+        1094,
+        1097,
+        1152,
+        1174,
+        1175,
+        1182,
+        1184,
+        1191,
+        1211,
+        1227,
+        1245
+      ],
+      "opp_top_board": [
+        [
+          149,
+          137
+        ],
+        [
+          89,
+          108
+        ],
+        [
+          93,
+          100
+        ],
+        [
+          90,
+          50
+        ],
+        [
+          100,
+          50
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "losses",
+      "cohort": "current"
+    },
+    {
+      "episode": 93414757,
+      "agents": [
+        "hiroki kameyama",
+        "Muhammad Faheem"
+      ],
+      "our_slot": 1,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "hiroki kameyama",
+      "id_kind": "dragapult",
+      "won": false,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 49,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 17,
+      "first_option": 17,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "1": 1,
+        "0": 10,
+        "8": 1,
+        "7": 3,
+        "30": 1,
+        "3": 1
+      },
+      "our_board_peak": {
+        "dreepy": 1,
+        "drakloak": 0,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 0,
+      "our_prize_end": 6,
+      "opp_prize_end": 6,
+      "opp_deck_unique": [
+        3,
+        17,
+        1030,
+        1031,
+        1086,
+        1097,
+        1120,
+        1121,
+        1122,
+        1145,
+        1159,
+        1182,
+        1189,
+        1223,
+        1225,
+        1227,
+        1229
+      ],
+      "opp_top_board": [
+        [
+          1030,
+          70
+        ],
+        [
+          1031,
+          19
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "losses",
+      "cohort": "current"
+    },
+    {
+      "episode": 93415611,
+      "agents": [
+        "spekinos",
+        "Muhammad Faheem"
+      ],
+      "our_slot": 1,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "spekinos",
+      "id_kind": "dragapult",
+      "won": false,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 99,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 80,
+      "first_option": 80,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "2": 2,
+        "0": 50,
+        "30": 6,
+        "3": 5,
+        "7": 11,
+        "8": 3,
+        "5": 2,
+        "37": 1
+      },
+      "our_board_peak": {
+        "dreepy": 1,
+        "drakloak": 1,
+        "dragapult_ex": 1
+      },
+      "last_active_energy": 0,
+      "our_prize_end": 6,
+      "opp_prize_end": 1,
+      "opp_deck_unique": [
+        3,
+        721,
+        722,
+        723,
+        1145,
+        1158,
+        1205,
+        1227,
+        1235
+      ],
+      "opp_top_board": [
+        [
+          723,
+          77
+        ],
+        [
+          722,
+          15
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "losses",
+      "cohort": "current"
+    },
+    {
+      "episode": 93416534,
+      "agents": [
+        "Koh Ma2ko",
+        "Muhammad Faheem"
+      ],
+      "our_slot": 0,
+      "our_name": "Koh Ma2ko",
+      "opp_name": "Muhammad Faheem",
+      "id_kind": "dragapult",
+      "won": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 210,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 114,
+      "first_option": 22,
+      "non_first": 92,
+      "first_option_rate": 0.19298245614035087,
+      "contexts": {
+        "41": 1,
+        "1": 1,
+        "0": 44,
+        "7": 34,
+        "3": 1,
+        "8": 4,
+        "22": 2,
+        "21": 2,
+        "14": 24,
+        "5": 1
+      },
+      "our_board_peak": {
+        "dreepy": 1,
+        "drakloak": 2,
+        "dragapult_ex": 2
+      },
+      "last_active_energy": 2,
+      "our_prize_end": 2,
+      "opp_prize_end": 6,
+      "opp_deck_unique": [
+        2,
+        5,
+        119,
+        120,
+        121,
+        140,
+        184,
+        235,
+        1071,
+        1079,
+        1080,
+        1086,
+        1097,
+        1120,
+        1121,
+        1152,
+        1156,
+        1182,
+        1198,
+        1210,
+        1227,
+        1256
+      ],
+      "opp_top_board": [
+        [
+          119,
+          233
+        ],
+        [
+          120,
+          220
+        ],
+        [
+          184,
+          191
+        ],
+        [
+          140,
+          102
+        ],
+        [
+          121,
+          98
+        ],
+        [
+          235,
+          80
+        ]
+      ],
+      "non_first_samples": [
+        {
+          "action": [
+            1
+          ],
+          "nopt": 2,
+          "ctx": 0
+        },
+        {
+          "action": [
+            3
+          ],
+          "nopt": 5,
+          "ctx": 0
+        },
+        {
+          "action": [
+            3
+          ],
+          "nopt": 2,
+          "ctx": 7
+        },
+        {
+          "action": [
+            1
+          ],
+          "nopt": 6,
+          "ctx": 7
+        },
+        {
+          "action": [
+            3
+          ],
+          "nopt": 3,
+          "ctx": 7
+        },
+        {
+          "action": [
+            2
+          ],
+          "nopt": 3,
+          "ctx": 7
+        },
+        {
+          "action": [
+            2
+          ],
+          "nopt": 3,
+          "ctx": 0
+        },
+        {
+          "action": [
+            1
+          ],
+          "nopt": 3,
+          "ctx": 0
+        }
+      ],
+      "folder": "losses",
+      "cohort": "current"
+    }
+  ],
+  "last_active": [
+    {
+      "episode": 93210212,
+      "agents": [
+        "Yusuraume",
+        "Muhammad Faheem"
+      ],
+      "our_slot": 1,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "Yusuraume",
+      "id_kind": "dragapult",
+      "won": false,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 149,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 63,
+      "first_option": 63,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "1": 1,
+        "5": 3,
+        "0": 39,
+        "30": 4,
+        "7": 10,
+        "8": 1,
+        "37": 1,
+        "3": 2,
+        "22": 1,
+        "21": 1
+      },
+      "our_board_peak": {
+        "dreepy": 3,
+        "drakloak": 1,
+        "dragapult_ex": 1
+      },
+      "last_active_energy": 0,
+      "our_prize_end": 5,
+      "opp_prize_end": 3,
+      "opp_deck_unique": [
+        7,
+        104,
+        112,
+        646,
+        647,
+        648,
+        860,
+        1079,
+        1080,
+        1086,
+        1097,
+        1122,
+        1137,
+        1152,
+        1182,
+        1219,
+        1227,
+        1231,
+        1259
+      ],
+      "opp_top_board": [
+        [
+          646,
+          252
+        ],
+        [
+          112,
+          180
+        ],
+        [
+          647,
+          75
+        ],
+        [
+          648,
+          72
+        ],
+        [
+          104,
+          72
+        ],
+        [
+          860,
+          36
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "losses",
+      "cohort": "last_active_one"
+    },
+    {
+      "episode": 93285484,
+      "agents": [
+        "Muhammad Faheem",
+        "Gabriele"
+      ],
+      "our_slot": 0,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "Gabriele",
+      "id_kind": "dragapult",
+      "won": false,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 146,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 89,
+      "first_option": 89,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "41": 1,
+        "1": 1,
+        "0": 60,
+        "8": 5,
+        "7": 14,
+        "3": 3,
+        "30": 1,
+        "22": 1,
+        "21": 1,
+        "5": 1,
+        "37": 1
+      },
+      "our_board_peak": {
+        "dreepy": 2,
+        "drakloak": 1,
+        "dragapult_ex": 3
+      },
+      "last_active_energy": 5,
+      "our_prize_end": 6,
+      "opp_prize_end": 6,
+      "opp_deck_unique": [
+        11,
+        20,
+        58,
+        344,
+        345,
+        607,
+        1086,
+        1121,
+        1122,
+        1123,
+        1142,
+        1147,
+        1152,
+        1182,
+        1185,
+        1194,
+        1197,
+        1204,
+        1247
+      ],
+      "opp_top_board": [
+        [
+          345,
+          180
+        ],
+        [
+          344,
+          136
+        ],
+        [
+          58,
+          132
+        ],
+        [
+          607,
+          83
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "losses",
+      "cohort": "last_active_one"
+    },
+    {
+      "episode": 93299622,
+      "agents": [
+        "POKEN",
+        "Muhammad Faheem"
+      ],
+      "our_slot": 1,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "POKEN",
+      "id_kind": "dragapult",
+      "won": false,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 107,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 56,
+      "first_option": 56,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "1": 1,
+        "2": 1,
+        "7": 4,
+        "22": 2,
+        "21": 2,
+        "0": 33,
+        "30": 5,
+        "3": 5,
+        "5": 2,
+        "8": 1
+      },
+      "our_board_peak": {
+        "dreepy": 2,
+        "drakloak": 0,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 1,
+      "our_prize_end": 6,
+      "opp_prize_end": 1,
+      "opp_deck_unique": [
+        3,
+        11,
+        13,
+        66,
+        174,
+        305,
+        848,
+        849,
+        860,
+        861,
+        1086,
+        1087,
+        1121,
+        1122,
+        1152,
+        1174,
+        1182,
+        1225,
+        1227,
+        1229,
+        1264
+      ],
+      "opp_top_board": [
+        [
+          305,
+          114
+        ],
+        [
+          849,
+          104
+        ],
+        [
+          174,
+          92
+        ],
+        [
+          860,
+          92
+        ],
+        [
+          861,
+          47
+        ],
+        [
+          848,
+          35
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "losses",
+      "cohort": "last_active_one"
+    },
+    {
+      "episode": 93328304,
+      "agents": [
+        "Muhammad Faheem",
+        "Rintaro Moriwaki"
+      ],
+      "our_slot": 0,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "Rintaro Moriwaki",
+      "id_kind": "dragapult",
+      "won": false,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 163,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 99,
+      "first_option": 99,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "1": 2,
+        "38": 1,
+        "7": 21,
+        "0": 60,
+        "3": 1,
+        "30": 3,
+        "22": 2,
+        "21": 2,
+        "5": 2,
+        "8": 4,
+        "43": 1
+      },
+      "our_board_peak": {
+        "dreepy": 3,
+        "drakloak": 3,
+        "dragapult_ex": 1
+      },
+      "last_active_energy": 0,
+      "our_prize_end": 5,
+      "opp_prize_end": 1,
+      "opp_deck_unique": [
+        5,
+        13,
+        19,
+        66,
+        140,
+        305,
+        343,
+        741,
+        742,
+        743,
+        1079,
+        1081,
+        1086,
+        1097,
+        1129,
+        1152,
+        1182,
+        1184,
+        1197,
+        1225,
+        1231,
+        1264
+      ],
+      "opp_top_board": [
+        [
+          305,
+          285
+        ],
+        [
+          743,
+          163
+        ],
+        [
+          140,
+          157
+        ],
+        [
+          741,
+          112
+        ],
+        [
+          742,
+          93
+        ],
+        [
+          66,
+          32
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "losses",
+      "cohort": "last_active_one"
+    },
+    {
+      "episode": 93402459,
+      "agents": [
+        "Muhammad Faheem",
+        "Fernando Marciano"
+      ],
+      "our_slot": 0,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "Fernando Marciano",
+      "id_kind": "dragapult",
+      "won": false,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 201,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 99,
+      "first_option": 99,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "41": 1,
+        "1": 1,
+        "0": 57,
+        "7": 24,
+        "37": 1,
+        "43": 1,
+        "8": 4,
+        "30": 3,
+        "3": 2,
+        "22": 2,
+        "21": 2,
+        "5": 1
+      },
+      "our_board_peak": {
+        "dreepy": 2,
+        "drakloak": 2,
+        "dragapult_ex": 2
+      },
+      "last_active_energy": 1,
+      "our_prize_end": 6,
+      "opp_prize_end": 6,
+      "opp_deck_unique": [
+        1,
+        18,
+        96,
+        1094,
+        1097,
+        1118,
+        1119,
+        1122,
+        1127,
+        1137,
+        1147,
+        1167,
+        1182,
+        1201,
+        1213,
+        1221,
+        1227,
+        1252
+      ],
+      "opp_top_board": [
+        [
+          96,
+          643
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "losses",
+      "cohort": "last_active_one"
+    },
+    {
+      "episode": 92629033,
+      "agents": [
+        "Muhammad Faheem",
+        "ymdkk"
+      ],
+      "our_slot": 0,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "ymdkk",
+      "id_kind": "dragapult",
+      "won": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 25,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 19,
+      "first_option": 19,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "1": 2,
+        "0": 9,
+        "7": 6,
+        "22": 1,
+        "21": 1
+      },
+      "our_board_peak": {
+        "dreepy": 1,
+        "drakloak": 1,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 2,
+      "our_prize_end": 6,
+      "opp_prize_end": 6,
+      "opp_deck_unique": [
+        2,
+        5,
+        7,
+        112,
+        119,
+        120,
+        121,
+        140,
+        235,
+        1071,
+        1080,
+        1086,
+        1097,
+        1120,
+        1121,
+        1152,
+        1182,
+        1198,
+        1213,
+        1227,
+        1231,
+        1246
+      ],
+      "opp_top_board": [
+        [
+          235,
+          18
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "wins",
+      "cohort": "last_active_one"
+    },
+    {
+      "episode": 92970051,
+      "agents": [
+        "ROWannaGet",
+        "Muhammad Faheem"
+      ],
+      "our_slot": 1,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "ROWannaGet",
+      "id_kind": "dragapult",
+      "won": true,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 100,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 85,
+      "first_option": 85,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "1": 1,
+        "0": 51,
+        "7": 22,
+        "8": 3,
+        "30": 2,
+        "3": 2,
+        "5": 2,
+        "22": 1,
+        "21": 1
+      },
+      "our_board_peak": {
+        "dreepy": 2,
+        "drakloak": 2,
+        "dragapult_ex": 1
+      },
+      "last_active_energy": 6,
+      "our_prize_end": 6,
+      "opp_prize_end": 6,
+      "opp_deck_unique": [
+        1,
+        3,
+        8,
+        11,
+        16,
+        169,
+        190,
+        695,
+        1097,
+        1120,
+        1121,
+        1122,
+        1123,
+        1137,
+        1147,
+        1152,
+        1159,
+        1182,
+        1185,
+        1213,
+        1227,
+        1244,
+        1261
+      ],
+      "opp_top_board": [
+        [
+          695,
+          92
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "wins",
+      "cohort": "last_active_one"
+    },
+    {
+      "episode": 93167495,
+      "agents": [
+        "Chen Ken",
+        "Muhammad Faheem"
+      ],
+      "our_slot": 0,
+      "our_name": "Chen Ken",
+      "opp_name": "Muhammad Faheem",
+      "id_kind": "dragapult",
+      "won": false,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 112,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 22,
+      "first_option": 21,
+      "non_first": 1,
+      "first_option_rate": 0.9545454545454546,
+      "contexts": {
+        "1": 2,
+        "8": 1,
+        "7": 3,
+        "0": 14,
+        "3": 2
+      },
+      "our_board_peak": {
+        "dreepy": 1,
+        "drakloak": 1,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 0,
+      "our_prize_end": 6,
+      "opp_prize_end": 6,
+      "opp_deck_unique": [
+        2,
+        5,
+        119,
+        120,
+        121,
+        140,
+        184,
+        235,
+        1071,
+        1079,
+        1080,
+        1086,
+        1097,
+        1120,
+        1121,
+        1152,
+        1156,
+        1182,
+        1198,
+        1210,
+        1227,
+        1256
+      ],
+      "opp_top_board": [
+        [
+          120,
+          123
+        ],
+        [
+          235,
+          107
+        ],
+        [
+          121,
+          91
+        ],
+        [
+          119,
+          63
+        ],
+        [
+          1071,
+          47
+        ]
+      ],
+      "non_first_samples": [
+        {
+          "action": [
+            2,
+            3
+          ],
+          "nopt": 13,
+          "ctx": 7
+        }
+      ],
+      "folder": "wins",
+      "cohort": "last_active_one"
+    },
+    {
+      "episode": 93409392,
+      "agents": [
+        "Oscarmoon09",
+        "Muhammad Faheem"
+      ],
+      "our_slot": 1,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "Oscarmoon09",
+      "id_kind": "dragapult",
+      "won": true,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 180,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 129,
+      "first_option": 129,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "1": 1,
+        "2": 1,
+        "0": 70,
+        "30": 6,
+        "3": 6,
+        "7": 37,
+        "22": 1,
+        "21": 1,
+        "5": 2,
+        "8": 4
+      },
+      "our_board_peak": {
+        "dreepy": 1,
+        "drakloak": 2,
+        "dragapult_ex": 2
+      },
+      "last_active_energy": 4,
+      "our_prize_end": 2,
+      "opp_prize_end": 6,
+      "opp_deck_unique": [
+        7,
+        104,
+        112,
+        646,
+        647,
+        648,
+        860,
+        1079,
+        1080,
+        1086,
+        1097,
+        1122,
+        1137,
+        1152,
+        1182,
+        1219,
+        1227,
+        1231,
+        1259
+      ],
+      "opp_top_board": [
+        [
+          646,
+          269
+        ],
+        [
+          112,
+          67
+        ],
+        [
+          647,
+          60
+        ],
+        [
+          860,
+          57
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "wins",
+      "cohort": "last_active_one"
+    },
+    {
+      "episode": 93413906,
+      "agents": [
+        "franktsohk",
+        "Muhammad Faheem"
+      ],
+      "our_slot": 1,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "franktsohk",
+      "id_kind": "dragapult",
+      "won": true,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 131,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 66,
+      "first_option": 66,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "1": 1,
+        "8": 2,
+        "7": 16,
+        "0": 37,
+        "22": 2,
+        "21": 2,
+        "3": 2,
+        "30": 1,
+        "5": 2,
+        "43": 1
+      },
+      "our_board_peak": {
+        "dreepy": 2,
+        "drakloak": 2,
+        "dragapult_ex": 1
+      },
+      "last_active_energy": 6,
+      "our_prize_end": 2,
+      "opp_prize_end": 6,
+      "opp_deck_unique": [
+        7,
+        104,
+        112,
+        646,
+        647,
+        648,
+        860,
+        1079,
+        1080,
+        1086,
+        1097,
+        1122,
+        1137,
+        1152,
+        1161,
+        1182,
+        1197,
+        1219,
+        1227,
+        1231,
+        1259
+      ],
+      "opp_top_board": [
+        [
+          646,
+          251
+        ],
+        [
+          112,
+          91
+        ],
+        [
+          647,
+          83
+        ],
+        [
+          104,
+          75
+        ],
+        [
+          648,
+          57
+        ],
+        [
+          860,
+          50
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "wins",
+      "cohort": "last_active_one"
+    }
+  ],
+  "phase1_a": [
+    {
+      "episode": 88299992,
+      "agents": [
+        "Muhammad Faheem",
+        "atsuken"
+      ],
+      "our_slot": 0,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "atsuken",
+      "id_kind": "UNSURE",
+      "won": false,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 92,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 37,
+      "first_option": 37,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "41": 1,
+        "1": 1,
+        "0": 26,
+        "7": 4,
+        "22": 2,
+        "21": 2,
+        "4": 1
+      },
+      "our_board_peak": {
+        "dreepy": 0,
+        "drakloak": 0,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 0,
+      "our_prize_end": 4,
+      "opp_prize_end": 3,
+      "opp_deck_unique": [
+        1,
+        4,
+        11,
+        18,
+        37,
+        344,
+        345,
+        1081,
+        1094,
+        1097,
+        1121,
+        1122,
+        1147,
+        1159,
+        1182,
+        1192,
+        1197,
+        1198,
+        1227
+      ],
+      "opp_top_board": [
+        [
+          37,
+          192
+        ],
+        [
+          345,
+          120
+        ],
+        [
+          344,
+          52
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "lost",
+      "cohort": "baseline_a"
+    },
+    {
+      "episode": 88301029,
+      "agents": [
+        "Muhammad Faheem",
+        "kouta0226"
+      ],
+      "our_slot": 0,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "kouta0226",
+      "id_kind": "UNSURE",
+      "won": false,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 48,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 22,
+      "first_option": 22,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "1": 2,
+        "0": 19,
+        "7": 1
+      },
+      "our_board_peak": {
+        "dreepy": 0,
+        "drakloak": 0,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 5,
+      "our_prize_end": 6,
+      "opp_prize_end": 3,
+      "opp_deck_unique": [
+        3,
+        721,
+        722,
+        723,
+        1088,
+        1145,
+        1205,
+        1227,
+        1235
+      ],
+      "opp_top_board": [
+        [
+          723,
+          44
+        ],
+        [
+          721,
+          43
+        ],
+        [
+          722,
+          23
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "lost",
+      "cohort": "baseline_a"
+    },
+    {
+      "episode": 88301557,
+      "agents": [
+        "Muhammad Faheem",
+        "ra5anchor"
+      ],
+      "our_slot": 0,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "ra5anchor",
+      "id_kind": "UNSURE",
+      "won": false,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 55,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 13,
+      "first_option": 13,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "41": 1,
+        "1": 1,
+        "0": 6,
+        "7": 3,
+        "22": 1,
+        "21": 1
+      },
+      "our_board_peak": {
+        "dreepy": 0,
+        "drakloak": 0,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 3,
+      "our_prize_end": 6,
+      "opp_prize_end": 6,
+      "opp_deck_unique": [
+        8,
+        57,
+        169,
+        190,
+        666,
+        1097,
+        1121,
+        1122,
+        1147,
+        1152,
+        1159,
+        1182,
+        1185,
+        1213,
+        1227,
+        1244
+      ],
+      "opp_top_board": [
+        [
+          169,
+          81
+        ],
+        [
+          666,
+          28
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "lost",
+      "cohort": "baseline_a"
+    },
+    {
+      "episode": 88302605,
+      "agents": [
+        "nakano?neru?maru?ruru",
+        "Muhammad Faheem"
+      ],
+      "our_slot": 0,
+      "our_name": "nakano?neru?maru?ruru",
+      "opp_name": "Muhammad Faheem",
+      "id_kind": "UNSURE",
+      "won": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 111,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 71,
+      "first_option": 71,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "41": 1,
+        "1": 1,
+        "0": 42,
+        "7": 17,
+        "5": 1,
+        "30": 3,
+        "3": 2,
+        "22": 1,
+        "21": 1,
+        "8": 2
+      },
+      "our_board_peak": {
+        "dreepy": 0,
+        "drakloak": 0,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 2,
+      "our_prize_end": 2,
+      "opp_prize_end": 2,
+      "opp_deck_unique": [
+        3,
+        721,
+        722,
+        723,
+        1145,
+        1158,
+        1205,
+        1227,
+        1235
+      ],
+      "opp_top_board": [
+        [
+          721,
+          130
+        ],
+        [
+          723,
+          54
+        ],
+        [
+          722,
+          13
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "lost",
+      "cohort": "baseline_a"
+    },
+    {
+      "episode": 88303662,
+      "agents": [
+        "Muhammad Faheem",
+        "Gururaj Krishna Sharma"
+      ],
+      "our_slot": 0,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "Gururaj Krishna Sharma",
+      "id_kind": "UNSURE",
+      "won": false,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 37,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 12,
+      "first_option": 12,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "41": 1,
+        "1": 1,
+        "0": 8,
+        "7": 2
+      },
+      "our_board_peak": {
+        "dreepy": 0,
+        "drakloak": 0,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 3,
+      "our_prize_end": 6,
+      "opp_prize_end": 6,
+      "opp_deck_unique": [
+        11,
+        12,
+        19,
+        65,
+        66,
+        304,
+        878,
+        879,
+        1086,
+        1097,
+        1115,
+        1122,
+        1152,
+        1171,
+        1182,
+        1194,
+        1210,
+        1227,
+        1255
+      ],
+      "opp_top_board": [
+        [
+          878,
+          51
+        ],
+        [
+          65,
+          50
+        ],
+        [
+          304,
+          31
+        ],
+        [
+          879,
+          18
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "lost",
+      "cohort": "baseline_a"
+    },
+    {
+      "episode": 88300519,
+      "agents": [
+        "Ilan Schapira",
+        "Muhammad Faheem"
+      ],
+      "our_slot": 0,
+      "our_name": "Ilan Schapira",
+      "opp_name": "Muhammad Faheem",
+      "id_kind": "UNSURE",
+      "won": false,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 20,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 7,
+      "first_option": 6,
+      "non_first": 1,
+      "first_option_rate": 0.8571428571428571,
+      "contexts": {
+        "41": 1,
+        "1": 1,
+        "0": 4,
+        "7": 1
+      },
+      "our_board_peak": {
+        "dreepy": 0,
+        "drakloak": 0,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 1,
+      "our_prize_end": 6,
+      "opp_prize_end": 6,
+      "opp_deck_unique": [
+        3,
+        721,
+        722,
+        723,
+        1145,
+        1158,
+        1205,
+        1227,
+        1235
+      ],
+      "opp_top_board": [
+        [
+          722,
+          13
+        ]
+      ],
+      "non_first_samples": [
+        {
+          "action": [
+            1
+          ],
+          "nopt": 2,
+          "ctx": 41
+        }
+      ],
+      "folder": "won",
+      "cohort": "baseline_a"
+    },
+    {
+      "episode": 88302078,
+      "agents": [
+        "Muhammad Faheem",
+        "Martin Balla"
+      ],
+      "our_slot": 0,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "Martin Balla",
+      "id_kind": "UNSURE",
+      "won": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 98,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 29,
+      "first_option": 29,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "41": 1,
+        "1": 1,
+        "2": 1,
+        "0": 15,
+        "7": 9,
+        "22": 1,
+        "21": 1
+      },
+      "our_board_peak": {
+        "dreepy": 0,
+        "drakloak": 0,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 6,
+      "our_prize_end": 1,
+      "opp_prize_end": 5,
+      "opp_deck_unique": [
+        7,
+        104,
+        112,
+        646,
+        647,
+        648,
+        860,
+        1079,
+        1080,
+        1086,
+        1097,
+        1137,
+        1152,
+        1182,
+        1219,
+        1227,
+        1231,
+        1259
+      ],
+      "opp_top_board": [
+        [
+          112,
+          117
+        ],
+        [
+          646,
+          113
+        ],
+        [
+          860,
+          72
+        ],
+        [
+          648,
+          9
+        ],
+        [
+          104,
+          6
+        ],
+        [
+          647,
+          6
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "won",
+      "cohort": "baseline_a"
+    },
+    {
+      "episode": 88303144,
+      "agents": [
+        "toru",
+        "Muhammad Faheem"
+      ],
+      "our_slot": 0,
+      "our_name": "toru",
+      "opp_name": "Muhammad Faheem",
+      "id_kind": "UNSURE",
+      "won": false,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 70,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 35,
+      "first_option": 22,
+      "non_first": 13,
+      "first_option_rate": 0.6285714285714286,
+      "contexts": {
+        "1": 2,
+        "2": 2,
+        "0": 24,
+        "7": 2,
+        "43": 1,
+        "19": 1,
+        "18": 1,
+        "22": 2
+      },
+      "our_board_peak": {
+        "dreepy": 0,
+        "drakloak": 0,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 1,
+      "our_prize_end": 6,
+      "opp_prize_end": 3,
+      "opp_deck_unique": [
+        3,
+        721,
+        722,
+        723,
+        1145,
+        1158,
+        1205,
+        1227,
+        1235
+      ],
+      "opp_top_board": [
+        [
+          722,
+          128
+        ],
+        [
+          723,
+          68
+        ],
+        [
+          721,
+          60
+        ]
+      ],
+      "non_first_samples": [
+        {
+          "action": [
+            1
+          ],
+          "nopt": 2,
+          "ctx": 1
+        },
+        {
+          "action": [
+            1
+          ],
+          "nopt": 1,
+          "ctx": 2
+        },
+        {
+          "action": [
+            3
+          ],
+          "nopt": 8,
+          "ctx": 0
+        },
+        {
+          "action": [
+            3
+          ],
+          "nopt": 6,
+          "ctx": 0
+        },
+        {
+          "action": [
+            1
+          ],
+          "nopt": 4,
+          "ctx": 0
+        },
+        {
+          "action": [
+            13
+          ],
+          "nopt": 5,
+          "ctx": 0
+        },
+        {
+          "action": [
+            2
+          ],
+          "nopt": 5,
+          "ctx": 0
+        },
+        {
+          "action": [
+            1
+          ],
+          "nopt": 7,
+          "ctx": 0
+        }
+      ],
+      "folder": "won",
+      "cohort": "baseline_a"
+    },
+    {
+      "episode": 88304270,
+      "agents": [
+        "Muhammad Faheem",
+        "Kiyotaka Kobayashi"
+      ],
+      "our_slot": 0,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "Kiyotaka Kobayashi",
+      "id_kind": "UNSURE",
+      "won": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 113,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 47,
+      "first_option": 47,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "41": 1,
+        "1": 1,
+        "2": 1,
+        "0": 29,
+        "7": 13,
+        "22": 1,
+        "21": 1
+      },
+      "our_board_peak": {
+        "dreepy": 0,
+        "drakloak": 0,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 5,
+      "our_prize_end": 1,
+      "opp_prize_end": 3,
+      "opp_deck_unique": [
+        7,
+        104,
+        112,
+        140,
+        646,
+        647,
+        648,
+        860,
+        1079,
+        1080,
+        1086,
+        1097,
+        1121,
+        1123,
+        1152,
+        1182,
+        1219,
+        1227,
+        1231,
+        1259
+      ],
+      "opp_top_board": [
+        [
+          646,
+          91
+        ],
+        [
+          860,
+          76
+        ],
+        [
+          112,
+          66
+        ],
+        [
+          648,
+          23
+        ],
+        [
+          647,
+          20
+        ],
+        [
+          104,
+          16
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "won",
+      "cohort": "baseline_a"
+    }
+  ],
+  "phase1_b": [
+    {
+      "episode": 88299983,
+      "agents": [
+        "pokAmon",
+        "Muhammad Faheem"
+      ],
+      "our_slot": 0,
+      "our_name": "pokAmon",
+      "opp_name": "Muhammad Faheem",
+      "id_kind": "UNSURE",
+      "won": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 58,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 46,
+      "first_option": 30,
+      "non_first": 16,
+      "first_option_rate": 0.6521739130434783,
+      "contexts": {
+        "1": 2,
+        "2": 2,
+        "7": 12,
+        "0": 23,
+        "5": 1,
+        "43": 5,
+        "37": 1
+      },
+      "our_board_peak": {
+        "dreepy": 0,
+        "drakloak": 0,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 1,
+      "our_prize_end": 5,
+      "opp_prize_end": 6,
+      "opp_deck_unique": [
+        3,
+        721,
+        722,
+        723,
+        1145,
+        1158,
+        1205,
+        1227,
+        1235
+      ],
+      "opp_top_board": [
+        [
+          722,
+          33
+        ],
+        [
+          721,
+          28
+        ],
+        [
+          723,
+          16
+        ]
+      ],
+      "non_first_samples": [
+        {
+          "action": [
+            2
+          ],
+          "nopt": 2,
+          "ctx": 2
+        },
+        {
+          "action": [
+            1,
+            0
+          ],
+          "nopt": 2,
+          "ctx": 2
+        },
+        {
+          "action": [
+            3
+          ],
+          "nopt": 4,
+          "ctx": 0
+        },
+        {
+          "action": [
+            1
+          ],
+          "nopt": 2,
+          "ctx": 0
+        },
+        {
+          "action": [
+            3
+          ],
+          "nopt": 2,
+          "ctx": 43
+        },
+        {
+          "action": [
+            2
+          ],
+          "nopt": 7,
+          "ctx": 0
+        },
+        {
+          "action": [
+            3
+          ],
+          "nopt": 7,
+          "ctx": 0
+        },
+        {
+          "action": [
+            3
+          ],
+          "nopt": 6,
+          "ctx": 0
+        }
+      ],
+      "folder": "lost",
+      "cohort": "baseline_b"
+    },
+    {
+      "episode": 88300502,
+      "agents": [
+        "Muhammad Faheem",
+        "mitsuba"
+      ],
+      "our_slot": 0,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "mitsuba",
+      "id_kind": "UNSURE",
+      "won": false,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 85,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 36,
+      "first_option": 36,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "1": 2,
+        "7": 12,
+        "0": 21,
+        "8": 1
+      },
+      "our_board_peak": {
+        "dreepy": 0,
+        "drakloak": 0,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 5,
+      "our_prize_end": 2,
+      "opp_prize_end": 3,
+      "opp_deck_unique": [
+        11,
+        19,
+        304,
+        311,
+        878,
+        879,
+        1092,
+        1097,
+        1115,
+        1122,
+        1134,
+        1152,
+        1171,
+        1182,
+        1197,
+        1213,
+        1219,
+        1225,
+        1227,
+        1255
+      ],
+      "opp_top_board": [
+        [
+          311,
+          105
+        ],
+        [
+          304,
+          78
+        ],
+        [
+          878,
+          53
+        ],
+        [
+          879,
+          15
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "lost",
+      "cohort": "baseline_b"
+    },
+    {
+      "episode": 88301549,
+      "agents": [
+        "Muhammad Faheem",
+        "pontamaru"
+      ],
+      "our_slot": 0,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "pontamaru",
+      "id_kind": "UNSURE",
+      "won": false,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 73,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 32,
+      "first_option": 32,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "1": 2,
+        "0": 26,
+        "8": 3,
+        "7": 1
+      },
+      "our_board_peak": {
+        "dreepy": 0,
+        "drakloak": 0,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 2,
+      "our_prize_end": 6,
+      "opp_prize_end": 3,
+      "opp_deck_unique": [
+        1,
+        11,
+        14,
+        18,
+        344,
+        345,
+        756,
+        1086,
+        1087,
+        1122,
+        1123,
+        1147,
+        1159,
+        1182,
+        1197,
+        1225,
+        1227,
+        1264
+      ],
+      "opp_top_board": [
+        [
+          344,
+          123
+        ],
+        [
+          345,
+          116
+        ],
+        [
+          756,
+          24
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "lost",
+      "cohort": "baseline_b"
+    },
+    {
+      "episode": 88302593,
+      "agents": [
+        "Phil Franco",
+        "Muhammad Faheem"
+      ],
+      "our_slot": 0,
+      "our_name": "Phil Franco",
+      "opp_name": "Muhammad Faheem",
+      "id_kind": "dragapult",
+      "won": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 82,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 56,
+      "first_option": 40,
+      "non_first": 16,
+      "first_option_rate": 0.7142857142857143,
+      "contexts": {
+        "1": 2,
+        "5": 2,
+        "0": 31,
+        "7": 11,
+        "3": 3,
+        "30": 3,
+        "8": 1,
+        "37": 1,
+        "22": 1,
+        "21": 1
+      },
+      "our_board_peak": {
+        "dreepy": 2,
+        "drakloak": 1,
+        "dragapult_ex": 2
+      },
+      "last_active_energy": 2,
+      "our_prize_end": 5,
+      "opp_prize_end": 6,
+      "opp_deck_unique": [
+        3,
+        721,
+        722,
+        723,
+        1145,
+        1158,
+        1205,
+        1227,
+        1235
+      ],
+      "opp_top_board": [
+        [
+          721,
+          76
+        ],
+        [
+          722,
+          25
+        ]
+      ],
+      "non_first_samples": [
+        {
+          "action": [
+            1
+          ],
+          "nopt": 6,
+          "ctx": 0
+        },
+        {
+          "action": [
+            4
+          ],
+          "nopt": 2,
+          "ctx": 7
+        },
+        {
+          "action": [
+            2
+          ],
+          "nopt": 3,
+          "ctx": 0
+        },
+        {
+          "action": [
+            1
+          ],
+          "nopt": 2,
+          "ctx": 0
+        },
+        {
+          "action": [
+            1
+          ],
+          "nopt": 2,
+          "ctx": 0
+        },
+        {
+          "action": [
+            2
+          ],
+          "nopt": 7,
+          "ctx": 0
+        },
+        {
+          "action": [
+            2
+          ],
+          "nopt": 5,
+          "ctx": 0
+        },
+        {
+          "action": [
+            2
+          ],
+          "nopt": 1,
+          "ctx": 30
+        }
+      ],
+      "folder": "lost",
+      "cohort": "baseline_b"
+    },
+    {
+      "episode": 88304240,
+      "agents": [
+        "Muhammad Faheem",
+        "\u5c0f\u5c71\u4f73\u7950"
+      ],
+      "our_slot": 0,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "\u5c0f\u5c71\u4f73\u7950",
+      "id_kind": "UNSURE",
+      "won": false,
+      "rewards": [
+        -1,
+        1
+      ],
+      "steps": 61,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 14,
+      "first_option": 14,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "1": 2,
+        "2": 1,
+        "0": 9,
+        "22": 1,
+        "21": 1
+      },
+      "our_board_peak": {
+        "dreepy": 0,
+        "drakloak": 0,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 3,
+      "our_prize_end": 6,
+      "opp_prize_end": 5,
+      "opp_deck_unique": [
+        6,
+        673,
+        674,
+        675,
+        676,
+        677,
+        678,
+        1102,
+        1123,
+        1141,
+        1142,
+        1152,
+        1159,
+        1182,
+        1192,
+        1227,
+        1252
+      ],
+      "opp_top_board": [
+        [
+          677,
+          66
+        ],
+        [
+          673,
+          66
+        ],
+        [
+          676,
+          55
+        ],
+        [
+          675,
+          33
+        ],
+        [
+          678,
+          22
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "lost",
+      "cohort": "baseline_b"
+    },
+    {
+      "episode": 88301030,
+      "agents": [
+        "Muhammad Faheem",
+        "Tatsu Miya"
+      ],
+      "our_slot": 0,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "Tatsu Miya",
+      "id_kind": "UNSURE",
+      "won": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 80,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 36,
+      "first_option": 36,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "41": 1,
+        "1": 1,
+        "0": 22,
+        "7": 12
+      },
+      "our_board_peak": {
+        "dreepy": 0,
+        "drakloak": 0,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 2,
+      "our_prize_end": 2,
+      "opp_prize_end": 6,
+      "opp_deck_unique": [
+        1,
+        11,
+        18,
+        28,
+        29,
+        96,
+        339,
+        340,
+        397,
+        398,
+        655,
+        1081,
+        1094,
+        1097,
+        1100,
+        1118,
+        1121,
+        1152,
+        1157,
+        1182,
+        1197,
+        1219,
+        1227,
+        1261
+      ],
+      "opp_top_board": [
+        [
+          96,
+          72
+        ],
+        [
+          29,
+          40
+        ],
+        [
+          655,
+          39
+        ],
+        [
+          28,
+          25
+        ],
+        [
+          339,
+          12
+        ],
+        [
+          340,
+          6
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "won",
+      "cohort": "baseline_b"
+    },
+    {
+      "episode": 88302072,
+      "agents": [
+        "Muhammad Faheem",
+        "Issy"
+      ],
+      "our_slot": 0,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "Issy",
+      "id_kind": "UNSURE",
+      "won": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 62,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 24,
+      "first_option": 24,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "1": 2,
+        "0": 14,
+        "7": 8
+      },
+      "our_board_peak": {
+        "dreepy": 0,
+        "drakloak": 0,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 1,
+      "our_prize_end": 1,
+      "opp_prize_end": 3,
+      "opp_deck_unique": [
+        6,
+        12,
+        20,
+        117,
+        312,
+        333,
+        602,
+        678,
+        682,
+        979,
+        1086,
+        1116,
+        1123,
+        1142,
+        1145,
+        1164,
+        1210,
+        1225,
+        1227
+      ],
+      "opp_top_board": [
+        [
+          333,
+          108
+        ],
+        [
+          312,
+          62
+        ],
+        [
+          979,
+          52
+        ],
+        [
+          678,
+          42
+        ],
+        [
+          602,
+          20
+        ],
+        [
+          682,
+          9
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "won",
+      "cohort": "baseline_b"
+    },
+    {
+      "episode": 88303131,
+      "agents": [
+        "Muhammad Faheem",
+        "Arav Goyal"
+      ],
+      "our_slot": 0,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "Arav Goyal",
+      "id_kind": "UNSURE",
+      "won": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 20,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 13,
+      "first_option": 13,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "1": 2,
+        "0": 7,
+        "7": 4
+      },
+      "our_board_peak": {
+        "dreepy": 0,
+        "drakloak": 0,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 2,
+      "our_prize_end": 6,
+      "opp_prize_end": 6,
+      "opp_deck_unique": [
+        1,
+        96,
+        1094,
+        1097,
+        1116,
+        1118,
+        1119,
+        1123,
+        1182
+      ],
+      "opp_top_board": [
+        [
+          96,
+          13
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "won",
+      "cohort": "baseline_b"
+    },
+    {
+      "episode": 88303651,
+      "agents": [
+        "Muhammad Faheem",
+        "Ko"
+      ],
+      "our_slot": 0,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "Ko",
+      "id_kind": "UNSURE",
+      "won": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 75,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 35,
+      "first_option": 35,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "1": 2,
+        "38": 1,
+        "0": 16,
+        "7": 14,
+        "22": 1,
+        "21": 1
+      },
+      "our_board_peak": {
+        "dreepy": 0,
+        "drakloak": 0,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 8,
+      "our_prize_end": 1,
+      "opp_prize_end": 6,
+      "opp_deck_unique": [
+        7,
+        66,
+        112,
+        305,
+        646,
+        647,
+        648,
+        1079,
+        1086,
+        1097,
+        1137,
+        1152,
+        1159,
+        1182,
+        1227,
+        1231,
+        1259
+      ],
+      "opp_top_board": [
+        [
+          112,
+          80
+        ],
+        [
+          305,
+          63
+        ],
+        [
+          647,
+          15
+        ],
+        [
+          646,
+          12
+        ],
+        [
+          648,
+          2
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "won",
+      "cohort": "baseline_b"
+    },
+    {
+      "episode": 88304775,
+      "agents": [
+        "Muhammad Faheem",
+        "taopy2"
+      ],
+      "our_slot": 0,
+      "our_name": "Muhammad Faheem",
+      "opp_name": "taopy2",
+      "id_kind": "UNSURE",
+      "won": true,
+      "rewards": [
+        1,
+        -1
+      ],
+      "steps": 120,
+      "end_status": [
+        "DONE",
+        "DONE"
+      ],
+      "timeouts": 0,
+      "invalids": 0,
+      "errors": 0,
+      "our_decisions": 36,
+      "first_option": 36,
+      "non_first": 0,
+      "first_option_rate": 1.0,
+      "contexts": {
+        "1": 2,
+        "0": 19,
+        "7": 13,
+        "22": 1,
+        "21": 1
+      },
+      "our_board_peak": {
+        "dreepy": 0,
+        "drakloak": 0,
+        "dragapult_ex": 0
+      },
+      "last_active_energy": 1,
+      "our_prize_end": 1,
+      "opp_prize_end": 3,
+      "opp_deck_unique": [
+        5,
+        13,
+        19,
+        66,
+        140,
+        142,
+        305,
+        343,
+        741,
+        742,
+        743,
+        858,
+        1079,
+        1081,
+        1086,
+        1097,
+        1129,
+        1152,
+        1156,
+        1182,
+        1225,
+        1231,
+        1264
+      ],
+      "opp_top_board": [
+        [
+          741,
+          161
+        ],
+        [
+          66,
+          94
+        ],
+        [
+          305,
+          80
+        ],
+        [
+          742,
+          39
+        ],
+        [
+          743,
+          37
+        ],
+        [
+          142,
+          4
+        ]
+      ],
+      "non_first_samples": [],
+      "folder": "won",
+      "cohort": "baseline_b"
+    }
+  ]
+}
