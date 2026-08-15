@@ -88,7 +88,9 @@ Meta-weighted edge: Dragapult −27.5pp, Starmie −21.2pp. Ladder EV: Starmie 5
 | V3 | ✗ | ✓ Adaptive weights | 36.2% (−3.8 pp vs V1) |
 | V4 | ✓ UCB1 | ✓ Adaptive weights | 34.4% (−5.6 pp vs V1) |
 
-**Key finding:** Neither search nor adaptation helps on panel v2; Crustle adaptation hypothesis fails (V3−V1 = −7.5 pp). V1 remains strongest offline.
+**Key finding:** Neither search nor adaptation helps on panel v2; Crustle adaptation hypothesis fails (V3−V1 = −7.5 pp). **V1 remains strongest offline (40.0%).** Interim research answer: adaptive search does not beat static policy on this panel. Kaggle submission stays V1 + Dragapult.
+
+**Phase 5 note:** Phase 3 already compared V1 vs V3 on Crustle (−7.5 pp); Phase 5 adds detector logging and false-positive analysis.
 
 ---
 

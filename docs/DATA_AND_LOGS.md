@@ -190,6 +190,43 @@ Generated locally by `run_phase1_holdout.py` / eval notebook — **not** from Ka
 Source: `docs/phases/phase_01/offline/results/phase1_holdout_summary_latest.json`.
 Merged games CSV: `phase1_holdout_games_20260729T132234Z.csv`.
 
+**Panel v1 only** — do not compare to Phase 2/3 numbers without labeling panel version.
+
+### Phase 2 deck-selection artifacts (panel v2)
+
+| Artifact | Path |
+|----------|------|
+| Summary JSON | `docs/phases/phase_02/offline/results/phase2_holdout_summary_latest.json` |
+| Decision | `docs/phases/phase_02/DECK_SELECTION_DECISION.json` |
+| Commitment | `docs/phases/phase_02/DECK_COMMITMENT.json` → `data/deck.csv` |
+
+320 games (Dragapult vs Starmie × 4 opponents × 40). Committed deck: **Dragapult**.
+
+### Phase 3 ablation artifacts (panel v2 — canonical V1–V4)
+
+| Artifact | Format | Contents |
+|----------|--------|----------|
+| `phase3_holdout_games_*.csv` | CSV | Per-game rows (version, opponent, reward) |
+| `phase3_holdout_summary_*.csv` | CSV | Per-matchup aggregates |
+| `phase3_holdout_summary_latest.json` | JSON | Latest V1–V4 summary |
+| `PHASE_03_RESULTS.json` | JSON | Machine-readable findings + contrasts |
+| `HOLDOUT_ANALYSIS.md` | Markdown | Paper Table 1 source |
+
+CLI: `scripts/run_phase3_holdout.py` · `scripts/analyze_phase3_results.py`
+
+**640 games** (V1–V4 × 4 opponents × 40). Deck: committed Dragapult.
+
+| Version | Pooled WR | Record | Search | Adaptation |
+|---------|----------:|--------|:------:|:----------:|
+| V1 | **40.0%** | 64/160 | ✗ | ✗ |
+| V2 | 32.5% | 52/160 | ✓ | ✗ |
+| V3 | 36.2% | 58/160 | ✗ | ✓ |
+| V4 | 34.4% | 55/160 | ✓ | ✓ |
+
+Key contrasts (pp): V2−V1 **−7.5**; V3−V1 **−3.8**; V4−V1 **−5.6**. V1 strongest offline.
+
+Source: `docs/phases/phase_03/offline/results/phase3_holdout_summary_latest.json` · `docs/phases/phase_03/PHASE_03_RESULTS.json`.
+
 ## 5. Online Kaggle ladder logs (replays)
 
 ### What type of data?
