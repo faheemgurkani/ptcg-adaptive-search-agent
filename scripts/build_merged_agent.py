@@ -377,7 +377,6 @@ def extract_writefile(nb_path: Path) -> str:
 
 def build(config: BaselineConfig = BASELINES["merged"]) -> str:
     drag = extract_writefile(REF / "a-sample-rule-based-agent-dragapult-ex-deck.ipynb")
-    exp = extract_writefile(REF / "improved-probabilistic-agent.ipynb")
 
     agent_idx = drag.index("def agent(obs_dict: dict) -> list[int]:")
     pre_agent = drag[:agent_idx]
@@ -576,9 +575,14 @@ def main() -> None:
         print(f"Wrote {out}")
     if args.variant in ("merged", "all"):
         merged = output_path(BASELINES["merged"])
+        text = merged.read_text(encoding="utf-8")
         root_main = ROOT / "main.py"
-        root_main.write_text(merged.read_text(encoding="utf-8"), encoding="utf-8")
+        root_main.write_text(text, encoding="utf-8")
         print(f"Synced {root_main}")
+        AGENTS_DIR.mkdir(parents=True, exist_ok=True)
+        agents_merged = AGENTS_DIR / "main_baseline_merged.py"
+        agents_merged.write_text(text, encoding="utf-8")
+        print(f"Synced {agents_merged}")
 
 
 if __name__ == "__main__":

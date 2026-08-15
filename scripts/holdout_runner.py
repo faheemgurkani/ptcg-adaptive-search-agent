@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import importlib.util
 import json
 import random
@@ -65,6 +66,36 @@ def load_agent_module(
     return mod
 
 
+def paired_seed(seed_base: int, opponent: str, game_idx: int) -> int:
+    """Deterministic seed shared across ablation variants.
+
+    Does not include baseline_name (so V1–V4 play the same matchup index).
+    Avoids salted builtin hash(). cabt C++ shuffle may still be unseeded
+    unless the engine honors configuration.seed.
+    """
+    digest = hashlib.md5(f"{opponent}:{game_idx}".encode("utf-8"), usedforsecurity=False).hexdigest()
+    return seed_base + (int(digest[:8], 16) % 10_000_000)
+
+
+def policy_health(mod: Any) -> dict[str, Any]:
+    return {
+        "choose_ok": int(getattr(mod, "POLICY_CHOOSE_OK", 0) or 0),
+        "choose_fail": int(getattr(mod, "POLICY_CHOOSE_FAIL", 0) or 0),
+        "non_fallback": int(getattr(mod, "POLICY_NON_FALLBACK", 0) or 0),
+        "last_error": str(getattr(mod, "POLICY_LAST_ERROR", "") or ""),
+    }
+
+
+def assert_policy_healthy(mod: Any, *, context: str) -> None:
+    health = policy_health(mod)
+    if health["choose_fail"] > 0:
+        raise RuntimeError(
+            f"{context}: choose() crashed {health['choose_fail']} time(s): {health['last_error']}"
+        )
+    if health["choose_ok"] <= 0:
+        raise RuntimeError(f"{context}: choose() never succeeded")
+
+
 def stage_repo_deck(deck: list[int], repo_root: Path) -> None:
     text = "\n".join(str(c) for c in deck) + "\n"
     (repo_root / "deck.csv").write_text(text, encoding="utf-8")
@@ -95,7 +126,9 @@ def load_baseline_agent(
     if repo_root is not None:
         stage_repo_deck(deck, repo_root)
     mod = load_agent_module(main_py, cg_parent=cg_parent, work_dir=repo_root or main_py.parent)
-    return wrap_agent(mod.agent, deck)
+    wrapped = wrap_agent(mod.agent, deck)
+    wrapped._module = mod  # type: ignore[attr-defined]
+    return wrapped
 
 
 def load_panel_opponent(name: str, panel_dir: Path) -> tuple[list[int], AgentFn]:
