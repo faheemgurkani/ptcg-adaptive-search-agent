@@ -310,9 +310,10 @@ def SEARCH_ALGO(obs_dict, obs):
         return None
     t0 = time.time()
     budget = float(os.environ.get("PTCG_SEARCH_TIME_BUDGET", SEARCH_TIME_BUDGET))
+    max_cand = int(os.environ.get("PTCG_SEARCH_MAX_CANDIDATES", SEARCH_MAX_CANDIDATES))
 
     base_order = DragapultPolicy(obs).choose()
-    candidates = base_order[:SEARCH_MAX_CANDIDATES]
+    candidates = base_order[:max_cand]
     if not candidates:
         return None
     if len(candidates) == 1:

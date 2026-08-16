@@ -98,14 +98,19 @@ Meta-weighted edge: Dragapult **+19.9 pp**, Starmie **−13.2 pp**. Ladder EV: S
 
 **Goal:** Answer how much search depth actually matters given the time budget.
 
-**Tasks:**
+**Status:** in progress (repaired V2, panel v2, Dragapult).
 
-- Vary UCB1 candidate count: 4, 8, 12, 16 candidates
-- Vary time budget: 0.5s, 1.0s, 1.5s, 2.0s per decision
-- Plot win rate vs. compute budget curve
-- Find the knee — where does additional search stop helping?
+**Protocol:**
 
-**Why it matters for paper:** This is your Figure 2. It directly addresses the practical question of compute-performance tradeoff in real-time game AI, which is a standard analysis in MCTS literature.
+- Agent: **V2 only** (search on, adaptation off) so the curve isolates compute, not opponent hooks.
+- Candidates `{4, 8, 12, 16}` and time budgets `{0.5, 1.0, 1.5, 2.0}` s per MAIN decision (`PTCG_SEARCH_MAX_CANDIDATES`, `PTCG_SEARCH_TIME_BUDGET`).
+- Default: two 1-D sweeps (8 candidates × all times; 1.5 s × remaining candidate counts) = 7 cells × 160 games. `--grid` runs the full 4×4.
+- Plot win rate vs compute; find the knee (smallest budget within 2 pp of the best point on that curve).
+- Phase 3 V1 90.0% and V2 36.2% (0.3 s / 8 candidates) are labeled references only.
+
+**Why it matters for paper:** This is Figure 2. It directly addresses the practical compute–performance tradeoff in real-time game AI.
+
+CLI: `scripts/run_phase4_holdout.py --games 40` · `scripts/analyze_phase4_results.py`
 
 ---
 

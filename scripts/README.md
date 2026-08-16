@@ -11,6 +11,8 @@ CLI and shared Python modules for the PTCG adaptive-search agent project.
 | `run_phase1_holdout.py` | Phase 1 holdout CLI |
 | `run_phase2_holdout.py` | Phase 2 Dragapult vs Starmie holdout CLI |
 | `run_phase3_holdout.py` | Phase 3 V1–V4 ablation holdout CLI (panel v2) |
+| `run_phase4_holdout.py` | Phase 4 V2 search-depth holdout CLI (candidates × time) |
+| `analyze_phase4_results.py` | Search-depth EDA → `docs/phases/phase_04/offline/` |
 | `meta_snapshot.py` | Field chart + usage-weighted edge helpers |
 | `analyze_phase1_results.py` | Offline holdout EDA → `docs/phases/phase_01/offline/` |
 | `analyze_phase2_results.py` | Deck selection EDA + commitment → `docs/phases/phase_02/` |
@@ -29,6 +31,8 @@ python scripts/run_phase2_holdout.py --games 40
 python scripts/analyze_phase2_results.py --commit
 python scripts/run_phase3_holdout.py --games 40
 python scripts/analyze_phase3_results.py
+python scripts/run_phase4_holdout.py --games 40
+python scripts/analyze_phase4_results.py
 python scripts/analyze_kaggle_match_logs.py --rating baseline_a=507 --rating baseline_b=507
 ```
 

@@ -108,7 +108,7 @@ Fixed archetypes: **Alakazam, Crustle, Spidops, Starmie**.
 | Version | Used in | Crustle / Spidops / Starmie decks |
 |---------|---------|-----------------------------------|
 | **v1** | Phase 1 canonical offline runs | Official sample `deck.csv` (placeholder) |
-| **v2** | Phase 2 deck selection; Phase 3 ablation (complete) | Ladder Crustle; constructed Spidops + Starmie |
+| **v2** | Phase 2 deck selection; Phase 3 ablation (complete); Phase 4 search-depth (in progress) | Ladder Crustle; constructed Spidops + Starmie |
 
 Alakazam unchanged across versions. Phase 1 **66.2%** and the pre-fix Phase 2 **38.8%** both measured first-option fallback (`choose()` `UnboundLocalError`). Canonical Phase 2 Dragapult is **83.1%** (repaired policy, panel v2). Do not mix stub and repaired-policy tables.
 
@@ -226,6 +226,19 @@ CLI: `scripts/run_phase3_holdout.py` · `scripts/analyze_phase3_results.py`
 Key contrasts (pp): V2−V1 **−53.8**; V3−V1 **−5.0**; V4−V1 **−55.6**. V1 strongest offline. `choose_fail=0`; search actually ran on V2/V4. Pre-fix 40.0/32.5/36.2/34.4% table is first-option noise — superseded.
 
 Source: `docs/phases/phase_03/offline/results/phase3_holdout_summary_latest.json` · `docs/phases/phase_03/PHASE_03_RESULTS.json`.
+
+### Phase 4 search-depth artifacts (panel v2 — in progress)
+
+| Artifact | Format | Contents |
+|----------|--------|----------|
+| `phase4_holdout_games_*.csv` | CSV | Per-game rows (cell, candidates, time, opponent, reward) |
+| `phase4_holdout_summary_*.csv` | CSV | Per-matchup aggregates |
+| `phase4_holdout_summary_latest.json` | JSON | Latest cell summaries |
+| `PHASE_04_RESULTS.json` | JSON | Curves, knee, findings |
+
+CLI: `scripts/run_phase4_holdout.py` · `scripts/analyze_phase4_results.py`
+
+Agent: V2 only. Default 7 cells (time sweep at 8 candidates + candidate sweep at 1.5 s), 40 games per matchup. Env overrides: `PTCG_SEARCH_TIME_BUDGET`, `PTCG_SEARCH_MAX_CANDIDATES`.
 
 ## 5. Online Kaggle ladder logs (replays)
 
@@ -407,5 +420,7 @@ flowchart TB
 | `scripts/analyze_phase2_results.py` | Phase 2 summary + meta snapshot | `DECK_SELECTION_DECISION.json`, `HOLDOUT_ANALYSIS.md` |
 | `scripts/run_phase3_holdout.py` | V1–V4 agents, Dragapult deck, panel v2 | `docs/phases/phase_03/offline/results/` |
 | `scripts/analyze_phase3_results.py` | Phase 3 summary JSON | `PHASE_03_RESULTS.json`, `HOLDOUT_ANALYSIS.md` |
+| `scripts/run_phase4_holdout.py` | V2 agent, Dragapult, panel v2, search env | `docs/phases/phase_04/offline/results/` |
+| `scripts/analyze_phase4_results.py` | Phase 4 summary JSON | `PHASE_04_RESULTS.json`, `HOLDOUT_ANALYSIS.md` |
 | `scripts/analyze_kaggle_match_logs.py` | `logs/phase1_logs/`, panel decks | `online/KAGGLE_ANALYSIS.md`, `online/results/` |
 | Workbench `build_submission()` | `main.py`, deck, `cg` | `submission.tar.gz` |

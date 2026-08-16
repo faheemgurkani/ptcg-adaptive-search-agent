@@ -23,6 +23,8 @@
   - **Holdout panel v2** (upgraded opponent decks); Phase 1 used **panel v1** — win rates are not cross-comparable
 - **Phase 3 — Ablation (complete):** [`phases/phase_03/README.md`](phases/phase_03/README.md) · [`PHASE_03_COMPLETION.md`](phases/phase_03/PHASE_03_COMPLETION.md) · [`PHASE_03_RESULTS.json`](phases/phase_03/PHASE_03_RESULTS.json)
   - V1–V4 on panel v2 (repaired `choose()`); **V1 strongest** (90.0% pooled); search −53.8 pp, adaptation −5.0 pp
+- **Phase 4 — Search depth (in progress):** [`phases/phase_04/README.md`](phases/phase_04/README.md)
+  - V2 only; candidates {4,8,12,16} × time {0.5,1.0,1.5,2.0}s; paper Figure 2
 
 Legacy redirect: [`PHASE_01_LOG.md`](PHASE_01_LOG.md).
 

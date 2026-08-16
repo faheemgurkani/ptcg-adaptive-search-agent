@@ -77,6 +77,20 @@ def paired_seed(seed_base: int, opponent: str, game_idx: int) -> int:
     return seed_base + (int(digest[:8], 16) % 10_000_000)
 
 
+def reset_policy_counters(mod: Any) -> None:
+    for name in (
+        "POLICY_CHOOSE_OK",
+        "POLICY_CHOOSE_FAIL",
+        "POLICY_NON_FALLBACK",
+        "SEARCH_SIMULATE_OK",
+        "SEARCH_SIMULATE_FAIL",
+    ):
+        if hasattr(mod, name):
+            setattr(mod, name, 0)
+    if hasattr(mod, "POLICY_LAST_ERROR"):
+        mod.POLICY_LAST_ERROR = ""
+
+
 def policy_health(mod: Any) -> dict[str, Any]:
     return {
         "choose_ok": int(getattr(mod, "POLICY_CHOOSE_OK", 0) or 0),

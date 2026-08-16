@@ -1,4 +1,4 @@
-"""Full merged agent — Dragapult + search + opponent adaptation hooks."""
+"""Baseline A — Dragapult policy only (no search, no opponent adaptation)."""
 from __future__ import annotations
 
 import math
@@ -22,8 +22,8 @@ try:
 except Exception:
     pass
 
-USE_SEARCH = True
-USE_OPPONENT_ADAPTATION = True
+USE_SEARCH = False
+USE_OPPONENT_ADAPTATION = False
 SEARCH_TIME_BUDGET = 1.5
 SEARCH_MAX_CANDIDATES = 8
 OPP_WATER = {721, 722, 723, 360, 361, 1030, 1031}
@@ -1155,9 +1155,10 @@ def SEARCH_ALGO(obs_dict, obs):
         return None
     t0 = time.time()
     budget = float(os.environ.get("PTCG_SEARCH_TIME_BUDGET", SEARCH_TIME_BUDGET))
+    max_cand = int(os.environ.get("PTCG_SEARCH_MAX_CANDIDATES", SEARCH_MAX_CANDIDATES))
 
     base_order = DragapultPolicy(obs).choose()
-    candidates = base_order[:SEARCH_MAX_CANDIDATES]
+    candidates = base_order[:max_cand]
     if not candidates:
         return None
     if len(candidates) == 1:
