@@ -238,6 +238,8 @@ Source: `docs/phases/phase_03/offline/results/phase3_holdout_summary_latest.json
 
 **CLI:** `scripts/run_phase4_holdout.py` · `scripts/analyze_phase4_results.py`
 
+Agent: V2 only. 7 cells × 160 games. Best: 4 candidates / 1.5 s at **57.5%** (−32.5 pp vs V1). Time knee 0.5 s; candidate knee 4. `choose_fail=0`.
+
 **Submission unchanged after Phase 4:** `main.py` is Baseline A / V1 (`USE_SEARCH=False`, `USE_OPPONENT_ADAPTATION=False`) + Dragapult deck.
 
 ## 5. Online Kaggle ladder logs (replays)

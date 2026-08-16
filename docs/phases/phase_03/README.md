@@ -38,7 +38,7 @@ Deck: committed **Dragapult** (`data/decks/dragapult.csv`). Panel: **v2**. **640
 
 ## Interim research answer
 
-**No** — on panel v2 offline, opponent-adaptive heuristic search does **not** outperform the static Dragapult policy once that policy actually runs. Search is a large regression; adaptation is a small one (Crustle −15.0 pp). Kaggle submission stays **V1 + Dragapult**.
+**No** — on panel v2 offline, opponent-adaptive heuristic search does **not** outperform the static Dragapult policy once that policy actually runs. Search is a large regression; adaptation is a small one (Crustle −15.0 pp). Phase 4 later confirmed extra search compute does not recover V1. Kaggle submission stays **V1 + Dragapult**.
 
 Pre-fix 40.0/32.5/36.2/34.4% table is first-option noise — do not cite.
 

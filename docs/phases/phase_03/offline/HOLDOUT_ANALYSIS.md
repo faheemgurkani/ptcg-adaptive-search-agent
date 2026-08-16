@@ -59,7 +59,7 @@
 
 > Does opponent-adaptive heuristic search outperform a static rule-based policy?
 
-**On panel v2 offline (repaired policy):** V1 leads at 90.0% pooled. Search does not improve on the repaired policy. Adaptation does not improve on the repaired policy.
+**On panel v2 offline (repaired policy):** V1 leads at 90.0% pooled. Search does not improve on the repaired policy. Adaptation does not improve on the repaired policy. Phase 4: extra search compute still does not recover V1 (best 57.5%).
 
 ## Findings summary
 
@@ -69,7 +69,7 @@
 - Full stack (V4−V1) is -55.6 pp pooled.
 - Alakazam remains the hardest cell (V1 65.0%).
 - choose() now runs (POLICY_CHOOSE_FAIL=0); Phase 1–3 stub numbers are not comparable.
-- Kaggle submission: strongest offline variant + Dragapult deck.
+- Kaggle submission: strongest offline variant + Dragapult deck (Phase 4 left this unchanged).
 
 ## Caveats
 
