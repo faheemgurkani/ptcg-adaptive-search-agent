@@ -15,3 +15,15 @@ c8_t2000,alakazam,summary,1,39,0,0.025,40,6914,0,4676,55,11966041,0,,c8_t2000,8,
 c8_t2000,crustle,summary,18,22,0,0.45,40,6914,0,4676,55,11966041,0,,c8_t2000,8,2.0,v2,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
 c8_t2000,spidops,summary,14,26,0,0.35,40,6914,0,4676,55,11966041,0,,c8_t2000,8,2.0,v2,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
 c8_t2000,starmie,summary,10,30,0,0.25,40,6914,0,4676,55,11966041,0,,c8_t2000,8,2.0,v2,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+c4_t1500,alakazam,summary,2,38,0,0.05,40,11624,0,7954,60,14024752,0,,c4_t1500,4,1.5,v2,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+c4_t1500,crustle,summary,30,10,0,0.75,40,11624,0,7954,60,14024752,0,,c4_t1500,4,1.5,v2,True,False,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+c4_t1500,spidops,summary,33,7,0,0.825,40,11624,0,7954,60,14024752,0,,c4_t1500,4,1.5,v2,True,False,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+c4_t1500,starmie,summary,27,13,0,0.675,40,11624,0,7954,60,14024752,0,,c4_t1500,4,1.5,v2,True,False,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
+c12_t1500,alakazam,summary,2,38,0,0.05,40,6484,0,4280,46,10058906,0,,c12_t1500,12,1.5,v2,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+c12_t1500,crustle,summary,15,25,0,0.375,40,6484,0,4280,46,10058906,0,,c12_t1500,12,1.5,v2,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+c12_t1500,spidops,summary,12,28,0,0.3,40,6484,0,4280,46,10058906,0,,c12_t1500,12,1.5,v2,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+c12_t1500,starmie,summary,7,33,0,0.175,40,6484,0,4280,46,10058906,0,,c12_t1500,12,1.5,v2,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+c16_t1500,alakazam,summary,1,39,0,0.025,40,6795,0,4451,59,11381467,0,,c16_t1500,16,1.5,v2,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+c16_t1500,crustle,summary,19,21,0,0.475,40,6795,0,4451,59,11381467,0,,c16_t1500,16,1.5,v2,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+c16_t1500,spidops,summary,7,33,0,0.175,40,6795,0,4451,59,11381467,0,,c16_t1500,16,1.5,v2,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+c16_t1500,starmie,summary,16,24,0,0.4,40,6795,0,4451,59,11381467,0,,c16_t1500,16,1.5,v2,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
