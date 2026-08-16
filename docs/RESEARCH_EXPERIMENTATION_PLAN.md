@@ -98,7 +98,9 @@ Meta-weighted edge: Dragapult **+19.9 pp**, Starmie **−13.2 pp**. Ladder EV: S
 
 **Goal:** Answer how much search depth actually matters given the time budget.
 
-**Status:** in progress (repaired V2, panel v2, Dragapult).
+**Status:** complete (repaired V2, panel v2, Dragapult). 7 cells × 160 games.
+
+**Results:** Best cell 4 candidates / 1.5 s at **57.5%** (−32.5 pp vs V1 90.0%). Time knee 0.5 s (8-candidate curve is flat then drops at 2.0 s). Candidate knee 4 (wider UCB1 sets hurt). No searched cell approaches V1.
 
 **Protocol:**
 
