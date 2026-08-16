@@ -436,6 +436,7 @@
     "Best search cell c4_t1500 at 57.5% pooled (-32.5 pp vs Phase 3 V1 90.0%).",
     "Time-budget knee (8 candidates): 0.5 s \u2014 within 2 pp of best.",
     "Candidate-count knee (1.5 s): 4 \u2014 within 2 pp of best.",
-    "No searched configuration approaches the no-search V1 baseline."
+    "No searched configuration approaches the no-search V1 baseline.",
+    "Kaggle submission stays V1 + Dragapult; Phase 4 does not change the packaged agent."
   ]
 }

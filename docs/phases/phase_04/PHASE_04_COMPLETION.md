@@ -2,12 +2,15 @@
 
 **Status:** complete
 
-Search-depth sweep on repaired V2 (panel v2, Dragapult).
+Search-depth sweep on repaired V2 (panel v2, Dragapult). 7 cells × 160 games. `choose_fail=0`.
 
 - Best search cell c4_t1500 at 57.5% pooled (-32.5 pp vs Phase 3 V1 90.0%).
 - Time-budget knee (8 candidates): 0.5 s — within 2 pp of best.
 - Candidate-count knee (1.5 s): 4 — within 2 pp of best.
 - No searched configuration approaches the no-search V1 baseline.
+- Kaggle submission stays V1 + Dragapult; Phase 4 does not change the packaged agent.
 
-Artifacts: `PHASE_04_RESULTS.json`, `offline/HOLDOUT_ANALYSIS.md`, `offline/results/`.
+Kaggle packaged agent is unchanged: **V1 + Dragapult** (`main.py`, `USE_SEARCH=False`).
+
+Artifacts: `PHASE_04_RESULTS.json`, `offline/HOLDOUT_ANALYSIS.md`, `offline/results/`, paper Figure 2.
 

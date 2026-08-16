@@ -139,7 +139,7 @@ CLI: `scripts/run_phase4_holdout.py --games 40` · `scripts/analyze_phase4_resul
 
 **Tasks:**
 
-- Submit V4 (full system) and record ladder rating over time
+- Submit **V1 + Dragapult** (search/adaptation did not help offline, including Phase 4 compute sweeps) and record ladder rating over time
 - Compare per-archetype matchup rates on the ladder vs. your holdout panel
 - Measure the gap — if holdout says 70% vs Crustle but ladder shows 60%, that's a calibration finding worth reporting
 - Apply the winner's curse check from the meta snapshot: if your holdout score drops significantly on a fresh panel, prefer the more stable configuration
@@ -154,7 +154,7 @@ CLI: `scripts/run_phase4_holdout.py --games 40` · `scripts/analyze_phase4_resul
 | Background | PTCG mechanics, PIMC, UCB1, opponent modeling | Literature |
 | System Design | Dragapult policy + Search + Adaptation | Phase 1–2 |
 | Deck Selection | Meta-informed deck choice methodology | Phase 2 |
-| Experiments | Ablation table, search depth curve, adaptation analysis | Phase 3–5 |
+| Experiments | Ablation table, search depth curve (done), adaptation analysis | Phase 3–5 |
 | Live Evaluation | Ladder validation, holdout-to-live transfer gap | Phase 6 |
 | Conclusion | What worked, what didn't, future work | All |
 

@@ -9,11 +9,11 @@ Paired seeds (`md5(opponent:game_idx)`). `choose()` must succeed.
 |------|----------:|---------:|---------:|--------:|--------:|--------:|-----------:|--------|
 | `c8_t500` | 8 | 0.5 | 5.0% | 50.0% | 45.0% | 50.0% | **37.5%** | 60/160 |
 | `c8_t1000` | 8 | 1.0 | 0.0% | 47.5% | 50.0% | 42.5% | **35.0%** | 56/160 |
-| `c4_t1500` | 4 | 1.5 | 5.0% | 75.0% | 82.5% | 67.5% | **57.5%** | 92/160 |
 | `c8_t1500` | 8 | 1.5 | 7.5% | 57.5% | 40.0% | 50.0% | **38.8%** | 62/160 |
+| `c8_t2000` | 8 | 2.0 | 2.5% | 45.0% | 35.0% | 25.0% | **26.9%** | 43/160 |
+| `c4_t1500` | 4 | 1.5 | 5.0% | 75.0% | 82.5% | 67.5% | **57.5%** | 92/160 |
 | `c12_t1500` | 12 | 1.5 | 5.0% | 37.5% | 30.0% | 17.5% | **22.5%** | 36/160 |
 | `c16_t1500` | 16 | 1.5 | 2.5% | 47.5% | 17.5% | 40.0% | **26.9%** | 43/160 |
-| `c8_t2000` | 8 | 2.0 | 2.5% | 45.0% | 35.0% | 25.0% | **26.9%** | 43/160 |
 
 Phase 3 anchors (not re-run): V1 **90.0%**; V2 at 0.3 s / 8 candidates **36.2%**.
 
@@ -45,6 +45,7 @@ Phase 3 anchors (not re-run): V1 **90.0%**; V2 at 0.3 s / 8 candidates **36.2%**
 - Time-budget knee (8 candidates): 0.5 s — within 2 pp of best.
 - Candidate-count knee (1.5 s): 4 — within 2 pp of best.
 - No searched configuration approaches the no-search V1 baseline.
+- Kaggle submission stays V1 + Dragapult; Phase 4 does not change the packaged agent.
 
 ## Paper
 
