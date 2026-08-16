@@ -11,3 +11,7 @@ c8_t1500,alakazam,summary,3,37,0,0.075,40,7168,0,4950,46,10955199,0,,c8_t1500,8,
 c8_t1500,crustle,summary,23,17,0,0.575,40,7168,0,4950,46,10955199,0,,c8_t1500,8,1.5,v2,True,False,dragapult,v2,holdout_pass,PROMOTE_CANDIDATE
 c8_t1500,spidops,summary,16,24,0,0.4,40,7168,0,4950,46,10955199,0,,c8_t1500,8,1.5,v2,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
 c8_t1500,starmie,summary,20,20,0,0.5,40,7168,0,4950,46,10955199,0,,c8_t1500,8,1.5,v2,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+c8_t2000,alakazam,summary,1,39,0,0.025,40,6914,0,4676,55,11966041,0,,c8_t2000,8,2.0,v2,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+c8_t2000,crustle,summary,18,22,0,0.45,40,6914,0,4676,55,11966041,0,,c8_t2000,8,2.0,v2,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+c8_t2000,spidops,summary,14,26,0,0.35,40,6914,0,4676,55,11966041,0,,c8_t2000,8,2.0,v2,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
+c8_t2000,starmie,summary,10,30,0,0.25,40,6914,0,4676,55,11966041,0,,c8_t2000,8,2.0,v2,True,False,dragapult,v2,holdout_fail,HOLD_DO_NOT_SUBMIT
