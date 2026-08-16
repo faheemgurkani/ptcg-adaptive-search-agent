@@ -236,9 +236,9 @@ Source: `docs/phases/phase_03/offline/results/phase3_holdout_summary_latest.json
 | `phase4_holdout_summary_latest.json` | JSON | Latest cell summaries |
 | `PHASE_04_RESULTS.json` | JSON | Curves, knee, findings |
 
-CLI: `scripts/run_phase4_holdout.py` · `scripts/analyze_phase4_results.py`
+**CLI:** `scripts/run_phase4_holdout.py` · `scripts/analyze_phase4_results.py`
 
-Agent: V2 only. 7 cells × 160 games. Best: 4 candidates / 1.5 s at **57.5%** (−32.5 pp vs V1). Time knee 0.5 s; candidate knee 4. `choose_fail=0`.
+**Submission unchanged after Phase 4:** `main.py` is Baseline A / V1 (`USE_SEARCH=False`, `USE_OPPONENT_ADAPTATION=False`) + Dragapult deck.
 
 ## 5. Online Kaggle ladder logs (replays)
 
@@ -346,11 +346,13 @@ Local API reference for Search / Observation / game loop — not training data.
 
 | Asset | Role |
 |-------|------|
-| `notebooks/agents/main_baseline_a.py` | Phase 1 A — no search |
-| `notebooks/agents/main_baseline_b.py` | Phase 1 B — UCB1 search |
-| `notebooks/agents/main_baseline_merged.py` | Phase 1 C — search + adaptation |
-| `notebooks/merged_agent_main.py` / `main.py` | Full / active entry agent (same flags as merged) |
-| `submission.tar.gz` | Packaged `main.py` + `deck.csv` + `cg/` for Kaggle upload |
+| `notebooks/agents/main_baseline_a.py` | V1 — no search, no adaptation (**Kaggle `main.py` / submission**) |
+| `notebooks/agents/main_baseline_b.py` | V2 — UCB1 search only (Phase 3–4) |
+| `notebooks/agents/main_baseline_v3.py` | V3 — adaptation only |
+| `notebooks/agents/main_baseline_merged.py` | V4 — search + adaptation |
+| `notebooks/merged_agent_main.py` | V4 copy (builder sync) |
+| `main.py` | Active entry = **V1** (not merged) |
+| `submission.tar.gz` | Packaged V1 `main.py` + Dragapult `deck.csv` + `cg/` |
 
 ### Origin
 
@@ -359,6 +361,7 @@ Built from reference notebooks via `build_merged_agent.py` / workbench notebook.
 ### Processing
 
 - Feature flags (`USE_SEARCH`, `USE_OPPONENT_ADAPTATION`) toggled per baseline.
+- After Phases 3–4, the packaged agent is **V1 + Dragapult**. Search/adaptation stay off.
 - Packaging copies active deck and `cg/` into a tarball (gitignored).
 
 ---

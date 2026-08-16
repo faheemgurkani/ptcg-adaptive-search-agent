@@ -6,9 +6,9 @@ Build a competitive agent for the Pokémon Trading Card Game simulator (cabt eng
 
 ## Research direction
 
-This project targets a **hybrid agent**: rule-based policy backbone + Search API lookahead + opponent-adaptive scoring. Full framing (agent type, domain choice, and paper angle) is documented in [`notebooks/ptcg-merged-agent-workbench.ipynb`](notebooks/ptcg-merged-agent-workbench.ipynb) under **Research framing**.
+This project measured a **hybrid** (policy + UCB1 search + opponent-adaptive weights). Offline, the static Dragapult policy (**V1**) wins; search and adaptation both hurt, and extra search compute does not close the gap. The Kaggle agent is **V1 + Dragapult** (no search).
 
-The same notebook includes a **2-week compressed experimentation plan** (Phases 1–6, ablations, search-depth sweeps, ladder validation).
+Framing, ablations, and the living paper: [`docs/RESEARCH_EXPERIMENTATION_PLAN.md`](docs/RESEARCH_EXPERIMENTATION_PLAN.md) · [`docs/DOCS_README.md`](docs/DOCS_README.md) · [`docs/research_paper_writeup/`](docs/research_paper_writeup/).
 
 Working paper title: *Opponent-Adaptive Search in Imperfect-Information Card Games*.
 
@@ -37,6 +37,8 @@ pip install -r requirements.txt
 Download the competition data into `data/pokemon-tcg-ai-battle/` (card CSVs, `sample_submission/`, `ptcg_engine/`). For local runs the notebook reads the official `cg/` SDK from `sample_submission/sample_submission/cg/`. Put your chosen deck in `data/deck.csv` to override the official sample list.
 
 ## Submission
+
+Current package: **Baseline A / V1** (`USE_SEARCH=False`) + committed **Dragapult** deck. Phases 3–4 did not change this.
 
 Kaggle expects a `.tar.gz` with `main.py` and `deck.csv` at the top level (plus any helper files such as `cg/`).
 

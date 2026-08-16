@@ -48,7 +48,7 @@ Source: [`offline/results/phase1_holdout_summary_latest.json`](offline/results/p
 
 Gates (≥52%): A fails Alakazam; B fails Alakazam; Merged fails **Alakazam + Crustle**.
 
-**Validity:** These Phase 1 rates used the same `choose()` scoping bug later found in V1–V4. A/B/Merged here are first-option stubs on **panel v1**, not a search/adaptation ablation. Canonical repaired-policy numbers live in Phase 2 (Dragapult 83.1%) and Phase 3 (V1 90.0%).
+**Validity:** These Phase 1 rates used the same `choose()` scoping bug later found in V1–V4. A/B/Merged here are first-option stubs on **panel v1**, not a search/adaptation ablation. Canonical repaired-policy numbers live in Phase 2 (Dragapult 83.1%), Phase 3 (V1 90.0%), and Phase 4 (best search 57.5%, still ≪ V1).
 
 ### Online results
 

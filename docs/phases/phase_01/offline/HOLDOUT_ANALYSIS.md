@@ -35,7 +35,7 @@
 
 Phase 1 canonical results above were collected on **holdout panel v1** (placeholder Crustle/Spidops/Starmie decks). Phase 2 upgraded opponent lists to **panel v2** (ladder Crustle; constructed Spidops/Starmie) before deck-selection runs.
 
-**Do not compare Phase 1 stub rates to repaired Phase 2/3 rates.** Phase 1 A/B/C all hit the same `choose()` crash and played first-option, so A vs B vs Merged on panel v1 is not a search/adaptation ablation. Canonical Phase 2 Dragapult is **83.1%**; Phase 3 V1 is **90.0%** (panel v2, repaired policy).
+**Do not compare Phase 1 stub rates to repaired Phase 2/3/4 rates.** Phase 1 A/B/C all hit the same `choose()` crash and played first-option, so A vs B vs Merged on panel v1 is not a search/adaptation ablation. Canonical Phase 2 Dragapult is **83.1%**; Phase 3 V1 is **90.0%**; Phase 4 best search cell is **57.5%** (panel v2, repaired policy).
 
 See [`../../phase_02/offline/HOLDOUT_LOG.md`](../../phase_02/offline/HOLDOUT_LOG.md) for panel v2 results.
 

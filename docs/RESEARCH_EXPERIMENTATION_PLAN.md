@@ -90,6 +90,8 @@ Meta-weighted edge: Dragapult **+19.9 pp**, Starmie **−13.2 pp**. Ladder EV: S
 
 **Key finding:** After the `choose()` scoping fix, V1 is a real policy (90.0%). Search *runs* and **hurts** (−53.8 pp). Adaptation **hurts** (−5.0 pp; Crustle −15.0 pp). Pre-fix 40.0/32.5/36.2/34.4% is first-option noise. Kaggle submission stays V1 + Dragapult.
 
+**Phase 4 follow-up:** Extra search compute does not recover V1 (best searched cell 57.5% at 4 candidates / 1.5 s, −32.5 pp). See Phase 4 below.
+
 **Phase 5 note:** Phase 3 already compared V1 vs V3 on Crustle (−15.0 pp); Phase 5 adds detector logging and false-positive analysis.
 
 ---

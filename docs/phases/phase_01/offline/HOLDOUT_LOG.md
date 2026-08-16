@@ -36,7 +36,7 @@ python scripts/analyze_phase1_results.py
 
 **Panel v2 (Phase 2+):** Crustle → ladder-extracted Dwebble/Crustle list; Spidops → constructed Team Rocket list; Starmie → constructed Misty/Mega Starmie list (agents still random except Alakazam). Phase 2 deck-selection runs used panel v2.
 
-**Cross-phase warning:** Phase 1 numbers below measured **first-option fallback** (`choose()` `UnboundLocalError`) on **panel v1**. They are not a working Dragapult policy and are not comparable to repaired Phase 2/3 rates (Dragapult 83.1%, V1 90.0% on panel v2).
+**Cross-phase warning:** Phase 1 numbers below measured **first-option fallback** (`choose()` `UnboundLocalError`) on **panel v1**. They are not a working Dragapult policy and are not comparable to repaired Phase 2/3/4 rates (Dragapult 83.1%, V1 90.0%, best-search 57.5% on panel v2).
 
 ## Results (canonical — 40 games/opponent)
 
@@ -71,7 +71,7 @@ Source: [`results/phase1_holdout_summary_latest.json`](results/phase1_holdout_su
 | Adaptation on search (Merged − B) | **−21.9 pp** |
 | Full stack (Merged − A) | **−24.4 pp** |
 
-**Interpretation:** On this fixed panel, enabling opponent-adaptation hooks **hurt** offline win rate sharply (especially vs placeholder Crustle: 30% vs B’s 85%). Note Crustle/Spidops/Starmie remain placeholder decks + random agents — the Crustle detector may fire incorrectly or adaptation weights may be miscalibrated. Alakazam (real rule-based) also worsens (2.5% vs B 15%). Treat Merged’s offline result as a **negative adaptation finding** pending ladder logs and better panel decks.
+**Interpretation:** These $\Delta$s are **stub noise**, not search or adaptation effects: `choose()` crashed and the wrapper returned the first legal option(s). Canonical search/adaptation numbers are Phase 3 (V2−V1 **−53.8 pp**, V3−V1 **−5.0 pp**) and Phase 4 (best search cell 57.5%, still −32.5 pp vs V1).
 
 ## Artifacts
 

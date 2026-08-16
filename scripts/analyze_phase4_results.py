@@ -197,6 +197,7 @@ def findings(payload: dict) -> list[str]:
         out.append(f"Candidate-count knee (1.5 s): {int(ck['x'])} — {ck['note']}.")
     if best and best["pooled"] < PHASE3_V1_POOLED - 0.05:
         out.append("No searched configuration approaches the no-search V1 baseline.")
+    out.append("Kaggle submission stays V1 + Dragapult; Phase 4 does not change the packaged agent.")
     return out
 
 
@@ -214,7 +215,10 @@ def write_analysis(payload: dict) -> str:
     ]
     cells = sorted(
         payload["cells"].values(),
-        key=lambda v: (v["search_time_budget_sec"], v["search_max_candidates"]),
+        key=lambda v: (
+            0 if v["search_max_candidates"] == 8 else 1,
+            v["search_time_budget_sec"] if v["search_max_candidates"] == 8 else v["search_max_candidates"],
+        ),
     )
     for v in cells:
         mu = v["matchups"]
@@ -273,35 +277,44 @@ def write_analysis(payload: dict) -> str:
 
 def write_log(payload: dict) -> str:
     proto = payload["protocol"]
-    return "\n".join(
-        [
-            "# Phase 4 holdout log",
-            "",
-            f"**Status:** {payload['status']}",
-            "",
-            "| Item | Value |",
-            "|------|-------|",
-            f"| Agent | {proto['agent']} |",
-            f"| Deck | {proto['committed_deck']} |",
-            f"| Panel | {proto['panel_version']} |",
-            f"| Games / matchup | {proto['games_per_matchup']} |",
-            f"| Cells | {proto['n_cells']} |",
-            f"| Candidates | {proto['candidate_counts']} |",
-            f"| Time budgets (s) | {proto['time_budgets_sec']} |",
-            "| Seeds | paired `md5(opponent:game_idx)` |",
-            "",
-            "CLI: `python scripts/run_phase4_holdout.py --games 40`",
-            "Full grid: add `--grid` (16 cells).",
-            "Analyze: `python scripts/analyze_phase4_results.py`",
-            "",
-        ]
-    ) + "\n"
+    best = payload.get("best_cell") or {}
+    lines = [
+        "# Phase 4 holdout log",
+        "",
+        f"**Status:** {payload['status']}",
+        "",
+        "| Item | Value |",
+        "|------|-------|",
+        f"| Agent | {proto['agent']} |",
+        f"| Deck | committed {proto['committed_deck']} |",
+        f"| Panel | {proto['panel_version']} |",
+        f"| Games / matchup | {proto['games_per_matchup']} |",
+        f"| Cells | {proto['n_cells']} (two 1-D sweeps; not the full 4×4) |",
+        "| Total games | 1,120 (7 × 160) |",
+        f"| Candidates | {proto['candidate_counts']} |",
+        f"| Time budgets (s) | {proto['time_budgets_sec']} |",
+        "| Seeds | paired `md5(opponent:game_idx)` |",
+        "| Policy | `choose_fail=0` on every cell |",
+        f"| Best cell | `{best.get('cell', '—')}` at {best.get('pooled', 0):.1%} pooled |",
+        "| Submission | **unchanged:** V1 + Dragapult (`main.py`, no search) |",
+        "",
+        "CLI: `python scripts/run_phase4_holdout.py --games 40`",
+        "Full grid: add `--grid` (16 cells) — not run.",
+        "Analyze: `python scripts/analyze_phase4_results.py`",
+        "",
+        "See [`HOLDOUT_ANALYSIS.md`](HOLDOUT_ANALYSIS.md) for per-matchup rates, curves, and knees.",
+        "",
+    ]
+    return "\n".join(lines) + "\n"
 
 
 def write_readme(payload: dict) -> str:
     best = payload.get("best_cell")
     best_line = (
-        f"Best cell `{best['cell']}` at **{best['pooled']:.1%}** pooled."
+        f"Best cell `{best['cell']}` at **{best['pooled']:.1%}** pooled "
+        f"({best['vs_v1_pp']:+.1f} pp vs Phase 3 V1). "
+        "Time knee 0.5 s; candidate knee 4. Extra search compute does not recover the static policy. "
+        "**Submission stays V1 + Dragapult.**"
         if best
         else "Results pending."
     )
@@ -309,24 +322,29 @@ def write_readme(payload: dict) -> str:
         [
             "# Phase 4 — Search depth analysis",
             "",
-            f"**Status: {payload['status'].upper()}** — see [`PHASE_04_RESULTS.json`](PHASE_04_RESULTS.json)",
+            f"**Status: {payload['status'].upper()}** — see [`PHASE_04_RESULTS.json`](PHASE_04_RESULTS.json) · [`PHASE_04_COMPLETION.md`](PHASE_04_COMPLETION.md)",
             "",
             "**Goal:** How much UCB1 search depth matters under a wall-clock budget. Paper **Figure 2**.",
             "",
             "| Track | Doc | Results |",
             "|-------|-----|---------|",
-            "| **Offline** V2 sweep | [HOLDOUT_LOG.md](offline/HOLDOUT_LOG.md) · [HOLDOUT_ANALYSIS.md](offline/HOLDOUT_ANALYSIS.md) | [offline/results/](offline/results/) |",
+            "| **Offline** V2 sweep | [HOLDOUT_LOG.md](offline/HOLDOUT_LOG.md) · [HOLDOUT_ANALYSIS.md](offline/HOLDOUT_ANALYSIS.md) | [offline/results/](offline/results/) · [PHASE_04_RESULTS.json](PHASE_04_RESULTS.json) |",
             "",
             "## Protocol",
             "",
             "- Agent: **V2** (search on, adaptation off) + committed Dragapult + panel v2.",
             "- Candidates: 4, 8, 12, 16. Time: 0.5, 1.0, 1.5, 2.0 s.",
-            "- Default run: two 1-D sweeps (8 candidates × all times; 1.5 s × all candidate counts) = 7 cells × 160 games.",
-            "- `--grid` runs the full 4×4 (16 cells).",
+            "- Default run: two 1-D sweeps (8 candidates × all times; 1.5 s × remaining candidate counts) = 7 cells × 160 games.",
+            "- `--grid` (full 4×4) was **not** run.",
             "",
             "## Result",
             "",
             best_line,
+            "",
+            "| Sweep | Pooled |",
+            "|-------|--------|",
+            "| Time @ 8 cand | 37.5% / 35.0% / 38.8% / 26.9% (0.5–2.0 s) |",
+            "| Candidates @ 1.5 s | **57.5%** / 38.8% / 22.5% / 26.9% (4–16) |",
             "",
             "## Commands",
             "",
@@ -348,11 +366,13 @@ def write_completion(payload: dict) -> str:
             "",
             f"**Status:** {payload['status']}",
             "",
-            "Search-depth sweep on repaired V2 (panel v2, Dragapult).",
+            "Search-depth sweep on repaired V2 (panel v2, Dragapult). 7 cells × 160 games. `choose_fail=0`.",
             "",
             *([f"- {x}" for x in payload["findings"]] or ["- Sweep in progress."]),
             "",
-            "Artifacts: `PHASE_04_RESULTS.json`, `offline/HOLDOUT_ANALYSIS.md`, `offline/results/`.",
+            "Kaggle packaged agent is unchanged: **V1 + Dragapult** (`main.py`, `USE_SEARCH=False`).",
+            "",
+            "Artifacts: `PHASE_04_RESULTS.json`, `offline/HOLDOUT_ANALYSIS.md`, `offline/results/`, paper Figure 2.",
             "",
         ]
     ) + "\n"
