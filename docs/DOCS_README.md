@@ -25,6 +25,10 @@
   - V1–V4 on panel v2 (repaired `choose()`); **V1 strongest** (90.0% pooled); search −53.8 pp, adaptation −5.0 pp
 - **Phase 4 — Search depth (complete):** [`phases/phase_04/README.md`](phases/phase_04/README.md) · [`PHASE_04_RESULTS.json`](phases/phase_04/PHASE_04_RESULTS.json)
   - Best searched cell 57.5% (4 cand / 1.5 s), −32.5 pp vs V1; extra compute does not help
+- **Phase 5 — Adaptation (offline complete):** [`phases/phase_05/README.md`](phases/phase_05/README.md) · [`PHASE_05_RESULTS.json`](phases/phase_05/PHASE_05_RESULTS.json)
+  - V1 vs V3: pooled −5.0 pp; Crustle −15.0 pp; empty-board FP impossible; no extra detector
+- **Phase 6 — Live ladder (package ready):** [`phases/phase_06/README.md`](phases/phase_06/README.md)
+  - V1 tar verified; live repaired-V1 rating pending (deadline 16 Aug)
 
 Legacy redirect: [`PHASE_01_LOG.md`](PHASE_01_LOG.md).
 

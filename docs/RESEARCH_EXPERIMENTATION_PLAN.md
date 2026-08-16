@@ -92,11 +92,9 @@ Meta-weighted edge: Dragapult **+19.9 pp**, Starmie **−13.2 pp**. Ladder EV: S
 
 **Phase 4 follow-up:** Extra search compute does not recover V1 (best searched cell 57.5% at 4 candidates / 1.5 s, −32.5 pp). See Phase 4 below.
 
-**Phase 5 note:** Phase 3 already compared V1 vs V3 on Crustle (−15.0 pp); Phase 5 adds detector logging and false-positive analysis.
+**Phase 5 (offline complete):** V1 vs V3 impact is −5.0 pp pooled / −15.0 pp Crustle. Details in Phase 5 below.
 
 ---
-
-## Phase 4 — Search Depth Analysis (Days 10–11)
 
 **Goal:** Answer how much search depth actually matters given the time budget.
 
@@ -122,14 +120,20 @@ CLI: `scripts/run_phase4_holdout.py --games 40` · `scripts/analyze_phase4_resul
 
 **Goal:** Show that adaptive weights matter and quantify how much.
 
-**Tasks:**
+**Status:** offline complete (reused Phase 3 V1 vs V3; no new games). Traces deferred.
 
-- Against Crustle specifically: compare V1 vs V3 (Dragapult policy vs. Dragapult + Crustle-aware weights)
-- Log which archetype was detected and when during games
-- Track false positive rate — does the detector misidentify archetypes early game when the bench is empty?
-- Consider adding one more archetype detector beyond what the Expectimax agent has (e.g., Spidops or Festival detection)
+**Results:** Adaptation hurts. Pooled V3−V1 = **−5.0 pp**. Crustle **−15.0 pp**. Water true-positive (Starmie) −2.5 pp. Detectors require a visible matching ID (empty board = false negative, not false positive). Panel lists have no unintended ID overlap.
 
-**Why it matters for paper:** Opponent modeling in hidden-information games is a known hard problem. Even a simple detector with real impact is a publishable contribution if properly measured.
+**Decisions:** Do not add Spidops/Festival detectors. Do not retune hooks this cycle. Keep adaptation off (V1).
+
+**Tasks (original plan vs this session):**
+
+- [x] Against Crustle specifically: compare V1 vs V3
+- [x] Track false-positive *potential* (detector definition + panel overlap)
+- [ ] Log which archetype was detected and when during games (needs instrumented rerun)
+- [x] Consider adding one more detector — **rejected** (primary hypothesis already failed)
+
+CLI: `scripts/analyze_phase5_results.py`
 
 ---
 
@@ -137,12 +141,19 @@ CLI: `scripts/run_phase4_holdout.py --games 40` · `scripts/analyze_phase4_resul
 
 **Goal:** Confirm offline results transfer to the live ladder.
 
+**Status:** package ready; live rating pending.
+
+**This session:** Verified `submission.tar.gz` as **V1 + Dragapult**. Kaggle CLI not available. Final-submit deadline was **2026-08-16**.
+
 **Tasks:**
 
-- Submit **V1 + Dragapult** (search/adaptation did not help offline, including Phase 4 compute sweeps) and record ladder rating over time
-- Compare per-archetype matchup rates on the ladder vs. your holdout panel
-- Measure the gap — if holdout says 70% vs Crustle but ladder shows 60%, that's a calibration finding worth reporting
-- Apply the winner's curse check from the meta snapshot: if your holdout score drops significantly on a fresh panel, prefer the more stable configuration
+- [x] Package V1 (not V4)
+- [ ] Submit and record ladder rating over time (UI; may be closed)
+- [ ] Compare per-archetype matchup rates on the ladder vs holdout
+- [ ] Measure the transfer gap
+- [ ] Winner's-curse check on a refreshed panel
+
+**Do not treat Phase 1 A/B ~507 as repaired-V1 transfer.** Those were first-option stubs on sample-water.
 
 ---
 
@@ -154,8 +165,8 @@ CLI: `scripts/run_phase4_holdout.py --games 40` · `scripts/analyze_phase4_resul
 | Background | PTCG mechanics, PIMC, UCB1, opponent modeling | Literature |
 | System Design | Dragapult policy + Search + Adaptation | Phase 1–2 |
 | Deck Selection | Meta-informed deck choice methodology | Phase 2 |
-| Experiments | Ablation table, search depth curve (done), adaptation analysis | Phase 3–5 |
-| Live Evaluation | Ladder validation, holdout-to-live transfer gap | Phase 6 |
+| Experiments | Ablation, search curve, adaptation (all filled) | Phase 3–5 |
+| Live Evaluation | V1 package ready; live transfer pending | Phase 6 |
 | Conclusion | What worked, what didn't, future work | All |
 
 ---

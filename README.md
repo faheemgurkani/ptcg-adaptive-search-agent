@@ -38,7 +38,7 @@ Download the competition data into `data/pokemon-tcg-ai-battle/` (card CSVs, `sa
 
 ## Submission
 
-Current package: **Baseline A / V1** (`USE_SEARCH=False`) + committed **Dragapult** deck. Phases 3–4 did not change this.
+Current package: **Baseline A / V1** (`USE_SEARCH=False`, `USE_OPPONENT_ADAPTATION=False`) + committed **Dragapult** deck. Phases 3–5 did not change this.
 
 Kaggle expects a `.tar.gz` with `main.py` and `deck.csv` at the top level (plus any helper files such as `cg/`).
 

@@ -262,7 +262,7 @@
     "Full stack (V4\u2212V1) is -55.6 pp pooled.",
     "Alakazam remains the hardest cell (V1 65.0%).",
     "choose() now runs (POLICY_CHOOSE_FAIL=0); Phase 1\u20133 stub numbers are not comparable.",
-    "Kaggle submission: strongest offline variant + Dragapult deck."
+    "Kaggle submission: V1 + Dragapult (Phases 4–5 did not change the packaged agent)."
   ],
   "verdict": "V1 leads at 90.0% pooled. Search does not improve on the repaired policy. Adaptation does not improve on the repaired policy."
 }

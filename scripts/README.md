@@ -17,6 +17,7 @@ CLI and shared Python modules for the PTCG adaptive-search agent project.
 | `analyze_phase1_results.py` | Offline holdout EDA → `docs/phases/phase_01/offline/` |
 | `analyze_phase2_results.py` | Deck selection EDA + commitment → `docs/phases/phase_02/` |
 | `analyze_phase3_results.py` | Ablation EDA → `docs/phases/phase_03/offline/` |
+| `analyze_phase5_results.py` | Adaptation impact + detector overlap → `docs/phases/phase_05/` |
 | `analyze_kaggle_match_logs.py` | Ladder replay EDA → `docs/phases/phase_01/online/` |
 
 ## Examples
@@ -33,6 +34,7 @@ python scripts/run_phase3_holdout.py --games 40
 python scripts/analyze_phase3_results.py
 python scripts/run_phase4_holdout.py --games 40
 python scripts/analyze_phase4_results.py
+python scripts/analyze_phase5_results.py
 python scripts/analyze_kaggle_match_logs.py --rating baseline_a=507 --rating baseline_b=507
 ```
 

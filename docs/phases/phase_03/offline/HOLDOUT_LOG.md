@@ -68,7 +68,7 @@ Policy health: V1 `ok=11831 fail=0`; V3 `ok=12797 fail=0`; V2 `ok=8194 fail=0 se
 - **Search hurts** (−53.8 pp pooled) and *did run* (millions of `search_begin` rollouts). Worst vs Starmie (−62.5 pp) and Alakazam (−60.0 pp).
 - **Adaptation hurts** (−5.0 pp pooled); Crustle hypothesis **fails** (−15.0 pp). Hooks no longer nerf Phantom Dive; they switch off Budew vs 344/345 and treat `{360,361,1030,1031,721,722,723}` as water.
 - **Alakazam** is still the hardest cell (V1 65.0%) but is no longer a 7.5% wipe.
-- **Kaggle agent:** V1 + Dragapult (`submission.tar.gz`). Phase 4 did not change this (best search cell 57.5% still −32.5 pp vs V1).
+- **Kaggle agent:** V1 + Dragapult (`submission.tar.gz`). Phases 4–5 did not change this.
 
 ### Superseded pre-fix table (do not cite)
 

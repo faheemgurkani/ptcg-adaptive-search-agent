@@ -25,5 +25,5 @@
 | List | `data/decks/dragapult.csv` (synced to `data/deck.csv`) |
 | Agent stack | `DragapultPolicy` (Baseline A / V1) |
 | Canonical holdout | Dragapult **83.1%** vs Starmie **58.8%** (panel v2, repaired policy) |
-| Rationale | Local holdout favors Dragapult; ladder EV gap vs Starmie only **+3.7 pp**; Phase 3–5 require one policy stack |
+| Rationale | Local holdout favors Dragapult; ladder EV gap vs Starmie only **+3.7 pp**; Phases 3–6 require one policy stack |
 | Holdout panel | **v2** — Phase 1 panel v1 + first-option stub numbers are not comparable |

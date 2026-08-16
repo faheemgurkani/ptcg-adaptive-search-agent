@@ -1,0 +1,136 @@
+{
+  "phase": 5,
+  "status": "offline_complete_traces_deferred",
+  "source": "Phase 3 V1 vs V3 (panel v2, repaired choose()); static detector audit",
+  "detectors": {
+    "water": {
+      "ids": [
+        360,
+        361,
+        721,
+        722,
+        723,
+        1030,
+        1031
+      ],
+      "labels": {
+        "721": "Wugtrio line",
+        "722": "Wugtrio line",
+        "723": "Wugtrio line",
+        "360": "Starmie line",
+        "361": "Starmie line",
+        "1030": "Mega Starmie",
+        "1031": "Mega Starmie"
+      },
+      "signal": "visible opponent active+bench IDs only",
+      "hook": "+8000 energy-attach score on Dragapult-ex",
+      "empty_board": false
+    },
+    "crustle": {
+      "ids": [
+        344,
+        345
+      ],
+      "labels": {
+        "344": "Dwebble",
+        "345": "Crustle"
+      },
+      "signal": "visible opponent active+bench IDs only",
+      "hook": "force switch off Budew",
+      "empty_board": false
+    }
+  },
+  "panel_overlap": {
+    "alakazam": {
+      "water_ids": [],
+      "crustle_ids": [],
+      "water_hit": false,
+      "crustle_hit": false
+    },
+    "crustle": {
+      "water_ids": [],
+      "crustle_ids": [
+        344,
+        345
+      ],
+      "water_hit": false,
+      "crustle_hit": true
+    },
+    "spidops": {
+      "water_ids": [],
+      "crustle_ids": [],
+      "water_hit": false,
+      "crustle_hit": false
+    },
+    "starmie": {
+      "water_ids": [
+        360,
+        361,
+        1030,
+        1031
+      ],
+      "crustle_ids": [],
+      "water_hit": true,
+      "crustle_hit": false
+    }
+  },
+  "false_positive": {
+    "empty_board_can_fire": false,
+    "reason": "_opponent_has requires a matching ID in active+bench; empty board returns False (false negative until the ID appears, not a false positive).",
+    "cross_deck_list_overlap": {
+      "alakazam": false,
+      "crustle": true,
+      "spidops": false,
+      "starmie": true
+    },
+    "note": "List overlap is intended on Crustle (crustle IDs) and Starmie (water IDs). Alakazam and Spidops lists share neither set."
+  },
+  "v1_vs_v3": {
+    "alakazam": {
+      "v1": 0.65,
+      "v3": 0.6,
+      "v1_record": "26/40",
+      "v3_record": "24/40",
+      "delta_pp": -5.0
+    },
+    "crustle": {
+      "v1": 0.975,
+      "v3": 0.825,
+      "v1_record": "39/40",
+      "v3_record": "33/40",
+      "delta_pp": -15.0
+    },
+    "spidops": {
+      "v1": 0.975,
+      "v3": 1.0,
+      "v1_record": "39/40",
+      "v3_record": "40/40",
+      "delta_pp": 2.5
+    },
+    "starmie": {
+      "v1": 1.0,
+      "v3": 0.975,
+      "v1_record": "40/40",
+      "v3_record": "39/40",
+      "delta_pp": -2.5
+    }
+  },
+  "pooled": {
+    "v1": 0.9,
+    "v3": 0.85,
+    "delta_pp": -5.0
+  },
+  "decisions": [
+    "Do not add a Spidops or Festival detector. Adaptation already fails its primary Crustle hypothesis (\u221215.0 pp). Spidops V3 is 40/40 without a dedicated hook.",
+    "Do not change Crustle/water weights. Measuring the current hooks is the Phase 5 goal; retuning would mix attribution with a new policy.",
+    "Per-decision fire-time traces need an instrumented V3 rerun; Phase 3 CSVs have outcomes only. Deferred."
+  ],
+  "findings": [
+    "Adaptive weights matter: they reduce win rate (V3\u2212V1 = \u22125.0 pp pooled; Crustle \u221215.0 pp).",
+    "Empty-board early game cannot false-positive: detectors require a visible matching ID.",
+    "Panel lists have zero unintended ID overlap (Alakazam/Spidops share neither water nor Crustle IDs).",
+    "Water hook is the intended Starmie true-positive (360/361/1030/1031 in the Starmie list) and still \u22122.5 pp vs V1.",
+    "No extra archetype detector this cycle."
+  ],
+  "verdict": "Opponent adaptation as implemented hurts vs the static policy. Keep adaptation off (V1). Do not expand detectors."
+}

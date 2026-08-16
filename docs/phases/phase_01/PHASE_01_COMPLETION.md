@@ -48,7 +48,7 @@ Source: [`offline/results/phase1_holdout_summary_latest.json`](offline/results/p
 
 Gates (≥52%): A fails Alakazam; B fails Alakazam; Merged fails **Alakazam + Crustle**.
 
-**Validity:** These Phase 1 rates used the same `choose()` scoping bug later found in V1–V4. A/B/Merged here are first-option stubs on **panel v1**, not a search/adaptation ablation. Canonical repaired-policy numbers live in Phase 2 (Dragapult 83.1%), Phase 3 (V1 90.0%), and Phase 4 (best search 57.5%, still ≪ V1).
+**Validity:** These Phase 1 rates used the same `choose()` scoping bug later found in V1–V4. A/B/Merged here are first-option stubs on **panel v1**, not a search/adaptation ablation. Canonical repaired-policy numbers: Phase 2 Dragapult **83.1%**; Phase 3 V1 **90.0%**; Phase 4 best search **57.5%**; Phase 5 V3−V1 **−5.0 pp**.
 
 ### Online results
 
@@ -64,22 +64,25 @@ Gates (≥52%): A fails Alakazam; B fails Alakazam; Merged fails **Alakazam + Cr
 
 | Claim | Phase 1 support |
 |-------|-----------------|
-| Clean A vs B (search on/off) | **Yes** |
-| Offline Merged (search + adaptation) measured | **Yes** — **negative** vs B on this panel |
-| Search sustains ladder edge | **No** (A ≈ B ~507) |
-| Adaptation breaks ~507 ceiling online | **Unknown** — awaiting Merged ladder |
-| Adaptation helps offline on current panel | **No** (−21.9 pp vs B) |
+| Harness + ladder logging exists | **Yes** |
+| Clean A vs B search ablation | **No** — both stubs; search never ran |
+| Offline Merged is an adaptation result | **No** — same stub on panel v1 |
+| A ≈ B at ~507 is a search null | **No** — two identical crash fallbacks on sample-water |
+| Adaptation online vs ~507 | **Unknown** — Merged ratings not ingested; use Phase 3/5 offline instead |
+
+Do not cite the B−A −2.5 pp or Merged −21.9 pp rows as component effects.
 
 ---
 
 ## Known caveats
 
-1. Crustle/Spidops/Starmie = placeholder decks + random agents.
-2. Merged offline collapse (esp. Crustle 30%) may reflect miscalibrated adaptation on non-field decks — validate on ladder + better panels.
-3. Merged ladder ratings/replays not yet ingested.
+1. Crustle/Spidops/Starmie = placeholder decks + random agents (panel v1).
+2. All three offline rates are first-option stubs (`UnboundLocalError` in `choose()`).
+3. Merged ladder ratings/replays not ingested.
+4. Phase 1 ladder decks were sample-water, not Dragapult.
 
 ---
 
 ## Verdict
 
-Phase 1 **offline harness + A/B/Merged holdout** is done. Online A/B documented with convergence. **Update this file when Merged ladder KPIs arrive**, then proceed to Phase 2.
+Phase 1 delivered the **holdout harness and ladder logging**. Its A/B/C numbers are historical stubs. Canonical component effects are Phases 3–5. Submission of record is repaired **V1 + Dragapult**.

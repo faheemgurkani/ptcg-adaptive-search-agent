@@ -1,0 +1,25 @@
+{
+  "phase": 6,
+  "status": "package_ready_live_pending",
+  "submit": "V1 + Dragapult (USE_SEARCH=False, USE_OPPONENT_ADAPTATION=False)",
+  "not_v4": "Phase 3–5: search and adaptation reduce holdout win rate. Do not submit V4.",
+  "package": {
+    "path": "submission.tar.gz",
+    "main_py_flags": {"USE_SEARCH": false, "USE_OPPONENT_ADAPTATION": false},
+    "deck": "Dragapult IDs 119/120/121"
+  },
+  "deadline": {
+    "final_submission": "2026-08-16",
+    "evaluation_window": "2026-08-17 to 2026-08-31",
+    "note": "New uploads may be closed. Existing Phase 1 A/B ladder ratings are first-option stubs (sample-water), not repaired V1."
+  },
+  "probe": {
+    "path": "docs/phases/phase_06/online/ladder_probe.json",
+    "note": "Informal mixed download. current: 5 Dragapult games, 4 still 100% first-option, 1 policy-like. Not a transfer table."
+  },
+  "remaining": [
+    "If the competition still accepts uploads: submit the current V1 tar and record peak vs equilibrium rating.",
+    "Download repaired-V1 episode JSONs; compare per-archetype WR to Phase 3 holdout.",
+    "Winner's-curse check needs a refreshed holdout panel — not run this session."
+  ]
+}

@@ -1,42 +1,36 @@
 # Phase 1 — Online Kaggle log
 
-Live ladder submissions and downloaded replay analysis.
+**Validity:** A/B ladder submissions were the silent `choose()` stub on the **sample-water** deck (Wugtrio 721–723), not a working Dragapult policy and not a search ablation. Equilibrium ~507 is two identical fallbacks. Do **not** use these ratings as Phase 6 transfer for repaired V1.
 
-**Phase 1 status:** A/B complete online; **Merged submitted — ratings/replays pending** — see [`../PHASE_01_COMPLETION.md`](../PHASE_01_COMPLETION.md).
+**Phase 1 status:** A/B complete online; Merged (C) submitted with ratings/replays still not ingested — [`../PHASE_01_COMPLETION.md`](../PHASE_01_COMPLETION.md).
 
 ## Submissions and ratings
 
-| Baseline | Agent | Early peak | Equilibrium | Status |
-|----------|-------|----------:|------------:|--------|
-| baseline_a | Dragapult, no search | **433** | **~507** | Submitted |
-| baseline_b | Dragapult + UCB1 search | **612** | **~507** | Submitted |
-| baseline_merged (C) | Dragapult + UCB1 + adaptation | *TBD* | *TBD* | **Submitted** (logs forthcoming) |
+| Baseline | What actually ran | Early peak | Equilibrium | Status |
+|----------|-------------------|----------:|------------:|--------|
+| baseline_a | First-option stub (sample water) | **433** | **~507** | Submitted |
+| baseline_b | Same stub (search never started) | **612** | **~507** | Submitted |
+| baseline_merged (C) | Same crash + adaptation flags | *TBD* | *TBD* | Submitted; logs not ingested |
 
 Ratings come from the Kaggle UI — they are **not** embedded in replay JSON files.
 
-### Ladder convergence (A/B — documented finding)
+### Ladder convergence (A/B)
 
-Both A and B **converged to ~507** after the initial placement transient.
+Both A and B **converged to ~507** after placement. That is the expected outcome if both agents are the same first-option stub.
 
-**What this means:** Matchmaking pairs agents near their current rating. B’s early +179 lead was partly cold-start / punching-down during placement and partly a narrow search edge that did not survive once both faced the same field at the same tier.
+The early **+179** peak gap is a cold-start / matchmaking artifact (B punching down during placement), not a measured UCB1 effect.
 
-**Implications:**
-1. The **floor (~507)** is the signal, not the early gap — Dragapult base policy evaluation is the binding constraint; search alone cannot climb past it.
-2. Offline search null (−2.5 pp pooled; B worse vs Alakazam) is **corroborated** online — UCB1 as configured is not a reliable win-rate lift (likely optimizing a weak evaluation).
-3. **A ≈ B at equilibrium** is a clean null for V2 vs V1 — Phase 3 / Merged tests whether adaptation breaks that ceiling (offline Merged currently **worse** than B; ladder will confirm or contradict).
+Canonical search measurement is Phase 3 V2−V1 (**−53.8 pp**) after the `choose()` fix, not this ladder pair.
 
-**Honest write-up line:** Search provided an initial advantage during placement (+179) but did not sustain a rating differential at equilibrium, suggesting the base policy evaluation is the binding constraint.
+### Merged (Baseline C)
 
-### Merged (Baseline C) — pending online metrics
+Offline Merged on panel v1 is a **stub** (pooled 41.9%). Do not treat that as an adaptation result. Canonical adaptation is Phase 3/5 V3−V1 (**−5.0 pp**).
 
-Offline holdout for Merged is recorded in [`../offline/HOLDOUT_LOG.md`](../offline/HOLDOUT_LOG.md) (pooled **41.9%**, −21.9 pp vs B).
-
-When available, add here:
+When available, add:
 - Peak / equilibrium ladder rating
 - Replay JSONs under `logs/phase1_logs/baseline_merged/{won,lost}/`
-- Re-run: `python scripts/analyze_kaggle_match_logs.py --rating baseline_merged=<rating>`
 
-## Logged replay sample (early / mid window) — A/B only so far
+## Logged replay sample (early / mid window) — A/B only
 
 | Baseline | Logged replays | W–L | Logged win rate |
 |----------|---------------:|----:|----------------:|
@@ -53,27 +47,14 @@ logs/phase1_logs/
   baseline_merged/{won,lost}/<episode_id>.json   # add when downloaded
 ```
 
-## Analyze
-
 ```bash
 python scripts/analyze_kaggle_match_logs.py \
   --rating baseline_a=507 --rating baseline_b=507
-# later: --rating baseline_merged=<rating>
 ```
-
-## Artifacts
 
 | File | Description |
 |------|-------------|
-| [KAGGLE_ANALYSIS.md](KAGGLE_ANALYSIS.md) | Full ladder replay EDA (A/B) |
+| [KAGGLE_ANALYSIS.md](KAGGLE_ANALYSIS.md) | Downloaded A/B episode tables (stub submissions) |
 | [results/kaggle_log_analysis.json](results/kaggle_log_analysis.json) | Machine-readable stats |
 
-## Tasks
-
-1. ~~Submit Baseline A~~ — peak **433**, equilibrium **~507**
-2. ~~Submit Baseline B~~ — peak **612**, equilibrium **~507**
-3. ~~Document A/B convergence~~ — recorded above
-4. ~~Submit Merged (C)~~ — awaiting ratings + replay download
-5. Optional: post-convergence override diagnostic; more won/lost replays
-
-Offline holdout: [../offline/HOLDOUT_LOG.md](../offline/HOLDOUT_LOG.md).
+Offline holdout (also stub): [../offline/HOLDOUT_LOG.md](../offline/HOLDOUT_LOG.md).

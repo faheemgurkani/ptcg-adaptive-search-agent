@@ -1,6 +1,6 @@
 # Phase 1 — Baseline establishment
 
-**Status:** A/B/Merged offline complete; A/B online complete; Merged ladder pending — [`PHASE_01_COMPLETION.md`](PHASE_01_COMPLETION.md)
+**Status:** A/B/Merged offline complete (all **first-option stubs**); A/B online complete (same stub, sample-water); Merged ladder not ingested — [`PHASE_01_COMPLETION.md`](PHASE_01_COMPLETION.md)
 
 **Goal:** Working submission + reproducible offline evaluation harness (A / B / Merged).
 

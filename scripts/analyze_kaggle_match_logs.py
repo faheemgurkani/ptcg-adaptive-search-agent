@@ -298,7 +298,10 @@ def render_markdown(
         )
         ra, rb = ladder_ratings.get("baseline_a"), ladder_ratings.get("baseline_b")
         if ra is not None and rb is not None:
-            lines.append(f"- Ladder rating: B **{rb}** vs A **{ra}** → **+{rb - ra}** (aligns with search helping on ladder)")
+            lines.append(
+                f"- Ladder rating: B **{rb}** vs A **{ra}** → **+{rb - ra}** "
+                "(peak only; Phase 1 A/B were first-option stubs, not a search result)"
+            )
         lines.append("")
 
     for baseline in sorted(by_baseline):

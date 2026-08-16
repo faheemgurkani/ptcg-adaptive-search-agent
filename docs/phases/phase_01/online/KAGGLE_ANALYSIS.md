@@ -1,11 +1,13 @@
 # Phase 1 — Kaggle ladder log analysis
 
-Log root: `/Volumes/Sandisk 2TB/Documents/Hackathons and Competitions/Kaggle - PTCG/logs/phase1_logs`
+**Stub submissions.** A/B used sample-water + silent `choose()` crash. Peak ratings 433 / 612; both later ~507. Sample WRs below are not a search ablation.
+
+Log root: `logs/phase1_logs`
 
 ## Ladder ratings (from Kaggle UI — not in JSON logs)
 
-- **baseline_a:** 433
-- **baseline_b:** 612
+- **baseline_a:** peak 433 → equilibrium ~507
+- **baseline_b:** peak 612 → equilibrium ~507
 
 > Replay JSON files cover only downloaded episodes. Win rates below are **sample** stats, not the full ladder record that produced the rating.
 
@@ -18,8 +20,7 @@ Log root: `/Volumes/Sandisk 2TB/Documents/Hackathons and Competitions/Kaggle - P
 
 ## Baseline A vs B
 
-- Logged sample win rate: B 50.0% (5/10) vs A 44.4% (4/9) → **B +5.6 pp**
-- Ladder rating: B **612** vs A **433** → **+179** (aligns with search helping on ladder)
+Logged sample: B 50.0% (5/10) vs A 44.4% (4/9). Peak ratings 612 vs 433. **Not a search result** — both submissions were the same first-option stub; they later sat at ~507.
 
 ## baseline_a — opponent archetypes (deck-submit heuristic)
 
@@ -75,8 +76,9 @@ Log root: `/Volumes/Sandisk 2TB/Documents/Hackathons and Competitions/Kaggle - P
 
 ## Notes
 
+- **These A/B episodes are stub submissions** (sample-water deck, silent `choose()` crash). The +179 peak gap is not a UCB1 result; A and B later sat at ~507.
 - **Player slot** alternates on the ladder; infer wins from `rewards[our_player]`, not raw `rewards[0]`.
 - **Opponent identity** (username / submission id) is not present in logs — only deck lists and board-visible cards.
 - **Archetype labels** compare opponent deck-submit unique IDs to holdout panel signatures; `other_N_types` = field deck not in panel.
-- Re-run: `python scripts/analyze_kaggle_match_logs.py --rating baseline_a=433 --rating baseline_b=612`
+- Re-run: `python scripts/analyze_kaggle_match_logs.py --rating baseline_a=507 --rating baseline_b=507`
 - Docs: `docs/phases/phase_01/online/KAGGLE_LOG.md`

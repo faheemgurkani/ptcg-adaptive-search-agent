@@ -58,7 +58,7 @@ data/
 
 ### What type of data?
 
-- Single-column list of **60 integer card IDs** (Dragapult / water archetype in current Phase 1 work).
+- Single-column list of **60 integer card IDs**. Packaged / Phase 2+ deck is **Dragapult**. Phase 1 *ladder* submissions used the official **sample-water** list.
 
 ### Origin
 
@@ -108,7 +108,7 @@ Fixed archetypes: **Alakazam, Crustle, Spidops, Starmie**.
 | Version | Used in | Crustle / Spidops / Starmie decks |
 |---------|---------|-----------------------------------|
 | **v1** | Phase 1 canonical offline runs | Official sample `deck.csv` (placeholder) |
-| **v2** | Phase 2–4 (complete) | Ladder Crustle; constructed Spidops + Starmie |
+| **v2** | Phase 2–5 (complete) | Ladder Crustle; constructed Spidops + Starmie |
 
 Alakazam unchanged across versions. Phase 1 **66.2%** and the pre-fix Phase 2 **38.8%** both measured first-option fallback (`choose()` `UnboundLocalError`). Canonical Phase 2 Dragapult is **83.1%** (repaired policy, panel v2). Do not mix stub and repaired-policy tables.
 
@@ -240,7 +240,26 @@ Source: `docs/phases/phase_03/offline/results/phase3_holdout_summary_latest.json
 
 Agent: V2 only. 7 cells × 160 games. Best: 4 candidates / 1.5 s at **57.5%** (−32.5 pp vs V1). Time knee 0.5 s; candidate knee 4. `choose_fail=0`.
 
-**Submission unchanged after Phase 4:** `main.py` is Baseline A / V1 (`USE_SEARCH=False`, `USE_OPPONENT_ADAPTATION=False`) + Dragapult deck.
+**Submission unchanged after Phase 5:** `main.py` is Baseline A / V1 (`USE_SEARCH=False`, `USE_OPPONENT_ADAPTATION=False`) + Dragapult deck.
+
+### Phase 5 adaptation artifacts (offline complete; traces deferred)
+
+| Artifact | Format | Contents |
+|----------|--------|----------|
+| `PHASE_05_RESULTS.json` | JSON | V1 vs V3 deltas, panel ID overlap, detector semantics |
+| `offline/HOLDOUT_ANALYSIS.md` | Markdown | Crustle test, FP analysis, no-extra-detector decision |
+
+**CLI:** `scripts/analyze_phase5_results.py` (no new games; reads Phase 3 results + panel `deck.csv`)
+
+### Phase 6 live-ladder artifacts (package ready; rating pending)
+
+| Artifact | Role |
+|----------|------|
+| `submission.tar.gz` | V1 + Dragapult (no `__pycache__`) |
+| `docs/phases/phase_06/PHASE_06_STATUS.json` | Status |
+| `docs/phases/phase_06/online/ladder_probe.json` | Informal mixed episode probe — not a transfer table |
+
+Phase 1 A/B ~507 is **not** repaired-V1 transfer.
 
 ## 5. Online Kaggle ladder logs (replays)
 
@@ -266,7 +285,7 @@ Optional companion files (if downloaded): `<episode>-0.json` / `<episode>-1.json
 
 - **Source:** Kaggle competition UI — download episode / replay after ladder matches for your submissions (Baseline A / B / Merged).
 - **Not** produced by local holdout.
-- Ladder **ratings** (e.g. 433 / 612) come from the UI and are entered manually into analysis (`--rating baseline_a=433`); they are **not** inside the JSON.
+- Ladder **ratings** (Phase 1 A/B peaks 433 / 612, then ~507) come from the UI. Those A/B submissions were first-option stubs. Entered manually (`--rating`); **not** inside the JSON.
 
 ### How it is placed and used
 
@@ -363,7 +382,7 @@ Built from reference notebooks via `build_merged_agent.py` / workbench notebook.
 ### Processing
 
 - Feature flags (`USE_SEARCH`, `USE_OPPONENT_ADAPTATION`) toggled per baseline.
-- After Phases 3–4, the packaged agent is **V1 + Dragapult**. Search/adaptation stay off.
+- After Phases 3–5, the packaged agent is **V1 + Dragapult**. Search/adaptation stay off.
 - Packaging copies active deck and `cg/` into a tarball (gitignored).
 
 ---

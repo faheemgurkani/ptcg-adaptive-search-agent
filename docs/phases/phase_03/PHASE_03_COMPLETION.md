@@ -57,5 +57,6 @@ Phase 1 and pre-fix Phase 3 are first-option stubs. Canonical Phase 3 is the fir
 - Holdout search budget: `PTCG_SEARCH_TIME_BUDGET=0.3` s (submission default remains 1.5 s).
 - Seeds: `md5(opponent:game_idx)` shared across variants; cabt C++ shuffle may still be unseeded.
 - Phase 2 Dragapult 83.1% vs Phase 3 V1 90.0%: same stack, different seed namespace + unseeded engine.
-- Phase 4 (complete): extra UCB1 compute does not recover V1 (best 57.5% at 4 cand / 1.5 s). Submission stays **V1 + Dragapult**.
-- Phase 5 will deepen adaptation attribution; Phase 6 tests ladder transfer of the **repaired** V1.
+- Phase 4 (complete): extra UCB1 compute does not recover V1 (best 57.5% at 4 cand / 1.5 s).
+- Phase 5 (offline complete): V3−V1 **−5.0 pp** pooled, Crustle **−15.0 pp**; no extra detector; traces deferred.
+- Phase 6: V1 package ready; live repaired-V1 transfer still pending. Submission stays **V1 + Dragapult**.
