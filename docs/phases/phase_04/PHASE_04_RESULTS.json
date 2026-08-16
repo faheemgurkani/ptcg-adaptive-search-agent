@@ -1,0 +1,441 @@
+{
+  "phase": 4,
+  "status": "complete",
+  "protocol": {
+    "agent": "V2 (search only, no adaptation)",
+    "agent_path": "notebooks/agents/main_baseline_b.py",
+    "committed_deck": "dragapult",
+    "panel_version": "v2",
+    "games_per_matchup": 40,
+    "candidate_counts": [
+      4,
+      8,
+      12,
+      16
+    ],
+    "time_budgets_sec": [
+      0.5,
+      1.0,
+      1.5,
+      2.0
+    ],
+    "n_cells": 7,
+    "knee_tolerance_pp": 2.0,
+    "phase3_reference": {
+      "v1_pooled": 0.9,
+      "v2_pooled": 0.3625,
+      "v2_time_sec": 0.3,
+      "v2_candidates": 8
+    }
+  },
+  "cells": {
+    "c8_t500": {
+      "cell": "c8_t500",
+      "search_max_candidates": 8,
+      "search_time_budget_sec": 0.5,
+      "matchups": {
+        "alakazam": {
+          "win_rate": 0.05,
+          "wins": 2,
+          "losses": 38,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        },
+        "crustle": {
+          "win_rate": 0.5,
+          "wins": 20,
+          "losses": 20,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        },
+        "spidops": {
+          "win_rate": 0.45,
+          "wins": 18,
+          "losses": 22,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        },
+        "starmie": {
+          "win_rate": 0.5,
+          "wins": 20,
+          "losses": 20,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        }
+      },
+      "wins": 60,
+      "games": 160,
+      "choose_ok": 7751,
+      "choose_fail": 0,
+      "search_ok": 3397752,
+      "search_fail": 0,
+      "pooled": 0.375,
+      "equal_weight": 0.375
+    },
+    "c8_t1000": {
+      "cell": "c8_t1000",
+      "search_max_candidates": 8,
+      "search_time_budget_sec": 1.0,
+      "matchups": {
+        "alakazam": {
+          "win_rate": 0.0,
+          "wins": 0,
+          "losses": 40,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        },
+        "crustle": {
+          "win_rate": 0.475,
+          "wins": 19,
+          "losses": 21,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        },
+        "spidops": {
+          "win_rate": 0.5,
+          "wins": 20,
+          "losses": 20,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        },
+        "starmie": {
+          "win_rate": 0.425,
+          "wins": 17,
+          "losses": 23,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        }
+      },
+      "wins": 56,
+      "games": 160,
+      "choose_ok": 7752,
+      "choose_fail": 0,
+      "search_ok": 8424727,
+      "search_fail": 0,
+      "pooled": 0.35,
+      "equal_weight": 0.35
+    },
+    "c8_t1500": {
+      "cell": "c8_t1500",
+      "search_max_candidates": 8,
+      "search_time_budget_sec": 1.5,
+      "matchups": {
+        "alakazam": {
+          "win_rate": 0.075,
+          "wins": 3,
+          "losses": 37,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        },
+        "crustle": {
+          "win_rate": 0.575,
+          "wins": 23,
+          "losses": 17,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_pass"
+        },
+        "spidops": {
+          "win_rate": 0.4,
+          "wins": 16,
+          "losses": 24,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        },
+        "starmie": {
+          "win_rate": 0.5,
+          "wins": 20,
+          "losses": 20,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        }
+      },
+      "wins": 62,
+      "games": 160,
+      "choose_ok": 7168,
+      "choose_fail": 0,
+      "search_ok": 10955199,
+      "search_fail": 0,
+      "pooled": 0.3875,
+      "equal_weight": 0.38749999999999996
+    },
+    "c8_t2000": {
+      "cell": "c8_t2000",
+      "search_max_candidates": 8,
+      "search_time_budget_sec": 2.0,
+      "matchups": {
+        "alakazam": {
+          "win_rate": 0.025,
+          "wins": 1,
+          "losses": 39,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        },
+        "crustle": {
+          "win_rate": 0.45,
+          "wins": 18,
+          "losses": 22,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        },
+        "spidops": {
+          "win_rate": 0.35,
+          "wins": 14,
+          "losses": 26,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        },
+        "starmie": {
+          "win_rate": 0.25,
+          "wins": 10,
+          "losses": 30,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        }
+      },
+      "wins": 43,
+      "games": 160,
+      "choose_ok": 6914,
+      "choose_fail": 0,
+      "search_ok": 11966041,
+      "search_fail": 0,
+      "pooled": 0.26875,
+      "equal_weight": 0.26875
+    },
+    "c4_t1500": {
+      "cell": "c4_t1500",
+      "search_max_candidates": 4,
+      "search_time_budget_sec": 1.5,
+      "matchups": {
+        "alakazam": {
+          "win_rate": 0.05,
+          "wins": 2,
+          "losses": 38,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        },
+        "crustle": {
+          "win_rate": 0.75,
+          "wins": 30,
+          "losses": 10,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_pass"
+        },
+        "spidops": {
+          "win_rate": 0.825,
+          "wins": 33,
+          "losses": 7,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_pass"
+        },
+        "starmie": {
+          "win_rate": 0.675,
+          "wins": 27,
+          "losses": 13,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_pass"
+        }
+      },
+      "wins": 92,
+      "games": 160,
+      "choose_ok": 11624,
+      "choose_fail": 0,
+      "search_ok": 14024752,
+      "search_fail": 0,
+      "pooled": 0.575,
+      "equal_weight": 0.575
+    },
+    "c12_t1500": {
+      "cell": "c12_t1500",
+      "search_max_candidates": 12,
+      "search_time_budget_sec": 1.5,
+      "matchups": {
+        "alakazam": {
+          "win_rate": 0.05,
+          "wins": 2,
+          "losses": 38,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        },
+        "crustle": {
+          "win_rate": 0.375,
+          "wins": 15,
+          "losses": 25,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        },
+        "spidops": {
+          "win_rate": 0.3,
+          "wins": 12,
+          "losses": 28,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        },
+        "starmie": {
+          "win_rate": 0.175,
+          "wins": 7,
+          "losses": 33,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        }
+      },
+      "wins": 36,
+      "games": 160,
+      "choose_ok": 6484,
+      "choose_fail": 0,
+      "search_ok": 10058906,
+      "search_fail": 0,
+      "pooled": 0.225,
+      "equal_weight": 0.22499999999999998
+    },
+    "c16_t1500": {
+      "cell": "c16_t1500",
+      "search_max_candidates": 16,
+      "search_time_budget_sec": 1.5,
+      "matchups": {
+        "alakazam": {
+          "win_rate": 0.025,
+          "wins": 1,
+          "losses": 39,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        },
+        "crustle": {
+          "win_rate": 0.475,
+          "wins": 19,
+          "losses": 21,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        },
+        "spidops": {
+          "win_rate": 0.175,
+          "wins": 7,
+          "losses": 33,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        },
+        "starmie": {
+          "win_rate": 0.4,
+          "wins": 16,
+          "losses": 24,
+          "ties": 0,
+          "games": 40,
+          "holdout_gate": "holdout_fail"
+        }
+      },
+      "wins": 43,
+      "games": 160,
+      "choose_ok": 6795,
+      "choose_fail": 0,
+      "search_ok": 11381467,
+      "search_fail": 0,
+      "pooled": 0.26875,
+      "equal_weight": 0.26875000000000004
+    }
+  },
+  "curves": {
+    "time_at_8_candidates": [
+      {
+        "time_sec": 0.5,
+        "pooled": 0.375,
+        "cell": "c8_t500"
+      },
+      {
+        "time_sec": 1.0,
+        "pooled": 0.35,
+        "cell": "c8_t1000"
+      },
+      {
+        "time_sec": 1.5,
+        "pooled": 0.3875,
+        "cell": "c8_t1500"
+      },
+      {
+        "time_sec": 2.0,
+        "pooled": 0.26875,
+        "cell": "c8_t2000"
+      }
+    ],
+    "candidates_at_1_5s": [
+      {
+        "candidates": 4,
+        "pooled": 0.575,
+        "cell": "c4_t1500"
+      },
+      {
+        "candidates": 8,
+        "pooled": 0.3875,
+        "cell": "c8_t1500"
+      },
+      {
+        "candidates": 12,
+        "pooled": 0.225,
+        "cell": "c12_t1500"
+      },
+      {
+        "candidates": 16,
+        "pooled": 0.26875,
+        "cell": "c16_t1500"
+      }
+    ]
+  },
+  "knee": {
+    "time_sec": {
+      "x": 0.5,
+      "win_rate": 0.375,
+      "best_win_rate": 0.3875,
+      "best_x": 1.5,
+      "note": "within 2 pp of best",
+      "monotone_down": false,
+      "monotone_up": false
+    },
+    "candidates": {
+      "x": 4.0,
+      "win_rate": 0.575,
+      "best_win_rate": 0.575,
+      "best_x": 4.0,
+      "note": "within 2 pp of best",
+      "monotone_down": false,
+      "monotone_up": false
+    }
+  },
+  "best_cell": {
+    "cell": "c4_t1500",
+    "pooled": 0.575,
+    "search_max_candidates": 4,
+    "search_time_budget_sec": 1.5,
+    "vs_v1_pp": -32.50000000000001
+  },
+  "findings": [
+    "Best search cell c4_t1500 at 57.5% pooled (-32.5 pp vs Phase 3 V1 90.0%).",
+    "Time-budget knee (8 candidates): 0.5 s \u2014 within 2 pp of best.",
+    "Candidate-count knee (1.5 s): 4 \u2014 within 2 pp of best.",
+    "No searched configuration approaches the no-search V1 baseline."
+  ]
+}
