@@ -424,7 +424,28 @@ my_deck = [int(csv[i]) for i in range(60)]
             "            elif o.type == OptionType.ATTACK:\n"
             "                score = o.attackId\n",
             "            elif o.type == OptionType.ATTACK:\n"
-            "                score = (20000 + o.attackId) if can_main_attack else o.attackId\n",
+            "                if can_main_attack:\n"
+            "                    score = 20000 + o.attackId\n"
+            "                elif can_attack and not do_switch and len(my_state.prize) > 0:\n"
+            "                    score = 12000 + o.attackId\n"
+            "                else:\n"
+            "                    score = o.attackId\n",
+        )
+    body = body.replace(
+            "                if pokemon.id == Dragapult_ex:\n"
+            "                    score += 250\n",
+            "                if pokemon.id == Dragapult_ex:\n"
+            "                    score += 250\n"
+            "                    if _opponent_is_water_deck(obs, my_index):\n"
+            "                        score += 8000\n",
+        )
+    body = body.replace(
+            "                    if pokemon.id == Dragapult_ex:\n"
+            "                        score += 150\n",
+            "                    if pokemon.id == Dragapult_ex:\n"
+            "                        score += 150\n"
+            "                        if _opponent_is_water_deck(obs, my_index):\n"
+            "                            score += 8000\n",
         )
     body = body.replace(
             "            for i in range(select.maxCount):\n",
@@ -516,7 +537,10 @@ my_deck = [int(csv[i]) for i in range(60)]
             global POLICY_CHOOSE_OK, POLICY_CHOOSE_FAIL, POLICY_NON_FALLBACK, POLICY_LAST_ERROR
             try:
                 obs = to_observation_class(obs_dict)
-            except Exception:
+            except Exception as exc:
+                POLICY_CHOOSE_FAIL += 1
+                POLICY_LAST_ERROR = f"to_observation_class: {type(exc).__name__}: {exc}"
+                traceback.print_exc(file=sys.stderr)
                 return my_deck if obs_dict.get("select") is None else [0]
 
             if obs.select is None:
@@ -530,6 +554,8 @@ my_deck = [int(csv[i]) for i in range(60)]
                     ordered = DragapultPolicy(obs).choose()
                 ordered = [i for i in ordered if 0 <= i < n]
                 if not ordered:
+                    POLICY_CHOOSE_FAIL += 1
+                    POLICY_LAST_ERROR = "empty action list"
                     print("policy returned empty action list", file=sys.stderr)
                     return fallback
                 k = max(min(obs.select.maxCount, n), min(max(1, obs.select.minCount), n))

@@ -1,6 +1,6 @@
 # Phase 2 — Deck selection & meta analysis
 
-**Status: COMPLETE** — committed deck: **Dragapult**
+**Status: COMPLETE** — committed deck: **Dragapult** (canonical re-run after `choose()` fix)
 
 **Goal:** Pick and commit to one deck with a principled justification before Phase 3 ablations.
 
@@ -23,6 +23,7 @@
 |-------|-------|
 | Deck | **Dragapult** |
 | List | `data/decks/dragapult.csv` (synced to `data/deck.csv`) |
-| Agent stack | `DragapultPolicy` (Baseline A/B / V1–V4) |
-| Rationale | Ladder EV gap vs Starmie only **+3.7pp**; local Starmie lead is agent-asymmetric; Phase 3–5 require one policy stack |
-| Holdout panel | **v2** (upgraded Crustle/Spidops/Starmie decks) — not comparable to Phase 1 panel v1 numbers |
+| Agent stack | `DragapultPolicy` (Baseline A / V1) |
+| Canonical holdout | Dragapult **83.1%** vs Starmie **58.8%** (panel v2, repaired policy) |
+| Rationale | Local holdout favors Dragapult; ladder EV gap vs Starmie only **+3.7 pp**; Phase 3–5 require one policy stack |
+| Holdout panel | **v2** — Phase 1 panel v1 + first-option stub numbers are not comparable |

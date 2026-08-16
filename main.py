@@ -481,6 +481,8 @@ class DragapultPolicy:
                     return -1
                 if pokemon.id == Dragapult_ex:
                     score += 250
+                    if _opponent_is_water_deck(obs, my_index):
+                        score += 8000
                 elif pokemon.id == Dreepy:
                     score -= 150
                 else:
@@ -494,6 +496,8 @@ class DragapultPolicy:
                 else:
                     if pokemon.id == Dragapult_ex:
                         score += 150
+                        if _opponent_is_water_deck(obs, my_index):
+                            score += 8000
                     elif pokemon.id == Dreepy:
                         score += 100
                     else:
@@ -889,7 +893,12 @@ class DragapultPolicy:
                 else:
                     score = -1
             elif o.type == OptionType.ATTACK:
-                score = (20000 + o.attackId) if can_main_attack else o.attackId
+                if can_main_attack:
+                    score = 20000 + o.attackId
+                elif can_attack and not do_switch and len(my_state.prize) > 0:
+                    score = 12000 + o.attackId
+                else:
+                    score = o.attackId
 
             scores.append(score)
 
@@ -1207,7 +1216,10 @@ def agent(obs_dict: dict) -> list[int]:
     global POLICY_CHOOSE_OK, POLICY_CHOOSE_FAIL, POLICY_NON_FALLBACK, POLICY_LAST_ERROR
     try:
         obs = to_observation_class(obs_dict)
-    except Exception:
+    except Exception as exc:
+        POLICY_CHOOSE_FAIL += 1
+        POLICY_LAST_ERROR = f"to_observation_class: {type(exc).__name__}: {exc}"
+        traceback.print_exc(file=sys.stderr)
         return my_deck if obs_dict.get("select") is None else [0]
 
     if obs.select is None:
@@ -1221,6 +1233,8 @@ def agent(obs_dict: dict) -> list[int]:
             ordered = DragapultPolicy(obs).choose()
         ordered = [i for i in ordered if 0 <= i < n]
         if not ordered:
+            POLICY_CHOOSE_FAIL += 1
+            POLICY_LAST_ERROR = "empty action list"
             print("policy returned empty action list", file=sys.stderr)
             return fallback
         k = max(min(obs.select.maxCount, n), min(max(1, obs.select.minCount), n))

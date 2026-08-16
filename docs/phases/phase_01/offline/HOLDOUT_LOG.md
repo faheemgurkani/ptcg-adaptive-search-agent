@@ -36,7 +36,7 @@ python scripts/analyze_phase1_results.py
 
 **Panel v2 (Phase 2+):** Crustle → ladder-extracted Dwebble/Crustle list; Spidops → constructed Team Rocket list; Starmie → constructed Misty/Mega Starmie list (agents still random except Alakazam). Phase 2 deck-selection runs used panel v2.
 
-**Cross-phase warning:** Phase 1 numbers below are **not directly comparable** to Phase 2 holdout win rates (e.g. Baseline A pooled 66.2% vs Phase 2 Dragapult 38.8% on the same policy). Compare only within the same panel version.
+**Cross-phase warning:** Phase 1 numbers below measured **first-option fallback** (`choose()` `UnboundLocalError`) on **panel v1**. They are not a working Dragapult policy and are not comparable to repaired Phase 2/3 rates (Dragapult 83.1%, V1 90.0% on panel v2).
 
 ## Results (canonical — 40 games/opponent)
 

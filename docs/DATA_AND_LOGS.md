@@ -110,7 +110,7 @@ Fixed archetypes: **Alakazam, Crustle, Spidops, Starmie**.
 | **v1** | Phase 1 canonical offline runs | Official sample `deck.csv` (placeholder) |
 | **v2** | Phase 2 deck selection; Phase 3 ablation (complete) | Ladder Crustle; constructed Spidops + Starmie |
 
-Alakazam unchanged across versions. Example: Baseline A pooled **66.2%** (Phase 1, v1) vs Dragapult **38.8%** (Phase 2, v2, same policy) — panel hardness change, not agent regression.
+Alakazam unchanged across versions. Phase 1 **66.2%** and the pre-fix Phase 2 **38.8%** both measured first-option fallback (`choose()` `UnboundLocalError`). Canonical Phase 2 Dragapult is **83.1%** (repaired policy, panel v2). Do not mix stub and repaired-policy tables.
 
 ### Origin (current panel v2 on disk)
 
@@ -190,7 +190,7 @@ Generated locally by `run_phase1_holdout.py` / eval notebook — **not** from Ka
 Source: `docs/phases/phase_01/offline/results/phase1_holdout_summary_latest.json`.
 Merged games CSV: `phase1_holdout_games_20260729T132234Z.csv`.
 
-**Panel v1 only** — do not compare to Phase 2/3 numbers without labeling panel version.
+**Panel v1 + first-option stub** — Phase 1 A/B/C did not execute `DragapultPolicy`. Do not compare to repaired Phase 2/3 numbers.
 
 ### Phase 2 deck-selection artifacts (panel v2)
 
@@ -200,7 +200,7 @@ Merged games CSV: `phase1_holdout_games_20260729T132234Z.csv`.
 | Decision | `docs/phases/phase_02/DECK_SELECTION_DECISION.json` |
 | Commitment | `docs/phases/phase_02/DECK_COMMITMENT.json` → `data/deck.csv` |
 
-320 games (Dragapult vs Starmie × 4 opponents × 40). Committed deck: **Dragapult**.
+320 games (Dragapult vs Starmie × 4 opponents × 40). Canonical (repaired policy): Dragapult **83.1%** (133/160) vs Starmie **58.8%** (94/160). Committed deck: **Dragapult**. Pre-fix 38.8%/54.4% is superseded.
 
 ### Phase 3 ablation artifacts (panel v2 — canonical V1–V4)
 
@@ -218,12 +218,12 @@ CLI: `scripts/run_phase3_holdout.py` · `scripts/analyze_phase3_results.py`
 
 | Version | Pooled WR | Record | Search | Adaptation |
 |---------|----------:|--------|:------:|:----------:|
-| V1 | **40.0%** | 64/160 | ✗ | ✗ |
-| V2 | 32.5% | 52/160 | ✓ | ✗ |
-| V3 | 36.2% | 58/160 | ✗ | ✓ |
+| V1 | **90.0%** | 144/160 | ✗ | ✗ |
+| V2 | 36.2% | 58/160 | ✓ | ✗ |
+| V3 | 85.0% | 136/160 | ✗ | ✓ |
 | V4 | 34.4% | 55/160 | ✓ | ✓ |
 
-Key contrasts (pp): V2−V1 **−7.5**; V3−V1 **−3.8**; V4−V1 **−5.6**. V1 strongest offline.
+Key contrasts (pp): V2−V1 **−53.8**; V3−V1 **−5.0**; V4−V1 **−55.6**. V1 strongest offline. `choose_fail=0`; search actually ran on V2/V4. Pre-fix 40.0/32.5/36.2/34.4% table is first-option noise — superseded.
 
 Source: `docs/phases/phase_03/offline/results/phase3_holdout_summary_latest.json` · `docs/phases/phase_03/PHASE_03_RESULTS.json`.
 
@@ -268,14 +268,14 @@ logs/phase1_logs/                    # gitignored (logs/)
     └── lost/<episode_id>.json
 ```
 
-- Folder `won` / `lost` is a human label for your outcome; the analyzer re-checks via deck signature + `rewards[our_player]`.
+- Folder `won` / `lost` is a human label for your outcome; the analyzer re-checks via `info.Agents[].Name == "Muhammad Faheem"`, then Dragapult IDs `{119,120,121}`, then `rewards[our_player]`. Sample-water IDs `{721,722,723}` must not be used to identify us (they match opponents).
 - Analyzer: `python scripts/analyze_kaggle_match_logs.py --rating baseline_a=507 --rating baseline_b=507`
 - Docs / outputs: `docs/phases/phase_01/online/` (`KAGGLE_LOG.md`, `KAGGLE_ANALYSIS.md`, `results/kaggle_log_analysis.json`)
 
 ### Processing / preprocessing
 
 1. Load each JSON under `logs/phase1_logs/`.
-2. Infer **our player slot** by matching the Dragapult deck signature on the length-60 deck-submit action.
+2. Infer **our player slot** from `info.Agents[].Name == "Muhammad Faheem"`, else Dragapult IDs `{119,120,121}` on the length-60 deck-submit action (never sample-water `{721,722,723}`).
 3. Outcome = `rewards[our_player] == 1`.
 4. Extract game length (steps), decision counts, hand-size ranges, board-visible opponent card IDs.
 5. Classify opponent deck by overlap with holdout panel signatures (`alakazam`, `crustle`, …) or label `other_N_types`.

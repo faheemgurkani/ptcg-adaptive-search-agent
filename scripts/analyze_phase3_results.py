@@ -137,7 +137,7 @@ def build_payload(rows: list[dict]) -> dict:
             "committed_deck": "dragapult",
             "deck_path": "data/decks/dragapult.csv",
             "panel_version": "v2",
-            "search_time_budget_sec": 1.5,
+            "search_time_budget_sec": 0.3,
             "search_max_candidates": 8,
         },
         "matchups": matchups,

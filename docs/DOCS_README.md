@@ -22,7 +22,7 @@
   - Decision: **Dragapult** — [`DECK_SELECTION_DECISION.json`](phases/phase_02/DECK_SELECTION_DECISION.json)
   - **Holdout panel v2** (upgraded opponent decks); Phase 1 used **panel v1** — win rates are not cross-comparable
 - **Phase 3 — Ablation (complete):** [`phases/phase_03/README.md`](phases/phase_03/README.md) · [`PHASE_03_COMPLETION.md`](phases/phase_03/PHASE_03_COMPLETION.md) · [`PHASE_03_RESULTS.json`](phases/phase_03/PHASE_03_RESULTS.json)
-  - V1–V4 on panel v2; **V1 strongest** (40.0% pooled); search/adaptation both hurt offline
+  - V1–V4 on panel v2 (repaired `choose()`); **V1 strongest** (90.0% pooled); search −53.8 pp, adaptation −5.0 pp
 
 Legacy redirect: [`PHASE_01_LOG.md`](PHASE_01_LOG.md).
 
