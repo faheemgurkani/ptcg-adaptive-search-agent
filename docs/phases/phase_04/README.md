@@ -17,7 +17,7 @@
 
 ## Result
 
-Best cell `c4_t1500` at **57.5%** pooled.
+Best cell `c4_t1500` at **57.5%** pooled (−32.5 pp vs V1). Time knee 0.5 s; candidate knee 4. Extra search compute does not recover the static policy.
 
 ## Commands
 

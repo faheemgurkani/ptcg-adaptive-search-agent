@@ -108,7 +108,7 @@ Fixed archetypes: **Alakazam, Crustle, Spidops, Starmie**.
 | Version | Used in | Crustle / Spidops / Starmie decks |
 |---------|---------|-----------------------------------|
 | **v1** | Phase 1 canonical offline runs | Official sample `deck.csv` (placeholder) |
-| **v2** | Phase 2 deck selection; Phase 3 ablation (complete); Phase 4 search-depth (in progress) | Ladder Crustle; constructed Spidops + Starmie |
+| **v2** | Phase 2–4 (complete) | Ladder Crustle; constructed Spidops + Starmie |
 
 Alakazam unchanged across versions. Phase 1 **66.2%** and the pre-fix Phase 2 **38.8%** both measured first-option fallback (`choose()` `UnboundLocalError`). Canonical Phase 2 Dragapult is **83.1%** (repaired policy, panel v2). Do not mix stub and repaired-policy tables.
 
@@ -227,7 +227,7 @@ Key contrasts (pp): V2−V1 **−53.8**; V3−V1 **−5.0**; V4−V1 **−55.6**
 
 Source: `docs/phases/phase_03/offline/results/phase3_holdout_summary_latest.json` · `docs/phases/phase_03/PHASE_03_RESULTS.json`.
 
-### Phase 4 search-depth artifacts (panel v2 — in progress)
+### Phase 4 search-depth artifacts (panel v2 — complete)
 
 | Artifact | Format | Contents |
 |----------|--------|----------|
@@ -238,7 +238,7 @@ Source: `docs/phases/phase_03/offline/results/phase3_holdout_summary_latest.json
 
 CLI: `scripts/run_phase4_holdout.py` · `scripts/analyze_phase4_results.py`
 
-Agent: V2 only. Default 7 cells (time sweep at 8 candidates + candidate sweep at 1.5 s), 40 games per matchup. Env overrides: `PTCG_SEARCH_TIME_BUDGET`, `PTCG_SEARCH_MAX_CANDIDATES`.
+Agent: V2 only. 7 cells × 160 games. Best: 4 candidates / 1.5 s at **57.5%** (−32.5 pp vs V1). Time knee 0.5 s; candidate knee 4. `choose_fail=0`.
 
 ## 5. Online Kaggle ladder logs (replays)
 
