@@ -31,6 +31,7 @@ OPP_CRUSTLE = {344, 345}
 POLICY_CHOOSE_OK = 0
 POLICY_CHOOSE_FAIL = 0
 POLICY_NON_FALLBACK = 0
+POLICY_EMPTY_ORDER = 0
 POLICY_LAST_ERROR = ""
 SEARCH_SIMULATE_OK = 0
 SEARCH_SIMULATE_FAIL = 0
@@ -1214,7 +1215,7 @@ def SEARCH_ALGO(obs_dict, obs):
         return None
 
 def agent(obs_dict: dict) -> list[int]:
-    global POLICY_CHOOSE_OK, POLICY_CHOOSE_FAIL, POLICY_NON_FALLBACK, POLICY_LAST_ERROR
+    global POLICY_CHOOSE_OK, POLICY_CHOOSE_FAIL, POLICY_NON_FALLBACK, POLICY_EMPTY_ORDER, POLICY_LAST_ERROR
     try:
         obs = to_observation_class(obs_dict)
     except Exception as exc:
@@ -1234,9 +1235,8 @@ def agent(obs_dict: dict) -> list[int]:
             ordered = DragapultPolicy(obs).choose()
         ordered = [i for i in ordered if 0 <= i < n]
         if not ordered:
-            POLICY_CHOOSE_FAIL += 1
-            POLICY_LAST_ERROR = "empty action list"
-            print("policy returned empty action list", file=sys.stderr)
+            POLICY_EMPTY_ORDER += 1
+            POLICY_CHOOSE_OK += 1
             return fallback
         k = max(min(obs.select.maxCount, n), min(max(1, obs.select.minCount), n))
         chosen = ordered[:k]

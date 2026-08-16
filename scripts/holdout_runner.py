@@ -82,6 +82,7 @@ def reset_policy_counters(mod: Any) -> None:
         "POLICY_CHOOSE_OK",
         "POLICY_CHOOSE_FAIL",
         "POLICY_NON_FALLBACK",
+        "POLICY_EMPTY_ORDER",
         "SEARCH_SIMULATE_OK",
         "SEARCH_SIMULATE_FAIL",
     ):
@@ -96,6 +97,7 @@ def policy_health(mod: Any) -> dict[str, Any]:
         "choose_ok": int(getattr(mod, "POLICY_CHOOSE_OK", 0) or 0),
         "choose_fail": int(getattr(mod, "POLICY_CHOOSE_FAIL", 0) or 0),
         "non_fallback": int(getattr(mod, "POLICY_NON_FALLBACK", 0) or 0),
+        "empty_order": int(getattr(mod, "POLICY_EMPTY_ORDER", 0) or 0),
         "search_ok": int(getattr(mod, "SEARCH_SIMULATE_OK", 0) or 0),
         "search_fail": int(getattr(mod, "SEARCH_SIMULATE_FAIL", 0) or 0),
         "last_error": str(getattr(mod, "POLICY_LAST_ERROR", "") or ""),
@@ -246,7 +248,8 @@ def run_holdout_suite(
                 row.update(health)
         print(
             f"policy health {baseline_name}: ok={health['choose_ok']} "
-            f"fail={health['choose_fail']} non_fallback={health['non_fallback']} "
+            f"fail={health['choose_fail']} empty_order={health.get('empty_order', 0)} "
+            f"non_fallback={health['non_fallback']} "
             f"search_ok={health.get('search_ok', 0)} search_fail={health.get('search_fail', 0)}",
             file=sys.stderr,
         )
